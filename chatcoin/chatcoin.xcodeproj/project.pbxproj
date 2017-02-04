@@ -7,21 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B08C2621E44B0E9002FB869 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2611E44B0E9002FB869 /* main.m */; };
-		7B08C2651E44B0E9002FB869 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2641E44B0E9002FB869 /* AppDelegate.m */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
+		7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF21E461A7100A0C71C /* AppDelegate.m */; };
+		7BEC0CF51E461A7100A0C71C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF31E461A7100A0C71C /* main.m */; };
+		7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF71E461DD800A0C71C /* DAContractViewController.m */; };
+		7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CFA1E461E0000A0C71C /* DAConversationViewController.m */; };
+		7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CFD1E461E1A00A0C71C /* DAProfileViewController.m */; };
+		7BEC0D001E461F4A00A0C71C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0CFF1E461F4A00A0C71C /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B08C25D1E44B0E9002FB869 /* chatcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B08C2611E44B0E9002FB869 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7B08C2631E44B0E9002FB869 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7B08C2641E44B0E9002FB869 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
 		7BEC0CEF1E46185700A0C71C /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		7BEC0CF01E46186700A0C71C /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		7BEC0CF11E461A7100A0C71C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7BEC0CF21E461A7100A0C71C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7BEC0CF31E461A7100A0C71C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7BEC0CF61E461DD800A0C71C /* DAContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContractViewController.h; sourceTree = "<group>"; };
+		7BEC0CF71E461DD800A0C71C /* DAContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContractViewController.m; sourceTree = "<group>"; };
+		7BEC0CF91E461E0000A0C71C /* DAConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAConversationViewController.h; sourceTree = "<group>"; };
+		7BEC0CFA1E461E0000A0C71C /* DAConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAConversationViewController.m; sourceTree = "<group>"; };
+		7BEC0CFC1E461E1A00A0C71C /* DAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAProfileViewController.h; sourceTree = "<group>"; };
+		7BEC0CFD1E461E1A00A0C71C /* DAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAProfileViewController.m; sourceTree = "<group>"; };
+		7BEC0CFF1E461F4A00A0C71C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				7BEC0CD31E4617FC00A0C71C /* Class */,
-				7B08C2631E44B0E9002FB869 /* AppDelegate.h */,
-				7B08C2641E44B0E9002FB869 /* AppDelegate.m */,
-				7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */,
 				7B08C2601E44B0E9002FB869 /* Supporting Files */,
 			);
 			path = chatcoin;
@@ -66,8 +74,9 @@
 		7B08C2601E44B0E9002FB869 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0CFF1E461F4A00A0C71C /* Media.xcassets */,
+				7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */,
 				7B08C2711E44B0E9002FB869 /* Info.plist */,
-				7B08C2611E44B0E9002FB869 /* main.m */,
 				7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -76,6 +85,9 @@
 		7BEC0CD31E4617FC00A0C71C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0CF11E461A7100A0C71C /* AppDelegate.h */,
+				7BEC0CF21E461A7100A0C71C /* AppDelegate.m */,
+				7BEC0CF31E461A7100A0C71C /* main.m */,
 				7BEC0CD41E4617FC00A0C71C /* Client */,
 				7BEC0CEA1E4617FC00A0C71C /* General */,
 				7BEC0CEB1E4617FC00A0C71C /* Libs */,
@@ -87,11 +99,11 @@
 		7BEC0CD41E4617FC00A0C71C /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0CD51E4617FC00A0C71C /* Contact */,
-				7BEC0CD91E4617FC00A0C71C /* Conversation */,
-				7BEC0CDD1E4617FC00A0C71C /* Login */,
 				7BEC0CE11E4617FC00A0C71C /* Main */,
+				7BEC0CD91E4617FC00A0C71C /* Conversation */,
+				7BEC0CD51E4617FC00A0C71C /* Contact */,
 				7BEC0CE21E4617FC00A0C71C /* Profile */,
+				7BEC0CDD1E4617FC00A0C71C /* Login */,
 				7BEC0CE61E4617FC00A0C71C /* Search */,
 			);
 			path = Client;
@@ -110,6 +122,8 @@
 		7BEC0CD61E4617FC00A0C71C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0CF61E461DD800A0C71C /* DAContractViewController.h */,
+				7BEC0CF71E461DD800A0C71C /* DAContractViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +155,8 @@
 		7BEC0CDA1E4617FC00A0C71C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0CF91E461E0000A0C71C /* DAConversationViewController.h */,
+				7BEC0CFA1E461E0000A0C71C /* DAConversationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,6 +226,8 @@
 		7BEC0CE31E4617FC00A0C71C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0CFC1E461E1A00A0C71C /* DAProfileViewController.h */,
+				7BEC0CFD1E461E1A00A0C71C /* DAProfileViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -324,7 +342,7 @@
 		7B08C2551E44B0E9002FB869 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = CC;
+				CLASSPREFIX = DA;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = okerivy;
 				TargetAttributes = {
@@ -358,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEC0D001E461F4A00A0C71C /* Media.xcassets in Resources */,
 				7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,8 +388,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B08C2651E44B0E9002FB869 /* AppDelegate.m in Sources */,
-				7B08C2621E44B0E9002FB869 /* main.m in Sources */,
+				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
+				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
+				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
+				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
+				7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
