@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		7B08C2621E44B0E9002FB869 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2611E44B0E9002FB869 /* main.m */; };
 		7B08C2651E44B0E9002FB869 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2641E44B0E9002FB869 /* AppDelegate.m */; };
-		7B08C2681E44B0E9002FB869 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2671E44B0E9002FB869 /* ViewController.m */; };
-		7B08C26B1E44B0E9002FB869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B08C2691E44B0E9002FB869 /* Main.storyboard */; };
-		7B08C26D1E44B0E9002FB869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B08C26C1E44B0E9002FB869 /* Assets.xcassets */; };
-		7B08C2701E44B0E9002FB869 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B08C26E1E44B0E9002FB869 /* LaunchScreen.storyboard */; };
+		7B1D7EE01E460C9F00F2EDD9 /* Client in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EDC1E460C9F00F2EDD9 /* Client */; };
+		7B1D7EE11E460C9F00F2EDD9 /* General in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EDD1E460C9F00F2EDD9 /* General */; };
+		7B1D7EE31E460C9F00F2EDD9 /* Tools in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EDF1E460C9F00F2EDD9 /* Tools */; };
+		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +20,12 @@
 		7B08C2611E44B0E9002FB869 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B08C2631E44B0E9002FB869 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B08C2641E44B0E9002FB869 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7B08C2661E44B0E9002FB869 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7B08C2671E44B0E9002FB869 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7B08C26A1E44B0E9002FB869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7B08C26C1E44B0E9002FB869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7B08C26F1E44B0E9002FB869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B1D7EDC1E460C9F00F2EDD9 /* Client */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Client; sourceTree = "<group>"; };
+		7B1D7EDD1E460C9F00F2EDD9 /* General */ = {isa = PBXFileReference; lastKnownFileType = folder; path = General; sourceTree = "<group>"; };
+		7B1D7EDF1E460C9F00F2EDD9 /* Tools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tools; sourceTree = "<group>"; };
+		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +58,12 @@
 		7B08C25F1E44B0E9002FB869 /* chatcoin */ = {
 			isa = PBXGroup;
 			children = (
+				7B1D7EDC1E460C9F00F2EDD9 /* Client */,
+				7B1D7EDD1E460C9F00F2EDD9 /* General */,
+				7B1D7EDF1E460C9F00F2EDD9 /* Tools */,
 				7B08C2631E44B0E9002FB869 /* AppDelegate.h */,
 				7B08C2641E44B0E9002FB869 /* AppDelegate.m */,
-				7B08C2661E44B0E9002FB869 /* ViewController.h */,
-				7B08C2671E44B0E9002FB869 /* ViewController.m */,
-				7B08C2691E44B0E9002FB869 /* Main.storyboard */,
-				7B08C26C1E44B0E9002FB869 /* Assets.xcassets */,
-				7B08C26E1E44B0E9002FB869 /* LaunchScreen.storyboard */,
-				7B08C2711E44B0E9002FB869 /* Info.plist */,
+				7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */,
 				7B08C2601E44B0E9002FB869 /* Supporting Files */,
 			);
 			path = chatcoin;
@@ -74,7 +72,9 @@
 		7B08C2601E44B0E9002FB869 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7B08C2711E44B0E9002FB869 /* Info.plist */,
 				7B08C2611E44B0E9002FB869 /* main.m */,
+				7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -139,9 +139,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B08C2701E44B0E9002FB869 /* LaunchScreen.storyboard in Resources */,
-				7B08C26D1E44B0E9002FB869 /* Assets.xcassets in Resources */,
-				7B08C26B1E44B0E9002FB869 /* Main.storyboard in Resources */,
+				7B1D7EE31E460C9F00F2EDD9 /* Tools in Resources */,
+				7B1D7EE11E460C9F00F2EDD9 /* General in Resources */,
+				7B1D7EE01E460C9F00F2EDD9 /* Client in Resources */,
+				7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,32 +153,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B08C2681E44B0E9002FB869 /* ViewController.m in Sources */,
 				7B08C2651E44B0E9002FB869 /* AppDelegate.m in Sources */,
 				7B08C2621E44B0E9002FB869 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7B08C2691E44B0E9002FB869 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B08C26A1E44B0E9002FB869 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7B08C26E1E44B0E9002FB869 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B08C26F1E44B0E9002FB869 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7B08C2721E44B0E9002FB869 /* Debug */ = {
@@ -205,6 +186,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -253,6 +235,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -277,6 +260,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4Y93JD58KW;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "chatcoin/chatcoin-Prefix.pch";
 				INFOPLIST_FILE = chatcoin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okerivy.chatcoin;
@@ -291,6 +276,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4Y93JD58KW;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "chatcoin/chatcoin-Prefix.pch";
 				INFOPLIST_FILE = chatcoin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okerivy.chatcoin;
@@ -317,6 +304,7 @@
 				7B08C2761E44B0E9002FB869 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

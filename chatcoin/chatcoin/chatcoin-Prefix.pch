@@ -1,0 +1,15 @@
+//
+//  chatcoin-Prefix.pch
+//  chatcoin
+//
+//  Created by okerivy on 2017/2/4.
+//  Copyright © 2017年 okerivy. All rights reserved.
+//
+
+#ifndef chatcoin_Prefix_pch
+#define chatcoin_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* chatcoin_Prefix_pch */
