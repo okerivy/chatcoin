@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		7B08C2621E44B0E9002FB869 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2611E44B0E9002FB869 /* main.m */; };
 		7B08C2651E44B0E9002FB869 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B08C2641E44B0E9002FB869 /* AppDelegate.m */; };
-		7B1D7EE01E460C9F00F2EDD9 /* Client in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EDC1E460C9F00F2EDD9 /* Client */; };
-		7B1D7EE11E460C9F00F2EDD9 /* General in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EDD1E460C9F00F2EDD9 /* General */; };
-		7B1D7EE31E460C9F00F2EDD9 /* Tools in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EDF1E460C9F00F2EDD9 /* Tools */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +18,10 @@
 		7B08C2631E44B0E9002FB869 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B08C2641E44B0E9002FB869 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B1D7EDC1E460C9F00F2EDD9 /* Client */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Client; sourceTree = "<group>"; };
-		7B1D7EDD1E460C9F00F2EDD9 /* General */ = {isa = PBXFileReference; lastKnownFileType = folder; path = General; sourceTree = "<group>"; };
-		7B1D7EDF1E460C9F00F2EDD9 /* Tools */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tools; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
+		7BEC0CEF1E46185700A0C71C /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
+		7BEC0CF01E46186700A0C71C /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +54,7 @@
 		7B08C25F1E44B0E9002FB869 /* chatcoin */ = {
 			isa = PBXGroup;
 			children = (
-				7B1D7EDC1E460C9F00F2EDD9 /* Client */,
-				7B1D7EDD1E460C9F00F2EDD9 /* General */,
-				7B1D7EDF1E460C9F00F2EDD9 /* Tools */,
+				7BEC0CD31E4617FC00A0C71C /* Class */,
 				7B08C2631E44B0E9002FB869 /* AppDelegate.h */,
 				7B08C2641E44B0E9002FB869 /* AppDelegate.m */,
 				7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */,
@@ -77,6 +71,231 @@
 				7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7BEC0CD31E4617FC00A0C71C /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CD41E4617FC00A0C71C /* Client */,
+				7BEC0CEA1E4617FC00A0C71C /* General */,
+				7BEC0CEB1E4617FC00A0C71C /* Libs */,
+				7BEC0CEC1E4617FC00A0C71C /* Tools */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		7BEC0CD41E4617FC00A0C71C /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CD51E4617FC00A0C71C /* Contact */,
+				7BEC0CD91E4617FC00A0C71C /* Conversation */,
+				7BEC0CDD1E4617FC00A0C71C /* Login */,
+				7BEC0CE11E4617FC00A0C71C /* Main */,
+				7BEC0CE21E4617FC00A0C71C /* Profile */,
+				7BEC0CE61E4617FC00A0C71C /* Search */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		7BEC0CD51E4617FC00A0C71C /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CD61E4617FC00A0C71C /* Controller */,
+				7BEC0CD71E4617FC00A0C71C /* Model */,
+				7BEC0CD81E4617FC00A0C71C /* View */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		7BEC0CD61E4617FC00A0C71C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BEC0CD71E4617FC00A0C71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BEC0CD81E4617FC00A0C71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BEC0CD91E4617FC00A0C71C /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CDA1E4617FC00A0C71C /* Controller */,
+				7BEC0CDB1E4617FC00A0C71C /* Model */,
+				7BEC0CDC1E4617FC00A0C71C /* View */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		7BEC0CDA1E4617FC00A0C71C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BEC0CDB1E4617FC00A0C71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BEC0CDC1E4617FC00A0C71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BEC0CDD1E4617FC00A0C71C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CDE1E4617FC00A0C71C /* Controller */,
+				7BEC0CDF1E4617FC00A0C71C /* Model */,
+				7BEC0CE01E4617FC00A0C71C /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7BEC0CDE1E4617FC00A0C71C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BEC0CDF1E4617FC00A0C71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BEC0CE01E4617FC00A0C71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BEC0CE11E4617FC00A0C71C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7BEC0CE21E4617FC00A0C71C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CE31E4617FC00A0C71C /* Controller */,
+				7BEC0CE41E4617FC00A0C71C /* Model */,
+				7BEC0CE51E4617FC00A0C71C /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7BEC0CE31E4617FC00A0C71C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BEC0CE41E4617FC00A0C71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BEC0CE51E4617FC00A0C71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BEC0CE61E4617FC00A0C71C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CE71E4617FC00A0C71C /* Controller */,
+				7BEC0CE81E4617FC00A0C71C /* Model */,
+				7BEC0CE91E4617FC00A0C71C /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7BEC0CE71E4617FC00A0C71C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BEC0CE81E4617FC00A0C71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BEC0CE91E4617FC00A0C71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BEC0CEA1E4617FC00A0C71C /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		7BEC0CEB1E4617FC00A0C71C /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		7BEC0CEC1E4617FC00A0C71C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CED1E4617FC00A0C71C /* Cache */,
+				7BEC0CEE1E4617FC00A0C71C /* Config */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7BEC0CED1E4617FC00A0C71C /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		7BEC0CEE1E4617FC00A0C71C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0CEF1E46185700A0C71C /* Api.h */,
+				7BEC0CF01E46186700A0C71C /* Config.h */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +358,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B1D7EE31E460C9F00F2EDD9 /* Tools in Resources */,
-				7B1D7EE11E460C9F00F2EDD9 /* General in Resources */,
-				7B1D7EE01E460C9F00F2EDD9 /* Client in Resources */,
 				7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
