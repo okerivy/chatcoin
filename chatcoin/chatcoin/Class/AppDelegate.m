@@ -18,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self initUIAppearance];
+
+    
     // 1.创建窗口
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
@@ -31,6 +35,28 @@
     return YES;
 }
 
+
+
+- (void)initUIAppearance {
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].barTintColor = JYUnvColor_VarGray(50);
+    [UINavigationBar appearance].barStyle = UIBarStyleBlack;
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
+    
+    //设置返回按钮
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, -1, 0);
+    UIImage *image = [UIImage imageNamed:@"barbuttonicon_back"];
+    UIImage *backArrowImage = [image imageWithAlignmentRectInsets:insets];
+    
+    [UINavigationBar appearance].backIndicatorImage = backArrowImage;
+    [UINavigationBar appearance].backIndicatorTransitionMaskImage = [UIImage imageWithColor:[UIColor clearColor] size:backArrowImage.size];
+    
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-4, 0) forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:18], NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
