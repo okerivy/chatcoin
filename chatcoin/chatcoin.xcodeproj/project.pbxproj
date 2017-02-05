@@ -38,19 +38,25 @@
 		7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D581E470AA100A0C71C /* DAChatViewController.m */; };
 		7BEC0D5D1E47424C00A0C71C /* LYSideslipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D5C1E47424C00A0C71C /* LYSideslipCell.m */; };
 		7BEC0D5F1E47497E00A0C71C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEC0D5E1E47497E00A0C71C /* libz.tbd */; };
-		7BEC0D751E474EF800A0C71C /* LiuqsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D621E474EF800A0C71C /* LiuqsButton.m */; };
-		7BEC0D761E474EF800A0C71C /* LiuqsDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D641E474EF800A0C71C /* LiuqsDecoder.m */; };
-		7BEC0D771E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D661E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m */; };
-		7BEC0D781E474EF800A0C71C /* LiuqsEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D681E474EF800A0C71C /* LiuqsEmotionPageView.m */; };
-		7BEC0D791E474EF800A0C71C /* LiuqsTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D6B1E474EF800A0C71C /* LiuqsTextAttachment.m */; };
-		7BEC0D7A1E474EF800A0C71C /* LiuqsTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D6D1E474EF800A0C71C /* LiuqsTopBarView.m */; };
-		7BEC0D7B1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D6F1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m */; };
-		7BEC0D7C1E474EF800A0C71C /* UIImage+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D721E474EF800A0C71C /* UIImage+extension.m */; };
-		7BEC0D7D1E474EF800A0C71C /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D741E474EF800A0C71C /* UIView+Extension.m */; };
-		7BEC0D821E4751F400A0C71C /* LiuqsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D7F1E4751F400A0C71C /* LiuqsFileManager.m */; };
-		7BEC0D831E4751F400A0C71C /* LiuqsMessageDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D811E4751F400A0C71C /* LiuqsMessageDataBase.m */; };
-		7BEC0D881E4752B400A0C71C /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D851E4752B400A0C71C /* ChatMessage.m */; };
-		7BEC0D891E4752B400A0C71C /* ChatMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D871E4752B400A0C71C /* ChatMessageFrame.m */; };
+		7BEC0DB71E4766D900A0C71C /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D901E4766D900A0C71C /* NSString+Emoji.m */; };
+		7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D921E4766D900A0C71C /* ChatKeyBoard.m */; };
+		7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D961E4766D900A0C71C /* ChatToolBarItem.m */; };
+		7BEC0DBA1E4766D900A0C71C /* FaceThemeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D981E4766D900A0C71C /* FaceThemeModel.m */; };
+		7BEC0DBB1E4766D900A0C71C /* MoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D9A1E4766D900A0C71C /* MoreItem.m */; };
+		7BEC0DBC1E4766D900A0C71C /* emotion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D9C1E4766D900A0C71C /* emotion.plist */; };
+		7BEC0DBD1E4766D900A0C71C /* face.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D9D1E4766D900A0C71C /* face.plist */; };
+		7BEC0DBE1E4766D900A0C71C /* systemEmoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D9E1E4766D900A0C71C /* systemEmoji.plist */; };
+		7BEC0DBF1E4766D900A0C71C /* FaceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DA21E4766D900A0C71C /* FaceButton.m */; };
+		7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DA41E4766D900A0C71C /* FacePageView.m */; };
+		7BEC0DC11E4766D900A0C71C /* FacePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DA61E4766D900A0C71C /* FacePanel.m */; };
+		7BEC0DC21E4766D900A0C71C /* FaceThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DA81E4766D900A0C71C /* FaceThemeView.m */; };
+		7BEC0DC31E4766D900A0C71C /* PanelBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DAA1E4766D900A0C71C /* PanelBottomView.m */; };
+		7BEC0DC41E4766D900A0C71C /* MorePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DAD1E4766D900A0C71C /* MorePanel.m */; };
+		7BEC0DC51E4766D900A0C71C /* ChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DB01E4766D900A0C71C /* ChatToolBar.m */; };
+		7BEC0DC61E4766D900A0C71C /* OfficialAccountToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DB21E4766D900A0C71C /* OfficialAccountToolbar.m */; };
+		7BEC0DC71E4766D900A0C71C /* RFRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DB41E4766D900A0C71C /* RFRecordButton.m */; };
+		7BEC0DC81E4766D900A0C71C /* RFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DB61E4766D900A0C71C /* RFTextView.m */; };
+		7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DCA1E47689F00A0C71C /* FaceSourceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,33 +120,42 @@
 		7BEC0D5B1E47424C00A0C71C /* LYSideslipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSideslipCell.h; sourceTree = "<group>"; };
 		7BEC0D5C1E47424C00A0C71C /* LYSideslipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSideslipCell.m; sourceTree = "<group>"; };
 		7BEC0D5E1E47497E00A0C71C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		7BEC0D611E474EF800A0C71C /* LiuqsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsButton.h; sourceTree = "<group>"; };
-		7BEC0D621E474EF800A0C71C /* LiuqsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsButton.m; sourceTree = "<group>"; };
-		7BEC0D631E474EF800A0C71C /* LiuqsDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsDecoder.h; sourceTree = "<group>"; };
-		7BEC0D641E474EF800A0C71C /* LiuqsDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsDecoder.m; sourceTree = "<group>"; };
-		7BEC0D651E474EF800A0C71C /* LiuqsEmoticonKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsEmoticonKeyBoard.h; sourceTree = "<group>"; };
-		7BEC0D661E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsEmoticonKeyBoard.m; sourceTree = "<group>"; };
-		7BEC0D671E474EF800A0C71C /* LiuqsEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsEmotionPageView.h; sourceTree = "<group>"; };
-		7BEC0D681E474EF800A0C71C /* LiuqsEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsEmotionPageView.m; sourceTree = "<group>"; };
-		7BEC0D691E474EF800A0C71C /* LiuqsKeyBoardHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsKeyBoardHeader.pch; sourceTree = "<group>"; };
-		7BEC0D6A1E474EF800A0C71C /* LiuqsTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsTextAttachment.h; sourceTree = "<group>"; };
-		7BEC0D6B1E474EF800A0C71C /* LiuqsTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsTextAttachment.m; sourceTree = "<group>"; };
-		7BEC0D6C1E474EF800A0C71C /* LiuqsTopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsTopBarView.h; sourceTree = "<group>"; };
-		7BEC0D6D1E474EF800A0C71C /* LiuqsTopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsTopBarView.m; sourceTree = "<group>"; };
-		7BEC0D6E1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+LiuqsExtension.h"; sourceTree = "<group>"; };
-		7BEC0D6F1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+LiuqsExtension.m"; sourceTree = "<group>"; };
-		7BEC0D711E474EF800A0C71C /* UIImage+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+extension.h"; sourceTree = "<group>"; };
-		7BEC0D721E474EF800A0C71C /* UIImage+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+extension.m"; sourceTree = "<group>"; };
-		7BEC0D731E474EF800A0C71C /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		7BEC0D741E474EF800A0C71C /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		7BEC0D7E1E4751F400A0C71C /* LiuqsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsFileManager.h; sourceTree = "<group>"; };
-		7BEC0D7F1E4751F400A0C71C /* LiuqsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsFileManager.m; sourceTree = "<group>"; };
-		7BEC0D801E4751F400A0C71C /* LiuqsMessageDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsMessageDataBase.h; sourceTree = "<group>"; };
-		7BEC0D811E4751F400A0C71C /* LiuqsMessageDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsMessageDataBase.m; sourceTree = "<group>"; };
-		7BEC0D841E4752B400A0C71C /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
-		7BEC0D851E4752B400A0C71C /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
-		7BEC0D861E4752B400A0C71C /* ChatMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageFrame.h; sourceTree = "<group>"; };
-		7BEC0D871E4752B400A0C71C /* ChatMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageFrame.m; sourceTree = "<group>"; };
+		7BEC0D8F1E4766D900A0C71C /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		7BEC0D901E4766D900A0C71C /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
+		7BEC0D911E4766D900A0C71C /* ChatKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatKeyBoard.h; sourceTree = "<group>"; };
+		7BEC0D921E4766D900A0C71C /* ChatKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatKeyBoard.m; sourceTree = "<group>"; };
+		7BEC0D931E4766D900A0C71C /* ChatKeyBoardMacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatKeyBoardMacroDefine.h; sourceTree = "<group>"; };
+		7BEC0D951E4766D900A0C71C /* ChatToolBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatToolBarItem.h; sourceTree = "<group>"; };
+		7BEC0D961E4766D900A0C71C /* ChatToolBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatToolBarItem.m; sourceTree = "<group>"; };
+		7BEC0D971E4766D900A0C71C /* FaceThemeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceThemeModel.h; sourceTree = "<group>"; };
+		7BEC0D981E4766D900A0C71C /* FaceThemeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceThemeModel.m; sourceTree = "<group>"; };
+		7BEC0D991E4766D900A0C71C /* MoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreItem.h; sourceTree = "<group>"; };
+		7BEC0D9A1E4766D900A0C71C /* MoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreItem.m; sourceTree = "<group>"; };
+		7BEC0D9C1E4766D900A0C71C /* emotion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotion.plist; sourceTree = "<group>"; };
+		7BEC0D9D1E4766D900A0C71C /* face.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = face.plist; sourceTree = "<group>"; };
+		7BEC0D9E1E4766D900A0C71C /* systemEmoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = systemEmoji.plist; sourceTree = "<group>"; };
+		7BEC0DA11E4766D900A0C71C /* FaceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceButton.h; sourceTree = "<group>"; };
+		7BEC0DA21E4766D900A0C71C /* FaceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceButton.m; sourceTree = "<group>"; };
+		7BEC0DA31E4766D900A0C71C /* FacePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacePageView.h; sourceTree = "<group>"; };
+		7BEC0DA41E4766D900A0C71C /* FacePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacePageView.m; sourceTree = "<group>"; };
+		7BEC0DA51E4766D900A0C71C /* FacePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacePanel.h; sourceTree = "<group>"; };
+		7BEC0DA61E4766D900A0C71C /* FacePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacePanel.m; sourceTree = "<group>"; };
+		7BEC0DA71E4766D900A0C71C /* FaceThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceThemeView.h; sourceTree = "<group>"; };
+		7BEC0DA81E4766D900A0C71C /* FaceThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceThemeView.m; sourceTree = "<group>"; };
+		7BEC0DA91E4766D900A0C71C /* PanelBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelBottomView.h; sourceTree = "<group>"; };
+		7BEC0DAA1E4766D900A0C71C /* PanelBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelBottomView.m; sourceTree = "<group>"; };
+		7BEC0DAC1E4766D900A0C71C /* MorePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorePanel.h; sourceTree = "<group>"; };
+		7BEC0DAD1E4766D900A0C71C /* MorePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorePanel.m; sourceTree = "<group>"; };
+		7BEC0DAF1E4766D900A0C71C /* ChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatToolBar.h; sourceTree = "<group>"; };
+		7BEC0DB01E4766D900A0C71C /* ChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatToolBar.m; sourceTree = "<group>"; };
+		7BEC0DB11E4766D900A0C71C /* OfficialAccountToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfficialAccountToolbar.h; sourceTree = "<group>"; };
+		7BEC0DB21E4766D900A0C71C /* OfficialAccountToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfficialAccountToolbar.m; sourceTree = "<group>"; };
+		7BEC0DB31E4766D900A0C71C /* RFRecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFRecordButton.h; sourceTree = "<group>"; };
+		7BEC0DB41E4766D900A0C71C /* RFRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFRecordButton.m; sourceTree = "<group>"; };
+		7BEC0DB51E4766D900A0C71C /* RFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTextView.h; sourceTree = "<group>"; };
+		7BEC0DB61E4766D900A0C71C /* RFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTextView.m; sourceTree = "<group>"; };
+		7BEC0DC91E47689F00A0C71C /* FaceSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceSourceManager.h; sourceTree = "<group>"; };
+		7BEC0DCA1E47689F00A0C71C /* FaceSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSourceManager.m; sourceTree = "<group>"; };
 		9D7D35D514777E16BC56E929 /* Pods-chatcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatcoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,7 +435,7 @@
 		7BEC0CEB1E4617FC00A0C71C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0D601E474EF800A0C71C /* LiuqsEmitionClasses */,
+				7BEC0D8D1E4766D900A0C71C /* KeyBoard */,
 				7BEC0D5A1E47424C00A0C71C /* SideslipCell */,
 			);
 			path = Libs;
@@ -439,10 +454,6 @@
 		7BEC0CED1E4617FC00A0C71C /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0D7E1E4751F400A0C71C /* LiuqsFileManager.h */,
-				7BEC0D7F1E4751F400A0C71C /* LiuqsFileManager.m */,
-				7BEC0D801E4751F400A0C71C /* LiuqsMessageDataBase.h */,
-				7BEC0D811E4751F400A0C71C /* LiuqsMessageDataBase.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -521,10 +532,6 @@
 		7BEC0D521E470A1D00A0C71C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0D841E4752B400A0C71C /* ChatMessage.h */,
-				7BEC0D851E4752B400A0C71C /* ChatMessage.m */,
-				7BEC0D861E4752B400A0C71C /* ChatMessageFrame.h */,
-				7BEC0D871E4752B400A0C71C /* ChatMessageFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -545,38 +552,103 @@
 			path = SideslipCell;
 			sourceTree = "<group>";
 		};
-		7BEC0D601E474EF800A0C71C /* LiuqsEmitionClasses */ = {
+		7BEC0D8D1E4766D900A0C71C /* KeyBoard */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0D611E474EF800A0C71C /* LiuqsButton.h */,
-				7BEC0D621E474EF800A0C71C /* LiuqsButton.m */,
-				7BEC0D631E474EF800A0C71C /* LiuqsDecoder.h */,
-				7BEC0D641E474EF800A0C71C /* LiuqsDecoder.m */,
-				7BEC0D651E474EF800A0C71C /* LiuqsEmoticonKeyBoard.h */,
-				7BEC0D661E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m */,
-				7BEC0D671E474EF800A0C71C /* LiuqsEmotionPageView.h */,
-				7BEC0D681E474EF800A0C71C /* LiuqsEmotionPageView.m */,
-				7BEC0D691E474EF800A0C71C /* LiuqsKeyBoardHeader.pch */,
-				7BEC0D6A1E474EF800A0C71C /* LiuqsTextAttachment.h */,
-				7BEC0D6B1E474EF800A0C71C /* LiuqsTextAttachment.m */,
-				7BEC0D6C1E474EF800A0C71C /* LiuqsTopBarView.h */,
-				7BEC0D6D1E474EF800A0C71C /* LiuqsTopBarView.m */,
-				7BEC0D6E1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.h */,
-				7BEC0D6F1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m */,
-				7BEC0D701E474EF800A0C71C /* 类扩展工具 */,
+				7BEC0D8E1E4766D900A0C71C /* Cagegory */,
+				7BEC0D911E4766D900A0C71C /* ChatKeyBoard.h */,
+				7BEC0D921E4766D900A0C71C /* ChatKeyBoard.m */,
+				7BEC0D931E4766D900A0C71C /* ChatKeyBoardMacroDefine.h */,
+				7BEC0D941E4766D900A0C71C /* Models */,
+				7BEC0D9B1E4766D900A0C71C /* plist */,
+				7BEC0D9F1E4766D900A0C71C /* Views */,
 			);
-			path = LiuqsEmitionClasses;
+			path = KeyBoard;
 			sourceTree = "<group>";
 		};
-		7BEC0D701E474EF800A0C71C /* 类扩展工具 */ = {
+		7BEC0D8E1E4766D900A0C71C /* Cagegory */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0D711E474EF800A0C71C /* UIImage+extension.h */,
-				7BEC0D721E474EF800A0C71C /* UIImage+extension.m */,
-				7BEC0D731E474EF800A0C71C /* UIView+Extension.h */,
-				7BEC0D741E474EF800A0C71C /* UIView+Extension.m */,
+				7BEC0D8F1E4766D900A0C71C /* NSString+Emoji.h */,
+				7BEC0D901E4766D900A0C71C /* NSString+Emoji.m */,
 			);
-			path = "类扩展工具";
+			path = Cagegory;
+			sourceTree = "<group>";
+		};
+		7BEC0D941E4766D900A0C71C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0DC91E47689F00A0C71C /* FaceSourceManager.h */,
+				7BEC0DCA1E47689F00A0C71C /* FaceSourceManager.m */,
+				7BEC0D951E4766D900A0C71C /* ChatToolBarItem.h */,
+				7BEC0D961E4766D900A0C71C /* ChatToolBarItem.m */,
+				7BEC0D971E4766D900A0C71C /* FaceThemeModel.h */,
+				7BEC0D981E4766D900A0C71C /* FaceThemeModel.m */,
+				7BEC0D991E4766D900A0C71C /* MoreItem.h */,
+				7BEC0D9A1E4766D900A0C71C /* MoreItem.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7BEC0D9B1E4766D900A0C71C /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D9C1E4766D900A0C71C /* emotion.plist */,
+				7BEC0D9D1E4766D900A0C71C /* face.plist */,
+				7BEC0D9E1E4766D900A0C71C /* systemEmoji.plist */,
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
+		7BEC0D9F1E4766D900A0C71C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0DA01E4766D900A0C71C /* FacePanel */,
+				7BEC0DAB1E4766D900A0C71C /* MorePanel */,
+				7BEC0DAE1E4766D900A0C71C /* ToolBarPanel */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7BEC0DA01E4766D900A0C71C /* FacePanel */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0DA11E4766D900A0C71C /* FaceButton.h */,
+				7BEC0DA21E4766D900A0C71C /* FaceButton.m */,
+				7BEC0DA31E4766D900A0C71C /* FacePageView.h */,
+				7BEC0DA41E4766D900A0C71C /* FacePageView.m */,
+				7BEC0DA51E4766D900A0C71C /* FacePanel.h */,
+				7BEC0DA61E4766D900A0C71C /* FacePanel.m */,
+				7BEC0DA71E4766D900A0C71C /* FaceThemeView.h */,
+				7BEC0DA81E4766D900A0C71C /* FaceThemeView.m */,
+				7BEC0DA91E4766D900A0C71C /* PanelBottomView.h */,
+				7BEC0DAA1E4766D900A0C71C /* PanelBottomView.m */,
+			);
+			path = FacePanel;
+			sourceTree = "<group>";
+		};
+		7BEC0DAB1E4766D900A0C71C /* MorePanel */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0DAC1E4766D900A0C71C /* MorePanel.h */,
+				7BEC0DAD1E4766D900A0C71C /* MorePanel.m */,
+			);
+			path = MorePanel;
+			sourceTree = "<group>";
+		};
+		7BEC0DAE1E4766D900A0C71C /* ToolBarPanel */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0DAF1E4766D900A0C71C /* ChatToolBar.h */,
+				7BEC0DB01E4766D900A0C71C /* ChatToolBar.m */,
+				7BEC0DB11E4766D900A0C71C /* OfficialAccountToolbar.h */,
+				7BEC0DB21E4766D900A0C71C /* OfficialAccountToolbar.m */,
+				7BEC0DB31E4766D900A0C71C /* RFRecordButton.h */,
+				7BEC0DB41E4766D900A0C71C /* RFRecordButton.m */,
+				7BEC0DB51E4766D900A0C71C /* RFTextView.h */,
+				7BEC0DB61E4766D900A0C71C /* RFTextView.m */,
+			);
+			path = ToolBarPanel;
 			sourceTree = "<group>";
 		};
 		DFA3C84F25F72B5294F0E527 /* Frameworks */ = {
@@ -654,8 +726,11 @@
 				7BEC0D3B1E46F71700A0C71C /* Emotion.bundle in Resources */,
 				7BEC0D3D1E46F71700A0C71C /* imageDownloadFail@2x.png in Resources */,
 				7BEC0D3C1E46F71700A0C71C /* Emotions.plist in Resources */,
+				7BEC0DBD1E4766D900A0C71C /* face.plist in Resources */,
+				7BEC0DBE1E4766D900A0C71C /* systemEmoji.plist in Resources */,
 				7BEC0D3F1E46F71700A0C71C /* user@2x.png in Resources */,
 				7BEC0D3E1E46F71700A0C71C /* Media.xcassets in Resources */,
+				7BEC0DBC1E4766D900A0C71C /* emotion.plist in Resources */,
 				7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,42 +790,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BEC0D7A1E474EF800A0C71C /* LiuqsTopBarView.m in Sources */,
+				7BEC0DC51E4766D900A0C71C /* ChatToolBar.m in Sources */,
+				7BEC0DBA1E4766D900A0C71C /* FaceThemeModel.m in Sources */,
 				7BEC0D251E46EBCE00A0C71C /* UIColor+LLExt.m in Sources */,
 				7BEC0D291E46EBCE00A0C71C /* UIScrollView+LLExt.m in Sources */,
 				7BEC0D241E46EBCE00A0C71C /* UICollectionView+LLExt.m in Sources */,
-				7BEC0D881E4752B400A0C71C /* ChatMessage.m in Sources */,
+				7BEC0DC61E4766D900A0C71C /* OfficialAccountToolbar.m in Sources */,
+				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
+				7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
 				7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */,
 				7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */,
 				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
 				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
 				7BEC0D231E46EBCE00A0C71C /* NSString+encrypto.m in Sources */,
-				7BEC0D771E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m in Sources */,
-				7BEC0D831E4751F400A0C71C /* LiuqsMessageDataBase.m in Sources */,
 				7BEC0D091E46DFDB00A0C71C /* DATabBarController.m in Sources */,
-				7BEC0D821E4751F400A0C71C /* LiuqsFileManager.m in Sources */,
 				7BEC0D261E46EBCE00A0C71C /* UIImage+EMGIF.m in Sources */,
+				7BEC0DBB1E4766D900A0C71C /* MoreItem.m in Sources */,
 				7BEC0D2B1E46EBCE00A0C71C /* UITextView+LLDebugOnly.m in Sources */,
-				7BEC0D891E4752B400A0C71C /* ChatMessageFrame.m in Sources */,
-				7BEC0D7D1E474EF800A0C71C /* UIView+Extension.m in Sources */,
 				7BEC0D5D1E47424C00A0C71C /* LYSideslipCell.m in Sources */,
 				7BEC0D2F1E46EF9A00A0C71C /* UIView+LLExt.m in Sources */,
-				7BEC0D7B1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m in Sources */,
+				7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */,
 				7BEC0D271E46EBCE00A0C71C /* UIImage+LLExt.m in Sources */,
-				7BEC0D791E474EF800A0C71C /* LiuqsTextAttachment.m in Sources */,
 				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
 				7BEC0D221E46EBCE00A0C71C /* NSDate+LLExt.m in Sources */,
 				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
-				7BEC0D751E474EF800A0C71C /* LiuqsButton.m in Sources */,
+				7BEC0DC31E4766D900A0C71C /* PanelBottomView.m in Sources */,
 				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
-				7BEC0D761E474EF800A0C71C /* LiuqsDecoder.m in Sources */,
 				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
+				7BEC0DBF1E4766D900A0C71C /* FaceButton.m in Sources */,
 				7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */,
-				7BEC0D781E474EF800A0C71C /* LiuqsEmotionPageView.m in Sources */,
 				7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */,
+				7BEC0DC41E4766D900A0C71C /* MorePanel.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
-				7BEC0D7C1E474EF800A0C71C /* UIImage+extension.m in Sources */,
+				7BEC0DC71E4766D900A0C71C /* RFRecordButton.m in Sources */,
+				7BEC0DC21E4766D900A0C71C /* FaceThemeView.m in Sources */,
+				7BEC0DB71E4766D900A0C71C /* NSString+Emoji.m in Sources */,
+				7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */,
+				7BEC0DC11E4766D900A0C71C /* FacePanel.m in Sources */,
+				7BEC0DC81E4766D900A0C71C /* RFTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
