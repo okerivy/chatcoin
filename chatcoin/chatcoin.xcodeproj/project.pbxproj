@@ -14,6 +14,8 @@
 		7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CFA1E461E0000A0C71C /* DAConversationViewController.m */; };
 		7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CFD1E461E1A00A0C71C /* DAProfileViewController.m */; };
 		7BEC0D001E461F4A00A0C71C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0CFF1E461F4A00A0C71C /* Media.xcassets */; };
+		7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D021E46DEC100A0C71C /* DANavigationController.m */; };
+		7BEC0D091E46DFDB00A0C71C /* DATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D081E46DFDB00A0C71C /* DATabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,10 @@
 		7BEC0CFC1E461E1A00A0C71C /* DAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAProfileViewController.h; sourceTree = "<group>"; };
 		7BEC0CFD1E461E1A00A0C71C /* DAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAProfileViewController.m; sourceTree = "<group>"; };
 		7BEC0CFF1E461F4A00A0C71C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		7BEC0D011E46DEC100A0C71C /* DANavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DANavigationController.h; sourceTree = "<group>"; };
+		7BEC0D021E46DEC100A0C71C /* DANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DANavigationController.m; sourceTree = "<group>"; };
+		7BEC0D071E46DFDB00A0C71C /* DATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATabBarController.h; sourceTree = "<group>"; };
+		7BEC0D081E46DFDB00A0C71C /* DATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +215,10 @@
 		7BEC0CE11E4617FC00A0C71C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D011E46DEC100A0C71C /* DANavigationController.h */,
+				7BEC0D021E46DEC100A0C71C /* DANavigationController.m */,
+				7BEC0D071E46DFDB00A0C71C /* DATabBarController.h */,
+				7BEC0D081E46DFDB00A0C71C /* DATabBarController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -390,8 +400,10 @@
 			files = (
 				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
 				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
+				7BEC0D091E46DFDB00A0C71C /* DATabBarController.m in Sources */,
 				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
 				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
+				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
 				7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

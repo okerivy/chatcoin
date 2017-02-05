@@ -30,5 +30,14 @@
 #define JYUnvColor_Gray_226 JYUnvColor_VarGray(226) // 灰白色 分割线
 
 
+// 常用颜色 固定色
+#define JYUnvColor_Clear [UIColor clearColor] // 透明色
+#define JYUnvColor_White [UIColor whiteColor] // 白色
+#define JYUnvColor_Black [UIColor blackColor] // 黑色
+#define JYUnvColor_Red [UIColor redColor] // 红色
+
+
+
+
 
 #endif /* chatcoin_Prefix_pch */
