@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		665F9556B3B824B9056A9800 /* Pods_chatcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 		7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF21E461A7100A0C71C /* AppDelegate.m */; };
 		7BEC0CF51E461A7100A0C71C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF31E461A7100A0C71C /* main.m */; };
@@ -31,14 +32,30 @@
 		7BEC0D3D1E46F71700A0C71C /* imageDownloadFail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D381E46F71700A0C71C /* imageDownloadFail@2x.png */; };
 		7BEC0D3E1E46F71700A0C71C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D391E46F71700A0C71C /* Media.xcassets */; };
 		7BEC0D3F1E46F71700A0C71C /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D3A1E46F71700A0C71C /* user@2x.png */; };
-		7BEC0D431E4703D700A0C71C /* LYSideslipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D421E4703D700A0C71C /* LYSideslipCell.m */; };
 		7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D451E47041D00A0C71C /* LYHomeCell.m */; };
 		7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D4E1E47097F00A0C71C /* LYHomeCellModel.m */; };
 		7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D551E470A7E00A0C71C /* DAViewController.m */; };
 		7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D581E470AA100A0C71C /* DAChatViewController.m */; };
+		7BEC0D5D1E47424C00A0C71C /* LYSideslipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D5C1E47424C00A0C71C /* LYSideslipCell.m */; };
+		7BEC0D5F1E47497E00A0C71C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEC0D5E1E47497E00A0C71C /* libz.tbd */; };
+		7BEC0D751E474EF800A0C71C /* LiuqsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D621E474EF800A0C71C /* LiuqsButton.m */; };
+		7BEC0D761E474EF800A0C71C /* LiuqsDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D641E474EF800A0C71C /* LiuqsDecoder.m */; };
+		7BEC0D771E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D661E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m */; };
+		7BEC0D781E474EF800A0C71C /* LiuqsEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D681E474EF800A0C71C /* LiuqsEmotionPageView.m */; };
+		7BEC0D791E474EF800A0C71C /* LiuqsTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D6B1E474EF800A0C71C /* LiuqsTextAttachment.m */; };
+		7BEC0D7A1E474EF800A0C71C /* LiuqsTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D6D1E474EF800A0C71C /* LiuqsTopBarView.m */; };
+		7BEC0D7B1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D6F1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m */; };
+		7BEC0D7C1E474EF800A0C71C /* UIImage+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D721E474EF800A0C71C /* UIImage+extension.m */; };
+		7BEC0D7D1E474EF800A0C71C /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D741E474EF800A0C71C /* UIView+Extension.m */; };
+		7BEC0D821E4751F400A0C71C /* LiuqsFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D7F1E4751F400A0C71C /* LiuqsFileManager.m */; };
+		7BEC0D831E4751F400A0C71C /* LiuqsMessageDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D811E4751F400A0C71C /* LiuqsMessageDataBase.m */; };
+		7BEC0D881E4752B400A0C71C /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D851E4752B400A0C71C /* ChatMessage.m */; };
+		7BEC0D891E4752B400A0C71C /* ChatMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D871E4752B400A0C71C /* ChatMessageFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chatcoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3278594E7C5912FABB1083AE /* Pods-chatcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatcoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin.release.xcconfig"; sourceTree = "<group>"; };
 		7B08C25D1E44B0E9002FB869 /* chatcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,8 +103,6 @@
 		7BEC0D381E46F71700A0C71C /* imageDownloadFail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imageDownloadFail@2x.png"; sourceTree = "<group>"; };
 		7BEC0D391E46F71700A0C71C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7BEC0D3A1E46F71700A0C71C /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
-		7BEC0D411E4703D700A0C71C /* LYSideslipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSideslipCell.h; sourceTree = "<group>"; };
-		7BEC0D421E4703D700A0C71C /* LYSideslipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSideslipCell.m; sourceTree = "<group>"; };
 		7BEC0D441E47041D00A0C71C /* LYHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYHomeCell.h; sourceTree = "<group>"; };
 		7BEC0D451E47041D00A0C71C /* LYHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYHomeCell.m; sourceTree = "<group>"; };
 		7BEC0D4D1E47097F00A0C71C /* LYHomeCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYHomeCellModel.h; sourceTree = "<group>"; };
@@ -96,6 +111,37 @@
 		7BEC0D551E470A7E00A0C71C /* DAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAViewController.m; sourceTree = "<group>"; };
 		7BEC0D571E470AA100A0C71C /* DAChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatViewController.h; sourceTree = "<group>"; };
 		7BEC0D581E470AA100A0C71C /* DAChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatViewController.m; sourceTree = "<group>"; };
+		7BEC0D5B1E47424C00A0C71C /* LYSideslipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSideslipCell.h; sourceTree = "<group>"; };
+		7BEC0D5C1E47424C00A0C71C /* LYSideslipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSideslipCell.m; sourceTree = "<group>"; };
+		7BEC0D5E1E47497E00A0C71C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7BEC0D611E474EF800A0C71C /* LiuqsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsButton.h; sourceTree = "<group>"; };
+		7BEC0D621E474EF800A0C71C /* LiuqsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsButton.m; sourceTree = "<group>"; };
+		7BEC0D631E474EF800A0C71C /* LiuqsDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsDecoder.h; sourceTree = "<group>"; };
+		7BEC0D641E474EF800A0C71C /* LiuqsDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsDecoder.m; sourceTree = "<group>"; };
+		7BEC0D651E474EF800A0C71C /* LiuqsEmoticonKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsEmoticonKeyBoard.h; sourceTree = "<group>"; };
+		7BEC0D661E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsEmoticonKeyBoard.m; sourceTree = "<group>"; };
+		7BEC0D671E474EF800A0C71C /* LiuqsEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsEmotionPageView.h; sourceTree = "<group>"; };
+		7BEC0D681E474EF800A0C71C /* LiuqsEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsEmotionPageView.m; sourceTree = "<group>"; };
+		7BEC0D691E474EF800A0C71C /* LiuqsKeyBoardHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsKeyBoardHeader.pch; sourceTree = "<group>"; };
+		7BEC0D6A1E474EF800A0C71C /* LiuqsTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsTextAttachment.h; sourceTree = "<group>"; };
+		7BEC0D6B1E474EF800A0C71C /* LiuqsTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsTextAttachment.m; sourceTree = "<group>"; };
+		7BEC0D6C1E474EF800A0C71C /* LiuqsTopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsTopBarView.h; sourceTree = "<group>"; };
+		7BEC0D6D1E474EF800A0C71C /* LiuqsTopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsTopBarView.m; sourceTree = "<group>"; };
+		7BEC0D6E1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+LiuqsExtension.h"; sourceTree = "<group>"; };
+		7BEC0D6F1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+LiuqsExtension.m"; sourceTree = "<group>"; };
+		7BEC0D711E474EF800A0C71C /* UIImage+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+extension.h"; sourceTree = "<group>"; };
+		7BEC0D721E474EF800A0C71C /* UIImage+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+extension.m"; sourceTree = "<group>"; };
+		7BEC0D731E474EF800A0C71C /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		7BEC0D741E474EF800A0C71C /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		7BEC0D7E1E4751F400A0C71C /* LiuqsFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsFileManager.h; sourceTree = "<group>"; };
+		7BEC0D7F1E4751F400A0C71C /* LiuqsFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsFileManager.m; sourceTree = "<group>"; };
+		7BEC0D801E4751F400A0C71C /* LiuqsMessageDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsMessageDataBase.h; sourceTree = "<group>"; };
+		7BEC0D811E4751F400A0C71C /* LiuqsMessageDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsMessageDataBase.m; sourceTree = "<group>"; };
+		7BEC0D841E4752B400A0C71C /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		7BEC0D851E4752B400A0C71C /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		7BEC0D861E4752B400A0C71C /* ChatMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageFrame.h; sourceTree = "<group>"; };
+		7BEC0D871E4752B400A0C71C /* ChatMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageFrame.m; sourceTree = "<group>"; };
+		9D7D35D514777E16BC56E929 /* Pods-chatcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatcoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,17 +149,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEC0D5F1E47497E00A0C71C /* libz.tbd in Frameworks */,
+				665F9556B3B824B9056A9800 /* Pods_chatcoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073B139D7BD5352EE1887495 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D7D35D514777E16BC56E929 /* Pods-chatcoin.debug.xcconfig */,
+				3278594E7C5912FABB1083AE /* Pods-chatcoin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7B08C2541E44B0E9002FB869 = {
 			isa = PBXGroup;
 			children = (
 				7B08C25F1E44B0E9002FB869 /* chatcoin */,
 				7B08C25E1E44B0E9002FB869 /* Products */,
+				073B139D7BD5352EE1887495 /* Pods */,
+				DFA3C84F25F72B5294F0E527 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -354,7 +413,6 @@
 		7BEC0CEA1E4617FC00A0C71C /* General */ = {
 			isa = PBXGroup;
 			children = (
-				7BEC0D401E4703D700A0C71C /* SideslipCell */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -362,6 +420,8 @@
 		7BEC0CEB1E4617FC00A0C71C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D601E474EF800A0C71C /* LiuqsEmitionClasses */,
+				7BEC0D5A1E47424C00A0C71C /* SideslipCell */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -379,6 +439,10 @@
 		7BEC0CED1E4617FC00A0C71C /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D7E1E4751F400A0C71C /* LiuqsFileManager.h */,
+				7BEC0D7F1E4751F400A0C71C /* LiuqsFileManager.m */,
+				7BEC0D801E4751F400A0C71C /* LiuqsMessageDataBase.h */,
+				7BEC0D811E4751F400A0C71C /* LiuqsMessageDataBase.m */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -435,15 +499,6 @@
 			path = Class/Resources;
 			sourceTree = "<group>";
 		};
-		7BEC0D401E4703D700A0C71C /* SideslipCell */ = {
-			isa = PBXGroup;
-			children = (
-				7BEC0D411E4703D700A0C71C /* LYSideslipCell.h */,
-				7BEC0D421E4703D700A0C71C /* LYSideslipCell.m */,
-			);
-			path = SideslipCell;
-			sourceTree = "<group>";
-		};
 		7BEC0D501E470A1D00A0C71C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +521,10 @@
 		7BEC0D521E470A1D00A0C71C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D841E4752B400A0C71C /* ChatMessage.h */,
+				7BEC0D851E4752B400A0C71C /* ChatMessage.m */,
+				7BEC0D861E4752B400A0C71C /* ChatMessageFrame.h */,
+				7BEC0D871E4752B400A0C71C /* ChatMessageFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -477,6 +536,58 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7BEC0D5A1E47424C00A0C71C /* SideslipCell */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D5B1E47424C00A0C71C /* LYSideslipCell.h */,
+				7BEC0D5C1E47424C00A0C71C /* LYSideslipCell.m */,
+			);
+			path = SideslipCell;
+			sourceTree = "<group>";
+		};
+		7BEC0D601E474EF800A0C71C /* LiuqsEmitionClasses */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D611E474EF800A0C71C /* LiuqsButton.h */,
+				7BEC0D621E474EF800A0C71C /* LiuqsButton.m */,
+				7BEC0D631E474EF800A0C71C /* LiuqsDecoder.h */,
+				7BEC0D641E474EF800A0C71C /* LiuqsDecoder.m */,
+				7BEC0D651E474EF800A0C71C /* LiuqsEmoticonKeyBoard.h */,
+				7BEC0D661E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m */,
+				7BEC0D671E474EF800A0C71C /* LiuqsEmotionPageView.h */,
+				7BEC0D681E474EF800A0C71C /* LiuqsEmotionPageView.m */,
+				7BEC0D691E474EF800A0C71C /* LiuqsKeyBoardHeader.pch */,
+				7BEC0D6A1E474EF800A0C71C /* LiuqsTextAttachment.h */,
+				7BEC0D6B1E474EF800A0C71C /* LiuqsTextAttachment.m */,
+				7BEC0D6C1E474EF800A0C71C /* LiuqsTopBarView.h */,
+				7BEC0D6D1E474EF800A0C71C /* LiuqsTopBarView.m */,
+				7BEC0D6E1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.h */,
+				7BEC0D6F1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m */,
+				7BEC0D701E474EF800A0C71C /* 类扩展工具 */,
+			);
+			path = LiuqsEmitionClasses;
+			sourceTree = "<group>";
+		};
+		7BEC0D701E474EF800A0C71C /* 类扩展工具 */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D711E474EF800A0C71C /* UIImage+extension.h */,
+				7BEC0D721E474EF800A0C71C /* UIImage+extension.m */,
+				7BEC0D731E474EF800A0C71C /* UIView+Extension.h */,
+				7BEC0D741E474EF800A0C71C /* UIView+Extension.m */,
+			);
+			path = "类扩展工具";
+			sourceTree = "<group>";
+		};
+		DFA3C84F25F72B5294F0E527 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D5E1E47497E00A0C71C /* libz.tbd */,
+				09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,9 +595,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B08C2741E44B0E9002FB869 /* Build configuration list for PBXNativeTarget "chatcoin" */;
 			buildPhases = (
+				AD21F95C6EFA3F86609E76F5 /* [CP] Check Pods Manifest.lock */,
 				7B08C2591E44B0E9002FB869 /* Sources */,
 				7B08C25A1E44B0E9002FB869 /* Frameworks */,
 				7B08C25B1E44B0E9002FB869 /* Resources */,
+				9F0043785693A00568CCB500 /* [CP] Embed Pods Frameworks */,
+				CFE88DC4ECA0E82B8AB1B798 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,34 +662,95 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9F0043785693A00568CCB500 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD21F95C6EFA3F86609E76F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFE88DC4ECA0E82B8AB1B798 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B08C2591E44B0E9002FB869 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEC0D7A1E474EF800A0C71C /* LiuqsTopBarView.m in Sources */,
 				7BEC0D251E46EBCE00A0C71C /* UIColor+LLExt.m in Sources */,
 				7BEC0D291E46EBCE00A0C71C /* UIScrollView+LLExt.m in Sources */,
 				7BEC0D241E46EBCE00A0C71C /* UICollectionView+LLExt.m in Sources */,
+				7BEC0D881E4752B400A0C71C /* ChatMessage.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
-				7BEC0D431E4703D700A0C71C /* LYSideslipCell.m in Sources */,
 				7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */,
 				7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */,
 				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
 				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
 				7BEC0D231E46EBCE00A0C71C /* NSString+encrypto.m in Sources */,
+				7BEC0D771E474EF800A0C71C /* LiuqsEmoticonKeyBoard.m in Sources */,
+				7BEC0D831E4751F400A0C71C /* LiuqsMessageDataBase.m in Sources */,
 				7BEC0D091E46DFDB00A0C71C /* DATabBarController.m in Sources */,
+				7BEC0D821E4751F400A0C71C /* LiuqsFileManager.m in Sources */,
 				7BEC0D261E46EBCE00A0C71C /* UIImage+EMGIF.m in Sources */,
 				7BEC0D2B1E46EBCE00A0C71C /* UITextView+LLDebugOnly.m in Sources */,
+				7BEC0D891E4752B400A0C71C /* ChatMessageFrame.m in Sources */,
+				7BEC0D7D1E474EF800A0C71C /* UIView+Extension.m in Sources */,
+				7BEC0D5D1E47424C00A0C71C /* LYSideslipCell.m in Sources */,
 				7BEC0D2F1E46EF9A00A0C71C /* UIView+LLExt.m in Sources */,
+				7BEC0D7B1E474EF800A0C71C /* NSAttributedString+LiuqsExtension.m in Sources */,
 				7BEC0D271E46EBCE00A0C71C /* UIImage+LLExt.m in Sources */,
+				7BEC0D791E474EF800A0C71C /* LiuqsTextAttachment.m in Sources */,
 				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
 				7BEC0D221E46EBCE00A0C71C /* NSDate+LLExt.m in Sources */,
 				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
+				7BEC0D751E474EF800A0C71C /* LiuqsButton.m in Sources */,
 				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
+				7BEC0D761E474EF800A0C71C /* LiuqsDecoder.m in Sources */,
 				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
 				7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */,
+				7BEC0D781E474EF800A0C71C /* LiuqsEmotionPageView.m in Sources */,
 				7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
+				7BEC0D7C1E474EF800A0C71C /* UIImage+extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +851,7 @@
 		};
 		7B08C2751E44B0E9002FB869 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D7D35D514777E16BC56E929 /* Pods-chatcoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -692,6 +868,7 @@
 		};
 		7B08C2761E44B0E9002FB869 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3278594E7C5912FABB1083AE /* Pods-chatcoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

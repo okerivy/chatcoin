@@ -1,0 +1,21 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+#  支持 iOS 8.0后的版本
+platform :ios, '8.0'  
+
+use_frameworks!
+
+#  target "项目名" do
+target "chatcoin" do      
+
+# 	  pod 'MBProgressHUD', '~> 1.0.0'    
+#    如果要同时添加多个第三方，可以添加多条 pod 语句
+#    pod '第三方名称', '~> 指定版本号'
+
+pod 'YYText'
+pod 'YYImage'
+pod 'FMDB'
+
+
+end
+
