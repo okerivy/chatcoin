@@ -31,6 +31,11 @@
 		7BEC0D3D1E46F71700A0C71C /* imageDownloadFail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D381E46F71700A0C71C /* imageDownloadFail@2x.png */; };
 		7BEC0D3E1E46F71700A0C71C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D391E46F71700A0C71C /* Media.xcassets */; };
 		7BEC0D3F1E46F71700A0C71C /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BEC0D3A1E46F71700A0C71C /* user@2x.png */; };
+		7BEC0D431E4703D700A0C71C /* LYSideslipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D421E4703D700A0C71C /* LYSideslipCell.m */; };
+		7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D451E47041D00A0C71C /* LYHomeCell.m */; };
+		7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D4E1E47097F00A0C71C /* LYHomeCellModel.m */; };
+		7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D551E470A7E00A0C71C /* DAViewController.m */; };
+		7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0D581E470AA100A0C71C /* DAChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +86,16 @@
 		7BEC0D381E46F71700A0C71C /* imageDownloadFail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imageDownloadFail@2x.png"; sourceTree = "<group>"; };
 		7BEC0D391E46F71700A0C71C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7BEC0D3A1E46F71700A0C71C /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
+		7BEC0D411E4703D700A0C71C /* LYSideslipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSideslipCell.h; sourceTree = "<group>"; };
+		7BEC0D421E4703D700A0C71C /* LYSideslipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSideslipCell.m; sourceTree = "<group>"; };
+		7BEC0D441E47041D00A0C71C /* LYHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYHomeCell.h; sourceTree = "<group>"; };
+		7BEC0D451E47041D00A0C71C /* LYHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYHomeCell.m; sourceTree = "<group>"; };
+		7BEC0D4D1E47097F00A0C71C /* LYHomeCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYHomeCellModel.h; sourceTree = "<group>"; };
+		7BEC0D4E1E47097F00A0C71C /* LYHomeCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYHomeCellModel.m; sourceTree = "<group>"; };
+		7BEC0D541E470A7E00A0C71C /* DAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAViewController.h; sourceTree = "<group>"; };
+		7BEC0D551E470A7E00A0C71C /* DAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAViewController.m; sourceTree = "<group>"; };
+		7BEC0D571E470AA100A0C71C /* DAChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatViewController.h; sourceTree = "<group>"; };
+		7BEC0D581E470AA100A0C71C /* DAChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +164,7 @@
 			children = (
 				7BEC0CE11E4617FC00A0C71C /* Main */,
 				7BEC0CD91E4617FC00A0C71C /* Conversation */,
+				7BEC0D501E470A1D00A0C71C /* Chat */,
 				7BEC0CD51E4617FC00A0C71C /* Contact */,
 				7BEC0CE21E4617FC00A0C71C /* Profile */,
 				7BEC0CDD1E4617FC00A0C71C /* Login */,
@@ -212,6 +228,8 @@
 		7BEC0CDB1E4617FC00A0C71C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D4D1E47097F00A0C71C /* LYHomeCellModel.h */,
+				7BEC0D4E1E47097F00A0C71C /* LYHomeCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,6 +237,8 @@
 		7BEC0CDC1E4617FC00A0C71C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D441E47041D00A0C71C /* LYHomeCell.h */,
+				7BEC0D451E47041D00A0C71C /* LYHomeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +281,8 @@
 				7BEC0D021E46DEC100A0C71C /* DANavigationController.m */,
 				7BEC0D071E46DFDB00A0C71C /* DATabBarController.h */,
 				7BEC0D081E46DFDB00A0C71C /* DATabBarController.m */,
+				7BEC0D541E470A7E00A0C71C /* DAViewController.h */,
+				7BEC0D551E470A7E00A0C71C /* DAViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -332,6 +354,7 @@
 		7BEC0CEA1E4617FC00A0C71C /* General */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0D401E4703D700A0C71C /* SideslipCell */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -410,6 +433,48 @@
 			);
 			name = Resources;
 			path = Class/Resources;
+			sourceTree = "<group>";
+		};
+		7BEC0D401E4703D700A0C71C /* SideslipCell */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D411E4703D700A0C71C /* LYSideslipCell.h */,
+				7BEC0D421E4703D700A0C71C /* LYSideslipCell.m */,
+			);
+			path = SideslipCell;
+			sourceTree = "<group>";
+		};
+		7BEC0D501E470A1D00A0C71C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D511E470A1D00A0C71C /* Controller */,
+				7BEC0D521E470A1D00A0C71C /* Model */,
+				7BEC0D531E470A1D00A0C71C /* View */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7BEC0D511E470A1D00A0C71C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0D571E470AA100A0C71C /* DAChatViewController.h */,
+				7BEC0D581E470AA100A0C71C /* DAChatViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7BEC0D521E470A1D00A0C71C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7BEC0D531E470A1D00A0C71C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +557,9 @@
 				7BEC0D291E46EBCE00A0C71C /* UIScrollView+LLExt.m in Sources */,
 				7BEC0D241E46EBCE00A0C71C /* UICollectionView+LLExt.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
+				7BEC0D431E4703D700A0C71C /* LYSideslipCell.m in Sources */,
+				7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */,
+				7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */,
 				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
 				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
 				7BEC0D231E46EBCE00A0C71C /* NSString+encrypto.m in Sources */,
@@ -504,6 +572,8 @@
 				7BEC0D221E46EBCE00A0C71C /* NSDate+LLExt.m in Sources */,
 				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
 				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
+				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
+				7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */,
 				7BEC0CFE1E461E1A00A0C71C /* DAProfileViewController.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
 			);
