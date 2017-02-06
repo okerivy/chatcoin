@@ -17,29 +17,8 @@
 #import <FMDB/FMDB.h>
 
 #import "UIKit+LLExt.h"
-
-#pragma mark- 常用颜色------------------------------------------------------------------
-
-// 常用颜色 可变色
-#define JYUnvColor_Var(r, g, b) (JYUnvColor_VarA(r, g, b,1.0))// RGB 不透明颜色
-// 常用颜色 随机色 不透明
-#define JYUnvColor_Random (JYUnvColor_Var(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256)))
-
-
-// RGBA 透明颜色
-#define JYUnvColor_VarA(r, g, b,a) [UIColor colorWithRed: r/255.0 green: g/255.0 blue:b/255.0 alpha:a/1.0]
-// 常用颜色 灰色颜色
-#define JYUnvColor_VarGrayA(r, a) (JYUnvColor_VarA(r, r, r, a))// 灰色透明颜色
-#define JYUnvColor_VarGray(r) (JYUnvColor_VarGrayA(r, 1.0)) // 灰色 透明颜色
-#define JYUnvColor_Gray_226 JYUnvColor_VarGray(226) // 灰白色 分割线
-
-
-// 常用颜色 固定色
-#define JYUnvColor_Clear [UIColor clearColor] // 透明色
-#define JYUnvColor_White [UIColor whiteColor] // 白色
-#define JYUnvColor_Black [UIColor blackColor] // 黑色
-#define JYUnvColor_Red [UIColor redColor] // 红色
-
+#import "Api.h"
+#import "Config.h"
 
 
 

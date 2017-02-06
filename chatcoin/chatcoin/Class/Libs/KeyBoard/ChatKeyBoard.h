@@ -32,6 +32,20 @@ typedef NS_ENUM(NSInteger, KeyBoardStyle)
 @class ChatKeyBoard;
 @protocol ChatKeyBoardDelegate <NSObject>
 @optional
+
+/*
+ * 发送按钮的代理事件
+ * 参数PlainStr: 转码后的textView的普通字符串
+ */
+- (void)sendButtonEventsWithPlainString:(NSString *)PlainStr;
+
+/*
+ * 代理方法：键盘改变的代理事件
+ * 用来更新父视图的UI，比如跟随键盘改变的列表高度
+ */
+- (void)keyBoardChanged;
+
+
 /**
  *  语音状态
  */

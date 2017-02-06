@@ -39,7 +39,7 @@
 
 - (void)initUIAppearance {
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-    [UINavigationBar appearance].barTintColor = JYUnvColor_VarGray(50);
+    [UINavigationBar appearance].barTintColor = ZKColor_VarGray(50);
     [UINavigationBar appearance].barStyle = UIBarStyleBlack;
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
     

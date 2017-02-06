@@ -145,8 +145,9 @@
             CGFloat chatToolBarHeight = CGRectGetHeight(self.frame) - kMorePanelHeight;
             
             CGFloat targetY = end.origin.y - chatToolBarHeight - (kScreenHeight - [self getSuperViewH]);
-
+            NSLog(@"%s------%f", __func__, begin.size.height);
             if(begin.size.height>0 && (begin.origin.y-end.origin.y>0))
+//            if(begin.size.height>0 && (begin.origin.y-end.origin.y!=0))
             {
                 // 键盘弹起 (包括，第三方键盘回调三次问题，监听仅执行最后一次)
                 
@@ -186,6 +187,16 @@
                 self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
                 [self updateAssociateTableViewFrame];
             }
+            //FIXME 试图控制器初始化第一次运行点击TextField时会有第一次begin.size.height始终等于0 bug
+            else {
+                
+                self.lastChatKeyboardY = self.frame.origin.y;
+                self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+                self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+                [self updateAssociateTableViewFrame];
+
+            }
             
         }];
     }
@@ -220,7 +231,19 @@
     if (_associateTableView.contentSize.height +_associateTableView.contentInset.top+_associateTableView.contentInset.bottom> _associateTableView.frame.size.height) {
         _associateTableView.contentOffset = CGPointMake(0, offset);
     }
+    [self UpdateSuperView];
+
 }
+
+//更新父视图的UI（比如列表的高度）
+- (void)UpdateSuperView {
+    
+    if ([self.delegate respondsToSelector:@selector(keyBoardChanged)]) {
+        [self.delegate keyBoardChanged];
+    }
+}
+
+
 #pragma mark -- kvo
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {

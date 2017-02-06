@@ -60,12 +60,12 @@
     
     // 设置文字的样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = JYUnvColor_Var(123, 123, 123);
+    textAttrs[NSForegroundColorAttributeName] = ZKColor_Var(123, 123, 123);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-    selectTextAttrs[NSForegroundColorAttributeName] = JYUnvColor_Black;
+    selectTextAttrs[NSForegroundColorAttributeName] = ZKColor_Black;
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
-    childVc.view.backgroundColor = JYUnvColor_Random;
+    childVc.view.backgroundColor = ZKColor_Random;
     
     // 先给外面传进来的小控制器 包装 一个导航控制器
     DANavigationController *nav = [[DANavigationController alloc] initWithRootViewController:childVc];
