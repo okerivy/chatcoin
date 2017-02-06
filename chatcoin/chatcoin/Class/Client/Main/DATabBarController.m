@@ -9,7 +9,7 @@
 #import "DATabBarController.h"
 #import "DAConversationViewController.h"
 #import "DAContractViewController.h"
-#import "DAProfileViewController.h"
+#import "DAProfilesViewController.h"
 #import "DANavigationController.h"
 
 
@@ -28,11 +28,11 @@
     DAConversationViewController *home = [[DAConversationViewController alloc] init];
     [self addChildVc:home title:@"聊天" image:@"tabbar_mainframe" selectedImage:@"tabbar_mainframeHL"];
     
-    DAContractViewController *messageCenter = [[DAContractViewController alloc] init];
-    [self addChildVc:messageCenter title:@"通讯录" image:@"tabbar_contacts" selectedImage:@"tabbar_contactsHL"];
+    DAContractViewController *contract = [[DAContractViewController alloc] init];
+    [self addChildVc:contract title:@"通讯录" image:@"tabbar_contacts" selectedImage:@"tabbar_contactsHL"];
     
-    DAProfileViewController *discover = [[DAProfileViewController alloc] init];
-    [self addChildVc:discover title:@"我的" image:@"tabbar_me" selectedImage:@"tabbar_meHL"];
+    DAProfilesViewController *profile = [[DAProfilesViewController alloc] init];
+    [self addChildVc:profile title:@"我的" image:@"tabbar_me" selectedImage:@"tabbar_meHL"];
 
 }
 
