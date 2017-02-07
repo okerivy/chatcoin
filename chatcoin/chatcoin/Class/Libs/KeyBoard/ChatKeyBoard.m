@@ -251,16 +251,15 @@
         if (keyboardHeight == 0)
             return;
         
-        ZLog(@"显示--UIKeyboardWillShowNotification /n  %f", keyboardHeight);
 
         
         keyboardShowHideInfo.keyboardHeight = keyboardHeight;
         //        SET_KEYBOARD_TYPE(kLLKeyboardTypeDefault);
         keyboardShowHideInfo.duration = duration;
         
-        if(begin.origin.y == SCREENH_HEIGHT && end.size.height>0 && (begin.origin.y-end.origin.y>0))
-            //            if(begin.size.height>0 && (begin.origin.y-end.origin.y!=0))
-        {
+//        if(begin.origin.y == SCREENH_HEIGHT && end.size.height>0 && (begin.origin.y-end.origin.y>0))
+//            //            if(begin.size.height>0 && (begin.origin.y-end.origin.y!=0))
+//        {
             // 键盘弹起 (包括，第三方键盘回调三次问题，监听仅执行最后一次)
             
             [UIView animateWithDuration:ZKKeyboardTime animations:^{
@@ -280,7 +279,7 @@
 
             [self updateAssociateTableViewFrame];
             //
-        }
+//        }
         
     }else if ([notify.name isEqualToString:UIKeyboardWillHideNotification]) {
         if (end.origin.y == kScreenHeight && begin.origin.y!=end.origin.y && duration > 0)
@@ -293,7 +292,6 @@
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
             
-            ZLog(@"隐藏--UIKeyboardWillHideNotification /n");
 
             
             [UIView animateWithDuration:ZKKeyboardTime animations:^{
@@ -325,7 +323,6 @@
             
         }else if ((begin.origin.y-end.origin.y<0) && duration == 0)
         {
-            ZLog(@"切换--UIKeyboardWillHideNotification /n" );
 
             self.lastChatKeyboardY = self.frame.origin.y;
             //键盘切换

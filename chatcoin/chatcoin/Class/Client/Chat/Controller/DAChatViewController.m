@@ -186,7 +186,6 @@
         self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
         self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
         
-        
     } completion:^(BOOL finished) {
 //        if (self.keyBoardStatus) {
 //            ZLog(@"键盘已经显示");
