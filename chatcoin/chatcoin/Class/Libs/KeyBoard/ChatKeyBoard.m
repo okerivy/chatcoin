@@ -33,7 +33,10 @@
 
 @end
 
-@implementation ChatKeyBoard
+@implementation ChatKeyBoard {
+    LLKeyboardShowHideInfo keyboardShowHideInfo;
+
+}
 
 #pragma mark -- life
 
@@ -80,7 +83,7 @@
         [self addSubview:self.facePanel];
         [self addSubview:self.morePanel];
         [self addSubview:self.OAtoolbar];
-        self.backgroundColor = ZKColor_Var(230, 240, 245);
+        self.backgroundColor = kLLBackgourndColor_inputGray;
         
         __weak __typeof(self) weakself = self;
         self.OAtoolbar.switchAction = ^(){
@@ -96,6 +99,10 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
         [self addObserver:self forKeyPath:@"self.chatToolBar.frame" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillChangeFrame:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillChangeFrame:) name:UIKeyboardDidShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillChangeFrame:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -114,7 +121,8 @@
             self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame), kScreenWidth, CGRectGetHeight(self.frame));
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kFacePanelHeight, CGRectGetWidth(self.frame), kFacePanelHeight);
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
-            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
             [self updateAssociateTableViewFrame];
             
         } completion:nil];
@@ -130,12 +138,17 @@
             self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame), kScreenWidth, CGRectGetHeight(self.frame));
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kFacePanelHeight, CGRectGetWidth(self.frame), kFacePanelHeight);
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
-            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
             [self updateAssociateTableViewFrame];
         } completion:nil];
     }
     else
     {
+        [self handleKeyboardFrameChange:notification];
+
+        return;
+        
         [UIView animateWithDuration:0.25 animations:^{
             
             CGRect begin = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
@@ -156,6 +169,9 @@
                 self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
                 self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
                 self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+                
+                keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeShow;
+                
                 [self updateAssociateTableViewFrame];
                 
             }
@@ -178,6 +194,8 @@
                         self.frame = CGRectMake(0, [self getSuperViewH], CGRectGetWidth(self.frame), self.frame.size.height);
                     }
                 }
+                keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeHidden;
+
                 [self updateAssociateTableViewFrame];
                 
             }
@@ -186,6 +204,8 @@
                 self.lastChatKeyboardY = self.frame.origin.y;
                 //键盘切换
                 self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
                 [self updateAssociateTableViewFrame];
             }
             //FIXME 试图控制器初始化第一次运行点击TextField时会有第一次begin.size.height始终等于0 bug
@@ -195,13 +215,130 @@
                 self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
                 self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
                 self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+                keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeShow;
+
                 [self updateAssociateTableViewFrame];
+
 
             }
             
         }];
     }
 }
+
+
+- (void)handleKeyboardFrameChange:(NSNotification *)notify {
+    if (!self.delegate)
+        return;
+    NSDictionary *userinfo = notify.userInfo;
+    
+    CGFloat duration = 0.25;//[userinfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect begin = [[userinfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect end = [[userinfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    
+    CGFloat chatToolBarHeight = CGRectGetHeight(self.frame) - kMorePanelHeight;
+    
+    CGFloat targetY = end.origin.y - chatToolBarHeight - (kScreenHeight - [self getSuperViewH]);
+    
+    
+    //FIXME: 第三方输入法会导致 UIKeyboardWillShowNotification 派发3次
+    //为什么要设计成派发3次？
+    if ([notify.name isEqualToString:UIKeyboardWillShowNotification]) {
+        
+        CGRect toFrame = [(NSValue *)userinfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        CGFloat keyboardHeight = CGRectGetHeight(toFrame);
+        if (keyboardHeight == 0)
+            return;
+        
+        ZLog(@"显示--UIKeyboardWillShowNotification /n  %f", keyboardHeight);
+
+        
+        keyboardShowHideInfo.keyboardHeight = keyboardHeight;
+        //        SET_KEYBOARD_TYPE(kLLKeyboardTypeDefault);
+        keyboardShowHideInfo.duration = duration;
+        
+        if(begin.origin.y == SCREENH_HEIGHT && end.size.height>0 && (begin.origin.y-end.origin.y>0))
+            //            if(begin.size.height>0 && (begin.origin.y-end.origin.y!=0))
+        {
+            // 键盘弹起 (包括，第三方键盘回调三次问题，监听仅执行最后一次)
+            
+            [UIView animateWithDuration:ZKKeyboardTime animations:^{
+                
+                self.lastChatKeyboardY = self.frame.origin.y;
+                self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+                self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+                
+                
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+ 
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeShow;
+
+            [self updateAssociateTableViewFrame];
+            //
+        }
+        
+    }else if ([notify.name isEqualToString:UIKeyboardWillHideNotification]) {
+        if (end.origin.y == kScreenHeight && begin.origin.y!=end.origin.y && duration > 0)
+        {
+
+            self.lastChatKeyboardY = self.frame.origin.y;
+            //键盘收起
+            self.lastChatKeyboardY = self.frame.origin.y;
+            self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+            self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+            self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
+            
+            ZLog(@"隐藏--UIKeyboardWillHideNotification /n");
+
+            
+            [UIView animateWithDuration:ZKKeyboardTime animations:^{
+                
+                if (self.keyBoardStyle == KeyBoardStyleChat)
+                {
+                    self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                    
+                }else if (self.keyBoardStyle == KeyBoardStyleComment)
+                {
+                    if (self.chatToolBar.voiceSelected)
+                    {
+                        self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+                    }
+                    else
+                    {
+                        self.frame = CGRectMake(0, [self getSuperViewH], CGRectGetWidth(self.frame), self.frame.size.height);
+                    }
+                }
+                
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeHidden;
+
+            [self updateAssociateTableViewFrame];
+            
+        }else if ((begin.origin.y-end.origin.y<0) && duration == 0)
+        {
+            ZLog(@"切换--UIKeyboardWillHideNotification /n" );
+
+            self.lastChatKeyboardY = self.frame.origin.y;
+            //键盘切换
+            self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
+            [self updateAssociateTableViewFrame];
+        }
+
+    }
+}
+
+
 
 /**
  *  调整关联的表的高度
@@ -239,8 +376,8 @@
 //更新父视图的UI（比如列表的高度）
 - (void)UpdateSuperView {
     
-    if ([self.delegate respondsToSelector:@selector(keyBoardChanged)]) {
-        [self.delegate keyBoardChanged];
+    if ([self.delegate respondsToSelector:@selector(keyBoardChanged:)]) {
+        [self.delegate keyBoardChanged:keyboardShowHideInfo];
     }
 }
 
@@ -280,7 +417,8 @@
             CGFloat y = self.frame.origin.y;
             y = [self getSuperViewH] - self.chatToolBar.frame.size.height;
             self.frame = CGRectMake(0, y, self.frame.size.width, self.frame.size.height);
-            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
             [self updateAssociateTableViewFrame];
             
         }];
@@ -303,7 +441,8 @@
             self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame), kScreenWidth, CGRectGetHeight(self.frame));
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kFacePanelHeight, CGRectGetWidth(self.frame), kFacePanelHeight);
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
-            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
             [self updateAssociateTableViewFrame];
             
         }];
@@ -326,7 +465,8 @@
             self.frame = CGRectMake(0, [self getSuperViewH]-CGRectGetHeight(self.frame), kScreenWidth, CGRectGetHeight(self.frame));
             self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kMorePanelHeight, CGRectGetWidth(self.frame), kMorePanelHeight);
             self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
-            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
             [self updateAssociateTableViewFrame];
             
         }];
@@ -345,7 +485,8 @@
             self.frame = CGRectMake(0,[self getSuperViewH], self.frame.size.width, self.frame.size.height);
             self.OAtoolbar.frame = CGRectMake(0, 0, self.frame.size.width, kChatToolBarHeight);
             self.frame = CGRectMake(0, y, self.frame.size.width, self.frame.size.height);
-            
+            keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeSwitch;
+
             [self updateAssociateTableViewFrame];
             
         }];
@@ -358,7 +499,8 @@
         self.frame = CGRectMake(0, [self getSuperViewH], self.frame.size.width, self.frame.size.height);
         self.OAtoolbar.frame = CGRectMake(0, 0, self.frame.size.width, kChatToolBarHeight);
         self.frame = CGRectMake(0, y, self.frame.size.width, self.frame.size.height);
-        
+        keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeShow;
+
         [self updateAssociateTableViewFrame];
         
     }
@@ -589,7 +731,8 @@
                     CGFloat y = self.frame.origin.y;
                     y = [self getSuperViewH] - self.chatToolBar.frame.size.height;
                     self.frame = CGRectMake(0, y, self.frame.size.width, self.frame.size.height);
-                    
+                    keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeHidden;
+
                     [self updateAssociateTableViewFrame];
                     
                 }];
@@ -624,7 +767,8 @@
         
         [self.chatToolBar prepareForEndComment];
         self.frame = CGRectMake(0, [self getSuperViewH], self.frame.size.width, CGRectGetHeight(self.frame));
-        
+        keyboardShowHideInfo.KeyboardChangeType = LLKeyboardChangeTypeHidden;
+
         [self updateAssociateTableViewFrame];
         
     } completion:nil];

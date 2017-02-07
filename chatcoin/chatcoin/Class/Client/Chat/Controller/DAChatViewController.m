@@ -18,9 +18,7 @@
 //屏幕高
 #define screenH [UIScreen mainScreen].bounds.size.height
 
-/*keyBoard*/
-//键盘变化时间
-static CGFloat const keyBoardTipTime = 0.3;
+
 
 @interface DAChatViewController ()<UITableViewDelegate,UITableViewDataSource,ChatKeyBoardDataSource, ChatKeyBoardDelegate>
 
@@ -32,10 +30,19 @@ static CGFloat const keyBoardTipTime = 0.3;
 
 @property(nonatomic, strong) NSMutableArray *dataSource;
 
+/** <#describe#> */
+@property (nonatomic, assign) BOOL keyBoardStatus;
+
 
 @end
 
-@implementation DAChatViewController
+@implementation DAChatViewController {
+
+    UITapGestureRecognizer *tapGesture;
+
+    
+}
+
 
 #pragma mark ==== 懒加载 ===
 
@@ -48,8 +55,9 @@ static CGFloat const keyBoardTipTime = 0.3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.keyBoardStatus = NO;
     self.title = self.conversationModel.userName;
-    self.view.backgroundColor = ZKColor_White;
+    self.view.backgroundColor = kLLBackgroundColor_lightGray;
     
     self.navigationController.navigationBar.translucent = NO;
     
@@ -146,84 +154,91 @@ static CGFloat const keyBoardTipTime = 0.3;
 
 #pragma mark- 监听方法
 //重设tabbleview的frame并根据是否在底部来执行滚动到底部的动画（不在底部就不执行，在底部才执行）
-- (void)updateChatList {
+- (void)updateChatList:(LLKeyboardShowHideInfo)keyboardInfo {
+
     
-//    CGFloat offSetY = self.chatList.contentSize.height - self.chatList.height_LL;
+    CGFloat offSetY = self.chatList.contentSize.height - self.chatList.height_LL;
+    
+
+    
+    BOOL needScrollToBottom = YES;
+    switch (keyboardInfo.KeyboardChangeType) {
+        case LLKeyboardChangeTypeShow:
+            needScrollToBottom = YES;
+            self.keyBoardStatus = YES;
+            break;
+        case LLKeyboardChangeTypeHidden:
+            needScrollToBottom = NO;
+            self.keyBoardStatus = NO;
+            break;
+        case LLKeyboardChangeTypeSwitch:
+            needScrollToBottom = YES;
+            self.keyBoardStatus = YES;
+            break;
+            
+        default:
+            break;
+    }
+    
+
+    
+    [UIView animateWithDuration:ZKKeyboardTime animations:^{
+        self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
+        self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
+        
+        
+    } completion:^(BOOL finished) {
+//        if (self.keyBoardStatus) {
+//            ZLog(@"键盘已经显示");
+//            self.chatList.scrollEnabled = NO;
+//        } else {
+//            ZLog(@"键盘已经隐藏");
+//            self.chatList.scrollEnabled = YES;
+//        }
+        
+        
+    }];
+    
+    if (needScrollToBottom) {
+        [self scrollTableToFoot:YES];
+//        ZLog(@"@@@@@@@@@@@--允许滚动到底部");
+    }
+
+    
+    
 //    //判断是否需要滚动到底部，给一个误差值
 //    if (self.chatList.contentOffset.y > offSetY - 5 || self.chatList.contentOffset.y > offSetY + 5) {
+//  
+//        [UIView animateWithDuration:ZKKeyboardTime animations:^{
+//            self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
+//            self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
+//            
+//
+//        }];
+//       
 //        
-//        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+//        
 //        [self scrollTableToFoot:YES];
 //    }else {
 //        
-//        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+//        [UIView animateWithDuration:ZKKeyboardTime animations:^{
+//            self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
+//            self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
+//        }];
+//        
 //        [self scrollTableToFoot:YES];
-//
+//        
 //    }
-//    NSLog(@"%s------%@-----%@-----%@", __func__,NSStringFromCGRect(self.chatKeyBoard.chatToolBar.frame),NSStringFromCGRect(self.chatKeyBoard.frame),NSStringFromCGRect(self.chatList.frame));
-    
-    
-    //return;
-    CGFloat offSetY = self.chatList.contentSize.height - self.chatList.height_LL;
-    //判断是否需要滚动到底部，给一个误差值
-    if (self.chatList.contentOffset.y > offSetY - 5 || self.chatList.contentOffset.y > offSetY + 5) {
-        
-        //        self.chatList.height_LL = self.chatKeyBoard.top_LL;
-        
-        [UIView animateWithDuration:ZKKeyboardTime
-                              delay:0
-                            options:UIViewAnimationOptionBeginFromCurrentState |
-         UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
-                             
-                             self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - 64, 0);
-                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
-                             
-                             self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
-                             
-                             
-                         } completion:^(BOOL finished) {
-                             
-                         }];
-        
-        
-        [self scrollTableToFoot:YES];
-    }else {
-        
-        //        self.chatList.height_LL = self.chatKeyBoard.top_LL;
-        [UIView animateWithDuration:ZKKeyboardTime
-                              delay:0
-                            options:UIViewAnimationOptionBeginFromCurrentState |
-         UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
-                             
-                             self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - 64, 0);
-                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
-                             
-                             self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
-                             
-                         } completion:^(BOOL finished) {
-                             
-                         }];
-        
-        [self scrollTableToFoot:YES];
-        
-    }
     //    ZLog(@"%@-----%@-----%@", NSStringFromCGRect(self.chatKeyBoard.chatToolBar.frame),NSStringFromCGRect(self.chatKeyBoard.frame),NSStringFromCGRect(self.chatList.frame));
     
 
 }
 
-- (void)listTap {
-    
-//    [self.keyboard hideKeyBoard];
-//    UIMenuController *menuController = [UIMenuController sharedMenuController];
-//    if (menuController.menuVisible) {
-//        [menuController setMenuVisible:NO animated:YES];
-//    }
+- (void)tapHandler:(UITapGestureRecognizer *)tap {
+    ZLog(@"%@", tap);
+    [self.chatKeyBoard keyboardDown];
 }
+
 
 - (void)clickBtnUp:(UIButton *)btn
 {
@@ -241,7 +256,6 @@ static CGFloat const keyBoardTipTime = 0.3;
 - (void)scrollTableToFoot:(BOOL)animated
 {
 
-    ZLog(@"%@",@"测试");
     
     
     NSInteger s = [self.chatList numberOfSections];  //有多少组
@@ -289,12 +303,10 @@ static CGFloat const keyBoardTipTime = 0.3;
     return [FaceSourceManager loadFaceSource];
 }
 
-- (void)keyBoardChanged {
+- (void)keyBoardChanged:(LLKeyboardShowHideInfo)keyboardInfo {
     
-//    [UIView animateWithDuration:keyBoardTipTime animations:^{
     
-        [self updateChatList];
-//    }];
+    [self updateChatList:keyboardInfo];
 }
 
 
@@ -312,7 +324,7 @@ static CGFloat const keyBoardTipTime = 0.3;
     UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     cell.textLabel.text= self.dataSource[indexPath.row];
     cell.detailTextLabel.text=[NSString stringWithFormat:@"detale --%d",arc4random_uniform(10)];
-    cell.backgroundColor = ZKColor_Red;
+    cell.backgroundColor = kLLBackgroundColor_lightGray;
     return cell;
 }
 
@@ -322,6 +334,13 @@ static CGFloat const keyBoardTipTime = 0.3;
     return 40.0;
 }
 
+
+
+// 隐藏键盘
+- (void)scrollViewWillBeginDragging:(UITableView *)scrollView
+{
+    [self.chatKeyBoard keyboardDown];
+}
 
 #pragma mark- 其他方法
 
@@ -337,13 +356,23 @@ static CGFloat const keyBoardTipTime = 0.3;
     if (!_chatList) {
         _chatList = [[UITableView alloc]init];
         _chatList.frame = CGRectMake(0, 0, screenW, screenH - kChatToolBarHeight - 64);
-        _chatList.backgroundColor = [UIColor greenColor];
+        _chatList.backgroundColor = kLLBackgroundColor_lightGray;
         _chatList.tableFooterView = [[UIView alloc]init];
         _chatList.delegate = self;
         _chatList.dataSource = self;
         _chatList.separatorStyle = UITableViewCellSeparatorStyleNone;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(listTap)];
-        [_chatList addGestureRecognizer:tap];
+
+        tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)];
+        tapGesture.cancelsTouchesInView = NO;
+        tapGesture.cancelsTouchesInView = NO;
+        tapGesture.numberOfTapsRequired = 1;
+        tapGesture.numberOfTouchesRequired = 1;
+        [_chatList addGestureRecognizer:tapGesture];
+        
+        _chatList.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+
+        
+
     }
     return _chatList;
 }

@@ -28,6 +28,8 @@
         [_switchBtn addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventTouchUpInside];
         _switchBtn.frame = CGRectMake(0, 0, 44, kChatToolBarHeight);
         [self addSubview:_switchBtn];
+        self.backgroundColor = kLLBackgourndColor_inputGray;
+
     }
     return self;
 }

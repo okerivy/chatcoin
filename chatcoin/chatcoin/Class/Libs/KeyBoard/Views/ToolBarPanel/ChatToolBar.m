@@ -58,6 +58,8 @@
     if (self) {
         [self setDefaultValue];
         [self initSubviews];
+        self.backgroundColor = kLLBackgourndColor_inputGray;
+
     }
     return self;
 }

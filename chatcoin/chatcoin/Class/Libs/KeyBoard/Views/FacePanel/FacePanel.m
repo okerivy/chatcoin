@@ -54,6 +54,8 @@ extern NSString * const FacePageViewFaceThemeStyle;
     self = [super initWithFrame:frame];
     if (self) {
         [self initSubViews];
+        self.backgroundColor = kLLBackgourndColor_inputGray;
+
     }
     return self;
 }

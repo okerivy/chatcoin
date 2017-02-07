@@ -99,6 +99,8 @@ typedef void (^ItemViewAction)(MoreItemView *itemView);
         _pageControl.pageIndicatorTintColor = [UIColor darkGrayColor];
         _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
         [self addSubview:_pageControl];
+        self.backgroundColor = kLLBackgourndColor_inputGray;
+
     }
     return self;
 }

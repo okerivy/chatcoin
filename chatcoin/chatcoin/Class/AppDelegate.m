@@ -39,8 +39,11 @@
 
 - (void)initUIAppearance {
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-    [UINavigationBar appearance].barTintColor = ZKColor_VarGray(50);
+    [UINavigationBar appearance].barTintColor = kLLBackgroundColor_Nav;
+
     [UINavigationBar appearance].barStyle = UIBarStyleBlack;
+//    [UINavigationBar appearance].translucent = NO;
+
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} forState:UIControlStateNormal];
     
     //设置返回按钮

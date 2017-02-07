@@ -22,6 +22,32 @@
 #import "ChatToolBarItem.h"
 #import "FaceThemeModel.h"
 
+typedef NS_ENUM(NSInteger, LLKeyboardType) {
+    kLLKeyboardTypeDefault = 0, //系统默认键盘
+    kLLKeyboardTypeEmotion,     //表情输入键盘
+    kLLKeyboardTypePanel,       //提供照片、视频等功能的Panel
+    kLLKeyboardTypeRecord,      //按住说话
+    kLLKeyboardTypeNone         //当前没有显示键盘
+};
+
+typedef NS_ENUM(NSInteger, LLKeyboardChangeType) {
+    LLKeyboardChangeTypeShow = 0, //系统默认键盘
+    LLKeyboardChangeTypeHidden,     //表情输入键盘
+    LLKeyboardChangeTypeSwitch      //提供照片、视频等功能的Panel
+};
+
+struct LLKeyboardShowHideInfo {
+    LLKeyboardChangeType KeyboardChangeType; // 键盘切换类型
+    NSInteger keyboardHeight;        //键盘高度
+    //    LLKeyboardType fromKeyboardType;  //当前显示的键盘类型
+    LLKeyboardType toKeyboardType;    //需要显示/隐藏的键盘类型
+    //    BOOL animated;              //是否需要动画效果
+    UIViewAnimationOptions curve;
+    CGFloat duration;
+};
+
+typedef struct LLKeyboardShowHideInfo LLKeyboardShowHideInfo;
+
 
 typedef NS_ENUM(NSInteger, KeyBoardStyle)
 {
@@ -43,7 +69,7 @@ typedef NS_ENUM(NSInteger, KeyBoardStyle)
  * 代理方法：键盘改变的代理事件
  * 用来更新父视图的UI，比如跟随键盘改变的列表高度
  */
-- (void)keyBoardChanged;
+- (void)keyBoardChanged:(LLKeyboardShowHideInfo) keyboardInfo;
 
 
 /**

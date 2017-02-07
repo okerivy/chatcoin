@@ -156,6 +156,7 @@
 		7BEC0DCA1E47689F00A0C71C /* FaceSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSourceManager.m; sourceTree = "<group>"; };
 		7BEC0DEB1E483DDA00A0C71C /* DAProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAProfilesViewController.h; sourceTree = "<group>"; };
 		7BEC0DEC1E483DDA00A0C71C /* DAProfilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAProfilesViewController.m; sourceTree = "<group>"; };
+		7BEC0DEE1E49C4EF00A0C71C /* LLColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLColors.h; sourceTree = "<group>"; };
 		9D7D35D514777E16BC56E929 /* Pods-chatcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatcoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -428,6 +429,7 @@
 		7BEC0CEE1E4617FC00A0C71C /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0DEE1E49C4EF00A0C71C /* LLColors.h */,
 				7BEC0CEF1E46185700A0C71C /* Api.h */,
 				7BEC0CF01E46186700A0C71C /* Config.h */,
 			);

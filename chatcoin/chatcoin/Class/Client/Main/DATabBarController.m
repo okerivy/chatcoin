@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[UITabBar appearance] setBarTintColor:kLLBackgroundColor_Tabbar];
+    [UITabBar appearance].translucent = NO;
     // 1.初始化子控制器
     DAConversationViewController *home = [[DAConversationViewController alloc] init];
     [self addChildVc:home title:@"聊天" image:@"tabbar_mainframe" selectedImage:@"tabbar_mainframeHL"];

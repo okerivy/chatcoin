@@ -91,6 +91,8 @@
 }
 
 - (BOOL)sideslipCell:(LYSideslipCell *)sideslipCell canSideslipRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+
     if (indexPath.row == 4) {
         return NO;
     }
