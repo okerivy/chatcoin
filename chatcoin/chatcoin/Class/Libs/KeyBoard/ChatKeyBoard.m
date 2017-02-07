@@ -242,7 +242,7 @@
     CGFloat targetY = end.origin.y - chatToolBarHeight - (kScreenHeight - [self getSuperViewH]);
     
     
-    //FIXME: 第三方输入法会导致 UIKeyboardWillShowNotification 派发3次
+    
     //为什么要设计成派发3次？
     if ([notify.name isEqualToString:UIKeyboardWillShowNotification]) {
         
@@ -257,6 +257,7 @@
         //        SET_KEYBOARD_TYPE(kLLKeyboardTypeDefault);
         keyboardShowHideInfo.duration = duration;
         
+        //FIXME: 第三方输入法会导致 UIKeyboardWillShowNotification 派发3次，但是如果进行判断，会出现不同键盘切换时，工具条位置错误，所以先不做判断
 //        if(begin.origin.y == SCREENH_HEIGHT && end.size.height>0 && (begin.origin.y-end.origin.y>0))
 //            //            if(begin.size.height>0 && (begin.origin.y-end.origin.y!=0))
 //        {
