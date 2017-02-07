@@ -148,19 +148,71 @@ static CGFloat const keyBoardTipTime = 0.3;
 //重设tabbleview的frame并根据是否在底部来执行滚动到底部的动画（不在底部就不执行，在底部才执行）
 - (void)updateChatList {
     
+//    CGFloat offSetY = self.chatList.contentSize.height - self.chatList.height_LL;
+//    //判断是否需要滚动到底部，给一个误差值
+//    if (self.chatList.contentOffset.y > offSetY - 5 || self.chatList.contentOffset.y > offSetY + 5) {
+//        
+//        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+//        [self scrollTableToFoot:YES];
+//    }else {
+//        
+//        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+//        [self scrollTableToFoot:YES];
+//
+//    }
+//    NSLog(@"%s------%@-----%@-----%@", __func__,NSStringFromCGRect(self.chatKeyBoard.chatToolBar.frame),NSStringFromCGRect(self.chatKeyBoard.frame),NSStringFromCGRect(self.chatList.frame));
+    
+    
+    //return;
     CGFloat offSetY = self.chatList.contentSize.height - self.chatList.height_LL;
     //判断是否需要滚动到底部，给一个误差值
     if (self.chatList.contentOffset.y > offSetY - 5 || self.chatList.contentOffset.y > offSetY + 5) {
         
-        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+        //        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+        
+        [UIView animateWithDuration:ZKKeyboardTime
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState |
+         UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
+                             
+                             self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - 64, 0);
+                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
+                             
+                             self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
+                             
+                             
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+        
+        
         [self scrollTableToFoot:YES];
     }else {
         
-        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+        //        self.chatList.height_LL = self.chatKeyBoard.top_LL;
+        [UIView animateWithDuration:ZKKeyboardTime
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState |
+         UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
+                             
+                             self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - 64, 0);
+                             NSLog(@"%@",NSStringFromUIEdgeInsets(self.chatList.contentInset));
+                             
+                             self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
+                             
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+        
         [self scrollTableToFoot:YES];
-
+        
     }
-    NSLog(@"%s------%@-----%@-----%@", __func__,NSStringFromCGRect(self.chatKeyBoard.chatToolBar.frame),NSStringFromCGRect(self.chatKeyBoard.frame),NSStringFromCGRect(self.chatList.frame));
+    //    ZLog(@"%@-----%@-----%@", NSStringFromCGRect(self.chatKeyBoard.chatToolBar.frame),NSStringFromCGRect(self.chatKeyBoard.frame),NSStringFromCGRect(self.chatList.frame));
+    
 
 }
 
@@ -239,10 +291,10 @@ static CGFloat const keyBoardTipTime = 0.3;
 
 - (void)keyBoardChanged {
     
-    [UIView animateWithDuration:keyBoardTipTime animations:^{
-        
+//    [UIView animateWithDuration:keyBoardTipTime animations:^{
+    
         [self updateChatList];
-    }];
+//    }];
 }
 
 
@@ -260,7 +312,7 @@ static CGFloat const keyBoardTipTime = 0.3;
     UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     cell.textLabel.text= self.dataSource[indexPath.row];
     cell.detailTextLabel.text=[NSString stringWithFormat:@"detale --%d",arc4random_uniform(10)];
-    cell.backgroundColor = ZKColor_Random;
+    cell.backgroundColor = ZKColor_Red;
     return cell;
 }
 
@@ -285,7 +337,7 @@ static CGFloat const keyBoardTipTime = 0.3;
     if (!_chatList) {
         _chatList = [[UITableView alloc]init];
         _chatList.frame = CGRectMake(0, 0, screenW, screenH - kChatToolBarHeight - 64);
-        _chatList.backgroundColor = ZKColor_White;
+        _chatList.backgroundColor = [UIColor greenColor];
         _chatList.tableFooterView = [[UIView alloc]init];
         _chatList.delegate = self;
         _chatList.dataSource = self;

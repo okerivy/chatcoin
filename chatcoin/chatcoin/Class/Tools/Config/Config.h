@@ -52,6 +52,15 @@
 #define ZKColor_Black [UIColor blackColor] // 黑色
 #define ZKColor_Red [UIColor redColor] // 红色
 
+// 系统控件默认高度
+#define kStatusBarHeight (20.f) //电源所在的状态栏
+#define kTopBarHeight (44.f) //NavigationBar的高度
+#define kBottomBarHeight (49.f) //Tabbar的高度
+#define kCellDefaultHeight (44.f) //UITableViewCell 的默认高度
+#define kEnglishKeyboardHeight (216.f)//英语键盘的默认高度
+#define kChineseKeyboardHeight (252.f)//汉语键盘的默认高度
+#define ZKKeyboardTime (0.25f)//键盘弹出的时间
+
 
 //5.自定义高效率的 NSLog
 

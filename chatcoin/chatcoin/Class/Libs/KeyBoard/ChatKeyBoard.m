@@ -80,6 +80,7 @@
         [self addSubview:self.facePanel];
         [self addSubview:self.morePanel];
         [self addSubview:self.OAtoolbar];
+        self.backgroundColor = ZKColor_Var(230, 240, 245);
         
         __weak __typeof(self) weakself = self;
         self.OAtoolbar.switchAction = ^(){
@@ -207,30 +208,30 @@
  */
 - (void)updateAssociateTableViewFrame
 {
-    //表的原来的偏移量
-    CGFloat original =  _associateTableView.contentOffset.y;
-    
-    //键盘的y坐标的偏移量
-    CGFloat keyboardOffset = self.frame.origin.y - self.lastChatKeyboardY;
-    
-    //更新表的frame
-    _associateTableView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.origin.y);
-    
-    //表的超出frame的内容高度
-    CGFloat tableViewContentDiffer = _associateTableView.contentSize.height - _associateTableView.frame.size.height;
-    
-    
-    //是否键盘的偏移量，超过了表的整个tableViewContentDiffer尺寸
-    CGFloat offset = 0;
-    if (fabs(tableViewContentDiffer) > fabs(keyboardOffset)) {
-        offset = original-keyboardOffset;
-    }else {
-        offset = tableViewContentDiffer;
-    }
-    
-    if (_associateTableView.contentSize.height +_associateTableView.contentInset.top+_associateTableView.contentInset.bottom> _associateTableView.frame.size.height) {
-        _associateTableView.contentOffset = CGPointMake(0, offset);
-    }
+//    //表的原来的偏移量
+//    CGFloat original =  _associateTableView.contentOffset.y;
+//    
+//    //键盘的y坐标的偏移量
+//    CGFloat keyboardOffset = self.frame.origin.y - self.lastChatKeyboardY;
+//    
+//    //更新表的frame
+//    _associateTableView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.origin.y);
+//    
+//    //表的超出frame的内容高度
+//    CGFloat tableViewContentDiffer = _associateTableView.contentSize.height - _associateTableView.frame.size.height;
+//    
+//    
+//    //是否键盘的偏移量，超过了表的整个tableViewContentDiffer尺寸
+//    CGFloat offset = 0;
+//    if (fabs(tableViewContentDiffer) > fabs(keyboardOffset)) {
+//        offset = original-keyboardOffset;
+//    }else {
+//        offset = tableViewContentDiffer;
+//    }
+//    
+//    if (_associateTableView.contentSize.height +_associateTableView.contentInset.top+_associateTableView.contentInset.bottom> _associateTableView.frame.size.height) {
+//        _associateTableView.contentOffset = CGPointMake(0, offset);
+//    }
     [self UpdateSuperView];
 
 }
