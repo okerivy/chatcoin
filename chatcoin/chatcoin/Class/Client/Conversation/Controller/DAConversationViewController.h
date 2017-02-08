@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DAViewController.h"
 
-@interface DAConversationViewController : UITableViewController
+@interface DAConversationViewController : DAViewController
 
 @end

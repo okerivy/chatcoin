@@ -59,9 +59,6 @@
     self.title = self.conversationModel.userName;
     self.view.backgroundColor = kLLBackgroundColor_lightGray;
     
-    self.navigationController.navigationBar.translucent = NO;
-    
-    
     [self addSubviews];
     self.dataSource = [NSMutableArray array];
     for (int i = 0; i < 40; i++) {
@@ -76,8 +73,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.translucent = YES;
+
 }
 
 #pragma mark- 初始化方法
@@ -183,7 +179,7 @@
 
     
     [UIView animateWithDuration:ZKKeyboardTime animations:^{
-        self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
+        self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREEN_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
         self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
         
     } completion:^(BOOL finished) {

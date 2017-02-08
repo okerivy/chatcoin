@@ -11,7 +11,10 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+/** 网络是否连接 */
+@property (nonatomic, assign) BOOL  isNetworkConnect;
+/** 是否是4G网 */
+@property (nonatomic, assign) BOOL  isNetwork4G;
 
 @end
 

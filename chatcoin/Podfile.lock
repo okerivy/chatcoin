@@ -2,6 +2,11 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - RealReachability (1.1.8):
+    - RealReachability/Connection (= 1.1.8)
+    - RealReachability/Ping (= 1.1.8)
+  - RealReachability/Connection (1.1.8)
+  - RealReachability/Ping (1.1.8)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
   - YYImage/Core (1.0.4)
@@ -9,14 +14,16 @@ PODS:
 
 DEPENDENCIES:
   - FMDB
+  - RealReachability
   - YYImage
   - YYText
 
 SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 9fafa4047987b1139f43cd81629c0bbd4e1a0383
+PODFILE CHECKSUM: 4f068912144b5371ce6a365bae506d49054044fe
 
 COCOAPODS: 1.2.0

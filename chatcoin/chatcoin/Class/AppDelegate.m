@@ -18,7 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    [self listenNetWorkingStatus]; //监听网络是否可用
+
     [self initUIAppearance];
 
     
@@ -89,6 +90,104 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark- 监听网络变化
+
+-(void)listenNetWorkingStatus{
+    [GLobalRealReachability startNotifier];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkChanged:)
+                                                 name:kRealReachabilityChangedNotification
+                                               object:nil];
+    ReachabilityStatus status = [GLobalRealReachability currentReachabilityStatus];
+    [self realNetworkingStatus:status];
+}
+
+- (void)networkChanged:(NSNotification *)notification
+{
+    RealReachability *reachability = (RealReachability *)notification.object;
+    ReachabilityStatus status = [reachability currentReachabilityStatus];
+    [self realNetworkingStatus:status];
+}
+-(void)realNetworkingStatus:(ReachabilityStatus)status{
+    switch (status)
+    {
+        case RealStatusUnknown:
+        {
+            NSLog(@"~~~~~~~~~~~~~RealStatusUnknown");
+            self.isNetworkConnect = NO;
+            self.isNetwork4G = NO;
+            [self showNetworkStatusAlert:@"当前网络不可用"];
+            break;
+        }
+            
+        case RealStatusNotReachable:
+        {
+            NSLog(@"~~~~~~~~~~~~~RealStatusNotReachable");
+            self.isNetworkConnect = NO;
+            self.isNetwork4G = NO;
+            [self showNetworkStatusAlert:@"无网络,请检查网络链接"];
+            break;
+        }
+            
+        case RealStatusViaWWAN:
+        {
+            NSLog(@"~~~~~~~~~~~~~RealStatusViaWWAN");
+            self.isNetworkConnect = YES;
+            self.isNetwork4G = YES;
+            [self showNetworkStatusAlert:@"流量上网"];
+            break;
+        }
+        case RealStatusViaWiFi:
+        {
+            NSLog(@"~~~~~~~~~~~~~RealStatusViaWiFi");
+            self.isNetworkConnect = YES;
+            self.isNetwork4G = NO;
+            [self showNetworkStatusAlert:@"WIFI上网,尽情挥霍吧小宝贝~"];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+-(void)showNetworkStatusAlert:(NSString *)str{
+    //我这里是网络变化弹出一个警报框，由于不知道怎么让widow加载UIAlertController，所以这里用UIAlertView替代了
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+
+
+#pragma mark- 系统方法
+
+
+
+#pragma mark- 初始化方法
+
+
+
+#pragma mark- set方法
+
+
+
+#pragma mark- 监听方法
+
+
+
+#pragma mark- 代理方法 Delegate
+
+
+
+#pragma mark- 其他方法
+
+
+
+
+
+#pragma mark- 懒加载
+
+
 
 
 @end

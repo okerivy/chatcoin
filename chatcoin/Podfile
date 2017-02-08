@@ -15,6 +15,7 @@ target "chatcoin" do
 pod 'YYText'
 pod 'YYImage'
 pod 'FMDB'
+pod 'RealReachability'
 
 
 end

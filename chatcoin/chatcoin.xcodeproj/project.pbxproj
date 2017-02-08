@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		665F9556B3B824B9056A9800 /* Pods_chatcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
+		7B396A311E4B3DB100386665 /* DATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A301E4B3DB100386665 /* DATableView.m */; };
 		7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF21E461A7100A0C71C /* AppDelegate.m */; };
 		7BEC0CF51E461A7100A0C71C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF31E461A7100A0C71C /* main.m */; };
 		7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF71E461DD800A0C71C /* DAContractViewController.m */; };
@@ -57,6 +58,9 @@
 		7BEC0DC81E4766D900A0C71C /* RFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DB61E4766D900A0C71C /* RFTextView.m */; };
 		7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DCA1E47689F00A0C71C /* FaceSourceManager.m */; };
 		7BEC0DED1E483DDA00A0C71C /* DAProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0DEC1E483DDA00A0C71C /* DAProfilesViewController.m */; };
+		7BEC0E611E4B267400A0C71C /* LLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0E5C1E4B267400A0C71C /* LLSearchBar.m */; };
+		7BEC0E621E4B267500A0C71C /* LLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0E601E4B267400A0C71C /* LLSearchViewController.m */; };
+		7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0E681E4B319000A0C71C /* LLChatSearchController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,8 @@
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
+		7B396A2F1E4B3DB100386665 /* DATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableView.h; sourceTree = "<group>"; };
+		7B396A301E4B3DB100386665 /* DATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableView.m; sourceTree = "<group>"; };
 		7BEC0CEF1E46185700A0C71C /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		7BEC0CF01E46186700A0C71C /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		7BEC0CF11E461A7100A0C71C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +163,16 @@
 		7BEC0DEB1E483DDA00A0C71C /* DAProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAProfilesViewController.h; sourceTree = "<group>"; };
 		7BEC0DEC1E483DDA00A0C71C /* DAProfilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAProfilesViewController.m; sourceTree = "<group>"; };
 		7BEC0DEE1E49C4EF00A0C71C /* LLColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLColors.h; sourceTree = "<group>"; };
+		7BEC0E5B1E4B267400A0C71C /* LLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSearchBar.h; sourceTree = "<group>"; };
+		7BEC0E5C1E4B267400A0C71C /* LLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSearchBar.m; sourceTree = "<group>"; };
+		7BEC0E5D1E4B267400A0C71C /* LLSearchControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSearchControllerDelegate.h; sourceTree = "<group>"; };
+		7BEC0E5E1E4B267400A0C71C /* LLSearchResultDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSearchResultDelegate.h; sourceTree = "<group>"; };
+		7BEC0E5F1E4B267400A0C71C /* LLSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSearchViewController.h; sourceTree = "<group>"; };
+		7BEC0E601E4B267400A0C71C /* LLSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSearchViewController.m; sourceTree = "<group>"; };
+		7BEC0E641E4B2CAE00A0C71C /* SearchUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchUtils.h; sourceTree = "<group>"; };
+		7BEC0E651E4B2CEB00A0C71C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7BEC0E671E4B319000A0C71C /* LLChatSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLChatSearchController.h; sourceTree = "<group>"; };
+		7BEC0E681E4B319000A0C71C /* LLChatSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLChatSearchController.m; sourceTree = "<group>"; };
 		9D7D35D514777E16BC56E929 /* Pods-chatcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatcoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -358,6 +374,8 @@
 				7BEC0D081E46DFDB00A0C71C /* DATabBarController.m */,
 				7BEC0D541E470A7E00A0C71C /* DAViewController.h */,
 				7BEC0D551E470A7E00A0C71C /* DAViewController.m */,
+				7B396A2F1E4B3DB100386665 /* DATableView.h */,
+				7B396A301E4B3DB100386665 /* DATableView.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -375,6 +393,8 @@
 		7BEC0CE71E4617FC00A0C71C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0E671E4B319000A0C71C /* LLChatSearchController.h */,
+				7BEC0E681E4B319000A0C71C /* LLChatSearchController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +423,7 @@
 		7BEC0CEB1E4617FC00A0C71C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0E5A1E4B267400A0C71C /* Search */,
 				7BEC0D8D1E4766D900A0C71C /* KeyBoard */,
 				7BEC0D5A1E47424C00A0C71C /* SideslipCell */,
 			);
@@ -654,9 +675,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7BEC0E5A1E4B267400A0C71C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7BEC0E5B1E4B267400A0C71C /* LLSearchBar.h */,
+				7BEC0E5C1E4B267400A0C71C /* LLSearchBar.m */,
+				7BEC0E5D1E4B267400A0C71C /* LLSearchControllerDelegate.h */,
+				7BEC0E5E1E4B267400A0C71C /* LLSearchResultDelegate.h */,
+				7BEC0E5F1E4B267400A0C71C /* LLSearchViewController.h */,
+				7BEC0E601E4B267400A0C71C /* LLSearchViewController.m */,
+				7BEC0E641E4B2CAE00A0C71C /* SearchUtils.h */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		DFA3C84F25F72B5294F0E527 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BEC0E651E4B2CEB00A0C71C /* MapKit.framework */,
 				7BEC0D5E1E47497E00A0C71C /* libz.tbd */,
 				09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */,
 			);
@@ -800,18 +836,22 @@
 				7BEC0D241E46EBCE00A0C71C /* UICollectionView+LLExt.m in Sources */,
 				7BEC0DC61E4766D900A0C71C /* OfficialAccountToolbar.m in Sources */,
 				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
+				7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */,
 				7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
 				7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */,
 				7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */,
+				7BEC0E611E4B267400A0C71C /* LLSearchBar.m in Sources */,
 				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
 				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
 				7BEC0D231E46EBCE00A0C71C /* NSString+encrypto.m in Sources */,
 				7BEC0D091E46DFDB00A0C71C /* DATabBarController.m in Sources */,
 				7BEC0D261E46EBCE00A0C71C /* UIImage+EMGIF.m in Sources */,
 				7BEC0DBB1E4766D900A0C71C /* MoreItem.m in Sources */,
+				7BEC0E621E4B267500A0C71C /* LLSearchViewController.m in Sources */,
 				7BEC0D2B1E46EBCE00A0C71C /* UITextView+LLDebugOnly.m in Sources */,
 				7BEC0D5D1E47424C00A0C71C /* LYSideslipCell.m in Sources */,
+				7B396A311E4B3DB100386665 /* DATableView.m in Sources */,
 				7BEC0D2F1E46EF9A00A0C71C /* UIView+LLExt.m in Sources */,
 				7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */,
 				7BEC0D271E46EBCE00A0C71C /* UIImage+LLExt.m in Sources */,
