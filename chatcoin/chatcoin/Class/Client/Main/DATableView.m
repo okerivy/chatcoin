@@ -14,8 +14,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    ZLog(@"tableview 布局");
-    ZLog(@"%@", NSStringFromCGRect(self.frame));
 }
 
 @end

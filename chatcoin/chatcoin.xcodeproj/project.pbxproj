@@ -10,6 +10,13 @@
 		665F9556B3B824B9056A9800 /* Pods_chatcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 		7B396A311E4B3DB100386665 /* DATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A301E4B3DB100386665 /* DATableView.m */; };
+		7B396A3D1E505AB900386665 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A3A1E505AB900386665 /* ChatMessage.m */; };
+		7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A3C1E505AB900386665 /* ChatMessageFrame.m */; };
+		7B396A421E505B3100386665 /* LiuqsDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A411E505B3100386665 /* LiuqsDecoder.m */; };
+		7B396A451E505B7500386665 /* LiuqsTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A441E505B7500386665 /* LiuqsTextAttachment.m */; };
+		7B396A481E505C0300386665 /* ChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A471E505C0300386665 /* ChatMessageCell.m */; };
+		7B396A4B1E505C9700386665 /* UIImage+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A4A1E505C9700386665 /* UIImage+extension.m */; };
+		7B396A4E1E50686B00386665 /* DAChatMessageDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A4D1E50686B00386665 /* DAChatMessageDateCell.m */; };
 		7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF21E461A7100A0C71C /* AppDelegate.m */; };
 		7BEC0CF51E461A7100A0C71C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF31E461A7100A0C71C /* main.m */; };
 		7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF71E461DD800A0C71C /* DAContractViewController.m */; };
@@ -72,6 +79,20 @@
 		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
 		7B396A2F1E4B3DB100386665 /* DATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableView.h; sourceTree = "<group>"; };
 		7B396A301E4B3DB100386665 /* DATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableView.m; sourceTree = "<group>"; };
+		7B396A391E505AB900386665 /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		7B396A3A1E505AB900386665 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		7B396A3B1E505AB900386665 /* ChatMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageFrame.h; sourceTree = "<group>"; };
+		7B396A3C1E505AB900386665 /* ChatMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageFrame.m; sourceTree = "<group>"; };
+		7B396A401E505B3100386665 /* LiuqsDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsDecoder.h; sourceTree = "<group>"; };
+		7B396A411E505B3100386665 /* LiuqsDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsDecoder.m; sourceTree = "<group>"; };
+		7B396A431E505B7500386665 /* LiuqsTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiuqsTextAttachment.h; sourceTree = "<group>"; };
+		7B396A441E505B7500386665 /* LiuqsTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiuqsTextAttachment.m; sourceTree = "<group>"; };
+		7B396A461E505C0300386665 /* ChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageCell.h; sourceTree = "<group>"; };
+		7B396A471E505C0300386665 /* ChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageCell.m; sourceTree = "<group>"; };
+		7B396A491E505C9700386665 /* UIImage+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+extension.h"; sourceTree = "<group>"; };
+		7B396A4A1E505C9700386665 /* UIImage+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+extension.m"; sourceTree = "<group>"; };
+		7B396A4C1E50686B00386665 /* DAChatMessageDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatMessageDateCell.h; sourceTree = "<group>"; };
+		7B396A4D1E50686B00386665 /* DAChatMessageDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatMessageDateCell.m; sourceTree = "<group>"; };
 		7BEC0CEF1E46185700A0C71C /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		7BEC0CF01E46186700A0C71C /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		7BEC0CF11E461A7100A0C71C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -234,6 +255,19 @@
 				7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B396A3F1E505B3100386665 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7B396A491E505C9700386665 /* UIImage+extension.h */,
+				7B396A4A1E505C9700386665 /* UIImage+extension.m */,
+				7B396A431E505B7500386665 /* LiuqsTextAttachment.h */,
+				7B396A441E505B7500386665 /* LiuqsTextAttachment.m */,
+				7B396A401E505B3100386665 /* LiuqsDecoder.h */,
+				7B396A411E505B3100386665 /* LiuqsDecoder.m */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		7BEC0CD31E4617FC00A0C71C /* Class */ = {
@@ -506,6 +540,7 @@
 				7BEC0D511E470A1D00A0C71C /* Controller */,
 				7BEC0D521E470A1D00A0C71C /* Model */,
 				7BEC0D531E470A1D00A0C71C /* View */,
+				7B396A3F1E505B3100386665 /* Other */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -522,6 +557,10 @@
 		7BEC0D521E470A1D00A0C71C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B396A391E505AB900386665 /* ChatMessage.h */,
+				7B396A3A1E505AB900386665 /* ChatMessage.m */,
+				7B396A3B1E505AB900386665 /* ChatMessageFrame.h */,
+				7B396A3C1E505AB900386665 /* ChatMessageFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -529,6 +568,10 @@
 		7BEC0D531E470A1D00A0C71C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B396A461E505C0300386665 /* ChatMessageCell.h */,
+				7B396A471E505C0300386665 /* ChatMessageCell.m */,
+				7B396A4C1E50686B00386665 /* DAChatMessageDateCell.h */,
+				7B396A4D1E50686B00386665 /* DAChatMessageDateCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -832,11 +875,13 @@
 				7BEC0DC51E4766D900A0C71C /* ChatToolBar.m in Sources */,
 				7BEC0DBA1E4766D900A0C71C /* FaceThemeModel.m in Sources */,
 				7BEC0D251E46EBCE00A0C71C /* UIColor+LLExt.m in Sources */,
+				7B396A421E505B3100386665 /* LiuqsDecoder.m in Sources */,
 				7BEC0D291E46EBCE00A0C71C /* UIScrollView+LLExt.m in Sources */,
 				7BEC0D241E46EBCE00A0C71C /* UICollectionView+LLExt.m in Sources */,
 				7BEC0DC61E4766D900A0C71C /* OfficialAccountToolbar.m in Sources */,
 				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
 				7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */,
+				7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */,
 				7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
 				7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */,
@@ -858,17 +903,22 @@
 				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
 				7BEC0D221E46EBCE00A0C71C /* NSDate+LLExt.m in Sources */,
 				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
+				7B396A3D1E505AB900386665 /* ChatMessage.m in Sources */,
 				7BEC0DC31E4766D900A0C71C /* PanelBottomView.m in Sources */,
+				7B396A481E505C0300386665 /* ChatMessageCell.m in Sources */,
 				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
 				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
 				7BEC0DBF1E4766D900A0C71C /* FaceButton.m in Sources */,
 				7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */,
+				7B396A451E505B7500386665 /* LiuqsTextAttachment.m in Sources */,
 				7BEC0DC41E4766D900A0C71C /* MorePanel.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
 				7BEC0DC71E4766D900A0C71C /* RFRecordButton.m in Sources */,
+				7B396A4B1E505C9700386665 /* UIImage+extension.m in Sources */,
 				7BEC0DC21E4766D900A0C71C /* FaceThemeView.m in Sources */,
 				7BEC0DB71E4766D900A0C71C /* NSString+Emoji.m in Sources */,
 				7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */,
+				7B396A4E1E50686B00386665 /* DAChatMessageDateCell.m in Sources */,
 				7BEC0DED1E483DDA00A0C71C /* DAProfilesViewController.m in Sources */,
 				7BEC0DC11E4766D900A0C71C /* FacePanel.m in Sources */,
 				7BEC0DC81E4766D900A0C71C /* RFTextView.m in Sources */,

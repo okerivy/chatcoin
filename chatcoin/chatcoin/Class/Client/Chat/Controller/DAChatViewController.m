@@ -13,11 +13,16 @@
 #import "FaceSourceManager.h"
 #import "FaceThemeModel.h"
 
+#import "ChatMessageCell.h"
+#import "ChatMessage.h"
+#import "DAChatMessageDateCell.h"
 //屏幕宽
 #define screenW [UIScreen mainScreen].bounds.size.width
 //屏幕高
 #define screenH [UIScreen mainScreen].bounds.size.height
 
+//聊天界面，需要单独显示消息时间的时间间隔
+#define CHAT_CELL_TIME_INTERVEL 90.0
 
 
 @interface DAChatViewController ()<UITableViewDelegate,UITableViewDataSource,ChatKeyBoardDataSource, ChatKeyBoardDelegate>
@@ -27,7 +32,9 @@
 
 
 @property(nonatomic, strong) UITableView *chatList;
-
+// 数据库原始的数据
+@property(nonatomic, strong) NSMutableArray *dataBank;
+// 添加日期的数据
 @property(nonatomic, strong) NSMutableArray *dataSource;
 
 /** <#describe#> */
@@ -60,11 +67,13 @@
     self.view.backgroundColor = kLLBackgroundColor_lightGray;
     
     [self addSubviews];
+    self.dataBank = [NSMutableArray array];
+
     self.dataSource = [NSMutableArray array];
-    for (int i = 0; i < 40; i++) {
-        
-        [self.dataSource addObject:[NSString stringWithFormat:@"%d",arc4random_uniform(200)]];
-    }
+//    for (int i = 0; i < 40; i++) {
+//        
+//        [self.dataSource addObject:[NSString stringWithFormat:@"%d",arc4random_uniform(200)]];
+//    }
 
 
     [self initData];
@@ -83,20 +92,20 @@
 - (void)addSubviews
 {
     [self.view addSubview:self.chatList];
-    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn1.frame = CGRectMake(50, 150, 120, 44);
-    [btn1 setTitle:@"上去" forState:UIControlStateNormal];
-    btn1.backgroundColor = [UIColor purpleColor];
-    [btn1 addTarget:self action:@selector(clickBtnUp:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn1];
-    
-    
-    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn2.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 170, 150, 120, 44);
-    [btn2 setTitle:@"让键盘下去" forState:UIControlStateNormal];
-    btn2.backgroundColor = [UIColor purpleColor];
-    [btn2 addTarget:self action:@selector(clickBtnDown:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn2];
+//    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeSystem];
+//    btn1.frame = CGRectMake(50, 150, 120, 44);
+//    [btn1 setTitle:@"上去" forState:UIControlStateNormal];
+//    btn1.backgroundColor = [UIColor purpleColor];
+//    [btn1 addTarget:self action:@selector(clickBtnUp:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn1];
+//    
+//    
+//    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeSystem];
+//    btn2.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 170, 150, 120, 44);
+//    [btn2 setTitle:@"让键盘下去" forState:UIControlStateNormal];
+//    btn2.backgroundColor = [UIColor purpleColor];
+//    [btn2 addTarget:self action:@selector(clickBtnDown:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn2];
     
     
     
@@ -121,15 +130,74 @@
 
 - (void)initData {
     
-//    ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
-//    ChatMessage *message = [[ChatMessage alloc]init];
-//    message.userType = userTypeMe;
-//    message.userId = 0;
-//    NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗[委屈]。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)[害羞]，结果她一脸淡定的回绝了:“二叔！别闹……”[尴尬]";
-//    message.messageContent = Lmessage;
-//    cellFrame.message = message;
-//    [self.dataSource addObject:cellFrame];
-//    
+
+    
+    for (int i = 0; i<20; i++) {
+        if (i %3 == 0) {
+            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+            ChatMessage *message = [[ChatMessage alloc]init];
+            message.userType = userTypeMe;
+            message.userId = 0;
+//            NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗[委屈]。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)[害羞]，结果她一脸淡定的回绝了:“二叔！别闹……”[尴尬]";
+            NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)，结果她一脸淡定的回绝了:“二叔！别闹……”";
+            message.messageContent = Lmessage;
+            message.timestamp = 1486893134.0 + i * 60;
+            message.messageBodyType = kLLMessageBodyTypeText;
+            cellFrame.message = message;
+            [self.dataBank addObject:cellFrame];
+        } else if (i %3 == 1) {
+            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+            ChatMessage *message = [[ChatMessage alloc]init];
+            message.userType = userTypeOther;
+            message.userId = 1;
+            NSString *Lmessage = @"这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。";
+            message.messageContent = Lmessage;
+            message.timestamp = 1486893134.0 + i * 70;
+            message.messageBodyType = kLLMessageBodyTypeText;
+
+            cellFrame.message = message;
+            [self.dataBank addObject:cellFrame];
+        }else if (i %3 == 2) {
+            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+            ChatMessage *message = [[ChatMessage alloc]init];
+            message.userType = userTypeOther;
+            message.userId = 1;
+            NSString *Lmessage = @"这是我的消息";
+            message.messageContent = Lmessage;
+            message.timestamp = 1486893134.0 + i * 80;
+            message.messageBodyType = kLLMessageBodyTypeText;
+
+            cellFrame.message = message;
+            [self.dataBank addObject:cellFrame];
+        }
+    }
+    
+    for (NSInteger i = 0, count = self.dataBank.count; i < count; i++) {
+        ChatMessageFrame *messageModelFrame = self.dataBank[i];
+        ChatMessage *messageModel = messageModelFrame.message;
+        
+        ChatMessageFrame *lastMessageFrame = [self.dataSource lastObject];
+        ChatMessage *lastMessage = lastMessageFrame.message;
+
+        ZLog(@"时间间隔 %lf    %lf", messageModel.timestamp - (lastMessage.timestamp +1),CHAT_CELL_TIME_INTERVEL);
+        if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
+            
+            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+
+            ChatMessage *dateModel = [[ChatMessage alloc] init];
+            dateModel.messageBodyType = kLLMessageBodyTypeDateTime;
+            dateModel.timestamp = messageModel.timestamp;
+            cellFrame.message = dateModel;
+
+            [self.dataSource addObject:cellFrame];
+        }
+        
+        [self.dataSource addObject:messageModelFrame];
+    }
+
+    
+    
+    
 //    NSMutableArray *messageArray = [LiuqsMessageDataBase queryData:nil];
 //    [messageArray enumerateObjectsUsingBlock:^(ChatMessage *message, NSUInteger idx, BOOL * _Nonnull stop) {
 //        
@@ -137,7 +205,7 @@
 //        cellFrame.message = message;
 //        [self.dataSource addObject:cellFrame];
 //    }];
-//    [self.chatList reloadData];
+    [self.chatList reloadData];
 //    [self ScrollTableViewToBottom];
 }
 
@@ -230,7 +298,6 @@
 }
 
 - (void)tapHandler:(UITapGestureRecognizer *)tap {
-    ZLog(@"%@", tap);
     [self.chatKeyBoard keyboardDown];
 }
 
@@ -306,27 +373,73 @@
 
 
 
+#pragma mark -- 发送文本
+- (void)chatKeyBoardSendText:(NSString *)text
+{
+    ZLog(@"%@", text);
+}
+
+
 #pragma mark ==== tabbleView 代理方法
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    ZLog(@"%zd", self.dataSource.count);
     return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChatMessageFrame *cellFrame = [self.dataSource objectAtIndex:indexPath.row];
+    ChatMessage *cellModel = cellFrame.message;
     
+    UITableViewCell *_cell;
 
-    UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    cell.textLabel.text= self.dataSource[indexPath.row];
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"detale --%d",arc4random_uniform(10)];
-    cell.backgroundColor = kLLBackgroundColor_lightGray;
-    return cell;
+    
+    switch (cellModel.messageBodyType) {
+        case kLLMessageBodyTypeText: {
+            ChatMessageCell *cell = [ChatMessageCell cellWithTableView:tableView];
+            cell.MessageFrame = cellFrame;
+            
+            __weak typeof (self) weakSelf = self;
+            [cell setDeleteMessage:^(ChatMessageFrame *MessageFrame) {
+                NSUInteger index = [self.dataSource indexOfObject:MessageFrame];
+                [weakSelf.dataSource removeObject:MessageFrame];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                [weakSelf.chatList deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }];
+
+            _cell = cell;
+            break;
+        }
+        case kLLMessageBodyTypeDateTime: {
+            DAChatMessageDateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DAChatMessageDateCell"];
+            if (!cell) {
+                cell = [[DAChatMessageDateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DAChatMessageDateCell"];
+            }
+            cell.MessageFrame = cellFrame;
+
+            
+//            [messageModel setNeedsUpdateForReuse];
+            _cell = cell;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    return _cell;
+
+//    UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+//    cell.textLabel.text= self.dataSource[indexPath.row];
+//    cell.detailTextLabel.text=[NSString stringWithFormat:@"detale --%d",arc4random_uniform(10)];
+//    cell.backgroundColor = kLLBackgroundColor_lightGray;
+//    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-    return 40.0;
+    ChatMessageFrame *cellFrame = [self.dataSource objectAtIndex:indexPath.row];
+    return cellFrame.cellHeight;
+//    return 40.0;
 }
 
 
@@ -373,5 +486,4 @@
 }
 
 
-#
 @end

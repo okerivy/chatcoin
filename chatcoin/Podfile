@@ -17,6 +17,32 @@ pod 'YYImage'
 pod 'FMDB'
 pod 'RealReachability'
 
+#自动导入FMDB和SQLCipher 实现数据库操作和加密
+#pod 'FMDB/SQLCipher'
+
+#对FMDB的封装，实现ORM面向对象操作数据库
+pod 'LKDBHelper'
+
+#支持内存和磁盘缓存
+pod 'YYCache'
+
+#AFNetworking 3.x
+#pod 'AFNetworking', '~> 3.0'
+
+#AFNetworking 3.x 与YYCache封装
+pod 'PPNetworkHelper'
+
+#模型转换
+pod 'MJExtension'
+
+#下拉刷新
+pod 'MJRefresh'
+
+#通讯录联系人排序
+pod 'PPGetAddressBook'
+
+#MessageDisplayKit
+#pod 'MessageDisplayKit'
 
 end
 
