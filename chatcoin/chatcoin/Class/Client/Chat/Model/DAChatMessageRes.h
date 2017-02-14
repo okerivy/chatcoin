@@ -7,19 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DAChatEnum.h"
 
-typedef enum : NSUInteger {
-    userTypeMe,
-    userTypeOther,
-} userType;
 
-typedef NS_ENUM(NSInteger, LLMessageBodyType) {
-    kLLMessageBodyTypeText = 1,
-    kLLMessageBodyTypeDateTime,
-    
-};
 
-@interface ChatMessage : NSObject
+@interface DAChatMessageRes : NSObject
 
 @property(nonatomic, copy) NSString *userHeadImage;
 
@@ -27,11 +19,11 @@ typedef NS_ENUM(NSInteger, LLMessageBodyType) {
 
 @property(nonatomic, copy) NSString *messageContent;
 
-@property(nonatomic, assign) userType userType;
+@property(nonatomic, assign) DAMessageUserType userType;
 
 @property(nonatomic, assign) NSInteger userId;
 
-@property (nonatomic, assign) LLMessageBodyType messageBodyType;
+@property (nonatomic, assign) DAMessageContentType messageBodyType;
 
 @property (nonatomic) NSTimeInterval timestamp;
 

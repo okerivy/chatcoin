@@ -130,8 +130,10 @@ static UITableView *_tableview;
     self.nameLabel.text = MessageFrame.message.userName;
     self.headImageView.image = [UIImage imageNamed:MessageFrame.message.userHeadImage];
     
-    NSString *norImageName  = MessageFrame.message.userType == userTypeOther ? @"chat_send_nor" : @"chat_receive_nor";
-    NSString *seleImageName = MessageFrame.message.userType == userTypeOther ? @"chat_send_p" : @"chat_receive_p";
+    //FIXME: 选中效果和图片有关系，到时候 如果想修改 选中效果 要更换图片
+    NSString *norImageName  = MessageFrame.message.userType == DAMessageUserTypeMe ? @"chat_send_nor" : @"chat_receive_nor";
+    NSString *seleImageName = MessageFrame.message.userType == DAMessageUserTypeMe ? @"chat_send_p" : @"chat_receive_p";
+    
     
     UIImage *norImage  = [UIImage resizebleImageWithName:norImageName];
     UIImage *seleImage = [UIImage resizebleImageWithName:seleImageName];
@@ -210,6 +212,7 @@ static UITableView *_tableview;
 //    NSString *delestr = [NSString stringWithFormat:@"DELETE FROM %@ WHERE userId = '%zd'",tb_message,self.MessageFrame.message.userId];
 //    [LiuqsMessageDataBase deleteData:delestr];
 }
+
 
 
 @end

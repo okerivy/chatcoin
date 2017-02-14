@@ -159,6 +159,8 @@ LLSearchControllerDelegate>
             break;
     }
     cell.model = model;
+    // 取消 cell 的选中效果
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -174,7 +176,8 @@ LLSearchControllerDelegate>
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
     DAChatViewController * chatVC = [[DAChatViewController alloc] init];
     chatVC.conversationModel = _dataArray[indexPath.row];
     [self.navigationController pushViewController:chatVC animated:YES];

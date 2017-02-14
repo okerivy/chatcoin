@@ -17,19 +17,19 @@
 
 @implementation ChatMessageFrame
 
-- (void)setMessage:(ChatMessage *)message {
+- (void)setMessage:(DAChatMessageRes *)message {
 
     _message = message;
     
     CGFloat headW  = 40;
     CGFloat headH  = 40;
     CGFloat margin = 10;
-    CGFloat headX = message.userType ? screenW - headW - margin : margin;
+    CGFloat headX = message.userType == DAMessageUserTypeMe ? screenW - headW - margin : margin;
     self.headViewFrame = CGRectMake(headX, margin, headW, headH);
     
     CGRect nameFrame = CGRectMake(CGRectGetMaxX(self.headViewFrame) + margin, CGRectGetMinY(self.headViewFrame), screenW - margin * 2 - headW, 20);
     
-    self.nameLabelFrame = message.userType == userTypeMe ? nameFrame : CGRectZero;
+    self.nameLabelFrame = message.userType == DAMessageUserTypeMe ? nameFrame : CGRectZero;
     self.nameLabelFrame = CGRectZero;
 
     
@@ -48,20 +48,20 @@
     // 生成排版结果
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:self.attMessage];
     
-    CGFloat airX = message.userType ? screenW - margin * 2 - headW - layout.textBoundingSize.width - AllMargin : margin * 2 + headW;
+    CGFloat airX = message.userType == DAMessageUserTypeMe ? screenW - margin * 2 - headW - layout.textBoundingSize.width - AllMargin : margin * 2 + headW;
     
     self.airViewFrame = CGRectMake(airX, 10, layout.textBoundingSize.width + 31, layout.textBoundingSize.height + 16);
     
-    CGFloat contentX = message.userType ? screenW - margin * 2 - headW - layout.textBoundingSize.width - 18 : margin * 2 + headW + 20;
+    CGFloat contentX = message.userType == DAMessageUserTypeMe ? screenW - margin * 2 - headW - layout.textBoundingSize.width - 18 : margin * 2 + headW + 20;
     
     self.messageLabelFrame = CGRectMake(contentX, 43-25, layout.textBoundingSize.width, layout.textBoundingSize.height);
     
     switch (message.messageBodyType) {
-        case kLLMessageBodyTypeText: {
+        case DAMessageContentTypeText: {
             self.cellHeight = CGRectGetMaxY(self.messageLabelFrame) + margin * 2;
             break;
         }
-        case kLLMessageBodyTypeDateTime: {
+        case DAMessageContentTypeDateTime: {
             self.cellHeight = 40;
             break;
         }

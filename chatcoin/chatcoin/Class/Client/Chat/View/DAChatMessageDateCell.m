@@ -47,7 +47,7 @@
     
     if (_MessageFrame != MessageFrame) {
         _MessageFrame = MessageFrame;
-        ChatMessage *messageModel =  MessageFrame.message;
+        DAChatMessageRes *messageModel =  MessageFrame.message;
 
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:messageModel.timestamp];
         self.dateLabel.text = [date timeIntervalBeforeNowLongDescription];
@@ -58,7 +58,7 @@
     
 }
 
-- (void)setMessageModel:(ChatMessage *)messageModel {
+- (void)setMessageModel:(DAChatMessageRes *)messageModel {
     if (_messageModel != messageModel) {
         _messageModel = messageModel;
         
@@ -81,6 +81,7 @@
     self.dateLabel.frame = frame;
     
 }
+
 
 
 @end

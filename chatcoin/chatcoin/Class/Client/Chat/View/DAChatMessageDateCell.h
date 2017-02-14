@@ -13,7 +13,7 @@
 
 @property(nonatomic, strong) ChatMessageFrame *MessageFrame;
 
-@property (nonatomic) ChatMessage *messageModel;
+@property (nonatomic) DAChatMessageRes *messageModel;
 
 
 @end

@@ -14,7 +14,7 @@
 #import "FaceThemeModel.h"
 
 #import "ChatMessageCell.h"
-#import "ChatMessage.h"
+#import "DAChatMessageRes.h"
 #import "DAChatMessageDateCell.h"
 //屏幕宽
 #define screenW [UIScreen mainScreen].bounds.size.width
@@ -33,9 +33,9 @@
 
 @property(nonatomic, strong) UITableView *chatList;
 // 数据库原始的数据
-@property(nonatomic, strong) NSMutableArray *dataBank;
+@property(nonatomic, strong) NSMutableArray<ChatMessageFrame *> *dataBank;
 // 添加日期的数据
-@property(nonatomic, strong) NSMutableArray *dataSource;
+@property(nonatomic, strong) NSMutableArray<ChatMessageFrame *> *dataSource;
 
 /** <#describe#> */
 @property (nonatomic, assign) BOOL keyBoardStatus;
@@ -135,37 +135,37 @@
     for (int i = 0; i<20; i++) {
         if (i %3 == 0) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
-            ChatMessage *message = [[ChatMessage alloc]init];
-            message.userType = userTypeMe;
+            DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
+            message.userType = DAMessageUserTypeOther;
             message.userId = 0;
 //            NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗[委屈]。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)[害羞]，结果她一脸淡定的回绝了:“二叔！别闹……”[尴尬]";
             NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)，结果她一脸淡定的回绝了:“二叔！别闹……”";
             message.messageContent = Lmessage;
             message.timestamp = 1486893134.0 + i * 60;
-            message.messageBodyType = kLLMessageBodyTypeText;
+            message.messageBodyType = DAMessageContentTypeText;
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
         } else if (i %3 == 1) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
-            ChatMessage *message = [[ChatMessage alloc]init];
-            message.userType = userTypeOther;
+            DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
+            message.userType = DAMessageUserTypeMe;
             message.userId = 1;
             NSString *Lmessage = @"这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。";
             message.messageContent = Lmessage;
             message.timestamp = 1486893134.0 + i * 70;
-            message.messageBodyType = kLLMessageBodyTypeText;
+            message.messageBodyType = DAMessageContentTypeText;
 
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
         }else if (i %3 == 2) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
-            ChatMessage *message = [[ChatMessage alloc]init];
-            message.userType = userTypeOther;
+            DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
+            message.userType = DAMessageUserTypeMe;
             message.userId = 1;
             NSString *Lmessage = @"这是我的消息";
             message.messageContent = Lmessage;
             message.timestamp = 1486893134.0 + i * 80;
-            message.messageBodyType = kLLMessageBodyTypeText;
+            message.messageBodyType = DAMessageContentTypeText;
 
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
@@ -174,18 +174,18 @@
     
     for (NSInteger i = 0, count = self.dataBank.count; i < count; i++) {
         ChatMessageFrame *messageModelFrame = self.dataBank[i];
-        ChatMessage *messageModel = messageModelFrame.message;
+        DAChatMessageRes *messageModel = messageModelFrame.message;
         
         ChatMessageFrame *lastMessageFrame = [self.dataSource lastObject];
-        ChatMessage *lastMessage = lastMessageFrame.message;
+        DAChatMessageRes *lastMessage = lastMessageFrame.message;
 
         ZLog(@"时间间隔 %lf    %lf", messageModel.timestamp - (lastMessage.timestamp +1),CHAT_CELL_TIME_INTERVEL);
         if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
             
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
 
-            ChatMessage *dateModel = [[ChatMessage alloc] init];
-            dateModel.messageBodyType = kLLMessageBodyTypeDateTime;
+            DAChatMessageRes *dateModel = [[DAChatMessageRes alloc] init];
+            dateModel.messageBodyType = DAMessageContentTypeDateTime;
             dateModel.timestamp = messageModel.timestamp;
             cellFrame.message = dateModel;
 
@@ -266,33 +266,6 @@
         [self scrollTableToFoot:YES];
 //        ZLog(@"@@@@@@@@@@@--允许滚动到底部");
     }
-
-    
-    
-//    //判断是否需要滚动到底部，给一个误差值
-//    if (self.chatList.contentOffset.y > offSetY - 5 || self.chatList.contentOffset.y > offSetY + 5) {
-//  
-//        [UIView animateWithDuration:ZKKeyboardTime animations:^{
-//            self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
-//            self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
-//            
-//
-//        }];
-//       
-//        
-//        
-//        [self scrollTableToFoot:YES];
-//    }else {
-//        
-//        [UIView animateWithDuration:ZKKeyboardTime animations:^{
-//            self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREENH_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
-//            self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
-//        }];
-//        
-//        [self scrollTableToFoot:YES];
-//        
-//    }
-    //    ZLog(@"%@-----%@-----%@", NSStringFromCGRect(self.chatKeyBoard.chatToolBar.frame),NSStringFromCGRect(self.chatKeyBoard.frame),NSStringFromCGRect(self.chatList.frame));
     
 
 }
@@ -389,28 +362,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatMessageFrame *cellFrame = [self.dataSource objectAtIndex:indexPath.row];
-    ChatMessage *cellModel = cellFrame.message;
+    DAChatMessageRes *cellModel = cellFrame.message;
     
     UITableViewCell *_cell;
 
     
     switch (cellModel.messageBodyType) {
-        case kLLMessageBodyTypeText: {
+        case DAMessageContentTypeText: {
             ChatMessageCell *cell = [ChatMessageCell cellWithTableView:tableView];
             cell.MessageFrame = cellFrame;
             
             __weak typeof (self) weakSelf = self;
             [cell setDeleteMessage:^(ChatMessageFrame *MessageFrame) {
-                NSUInteger index = [self.dataSource indexOfObject:MessageFrame];
-                [weakSelf.dataSource removeObject:MessageFrame];
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-                [weakSelf.chatList deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//                NSUInteger index = [self.dataSource indexOfObject:MessageFrame];
+//                [weakSelf.dataSource removeObject:MessageFrame];
+//                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+//                [weakSelf.chatList deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                [weakSelf deleteTableRowWithModel:MessageFrame withRowAnimation:UITableViewRowAnimationFade];
             }];
 
             _cell = cell;
             break;
         }
-        case kLLMessageBodyTypeDateTime: {
+        case DAMessageContentTypeDateTime: {
             DAChatMessageDateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DAChatMessageDateCell"];
             if (!cell) {
                 cell = [[DAChatMessageDateCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DAChatMessageDateCell"];
@@ -425,7 +399,9 @@
         default:
             break;
     }
-    
+    // 取消 cell 的选中效果
+    _cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return _cell;
 
 //    UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
@@ -440,6 +416,42 @@
     ChatMessageFrame *cellFrame = [self.dataSource objectAtIndex:indexPath.row];
     return cellFrame.cellHeight;
 //    return 40.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+
+- (void)deleteTableRowWithModel:(ChatMessageFrame *)model withRowAnimation:(UITableViewRowAnimation)animation {
+    NSInteger index = [self.dataSource indexOfObject:model];
+    NSMutableArray<NSIndexPath *> *deleteIndexPaths = [NSMutableArray array];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.dataSource removeObjectAtIndex:index];
+    [deleteIndexPaths addObject:indexPath];
+    
+    if (self.dataSource[index-1].message.messageBodyType == DAMessageContentTypeDateTime &&
+        ((index == self.dataSource.count) || (self.dataSource[index].message.messageBodyType == DAMessageContentTypeDateTime))) {
+        [self.dataSource removeObjectAtIndex:index - 1];
+        [deleteIndexPaths addObject:[NSIndexPath indexPathForRow:index-1 inSection:0]];
+    }
+    
+    [self.chatList deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:animation];
+    WEAK_SELF;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf loadMoreMessagesAfterDeletionIfNeeded];
+    });
+}
+
+- (void)loadMoreMessagesAfterDeletionIfNeeded {
+//    if (self.chatList.tableHeaderView && !isLoading &&!isPulling && self.tableView.contentOffset.y <= 20 - self.tableView.contentInset.top) {
+//        UIActivityIndicatorView *indicator = self.refreshView.subviews[0];
+//        if (![indicator isAnimating]) {
+//            [indicator startAnimating];
+//        }
+//        [self pullToRefresh];
+//    }
 }
 
 

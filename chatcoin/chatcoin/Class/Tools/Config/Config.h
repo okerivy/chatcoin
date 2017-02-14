@@ -9,6 +9,12 @@
 #ifndef Config_h
 #define Config_h
 
+#define WEAK_SELF __weak typeof(self) weakSelf = self
+#define STRONG_SELF if (!weakSelf) return; \
+                    __strong typeof(weakSelf) strongSelf = weakSelf
+
+
+
 //1.获取屏幕宽度与高度
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000 // 当前Xcode支持iOS8及以上
 

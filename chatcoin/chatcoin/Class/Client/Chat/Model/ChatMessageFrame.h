@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ChatMessage.h"
+#import "DAChatMessageRes.h"
 
 @interface ChatMessageFrame : NSObject
 
@@ -19,7 +19,7 @@
 
 @property(nonatomic, assign) CGRect airViewFrame;
 
-@property(nonatomic, strong) ChatMessage *message;
+@property(nonatomic, strong) DAChatMessageRes *message;
 
 @property(nonatomic, strong) NSMutableAttributedString *attMessage;
 
