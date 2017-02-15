@@ -152,6 +152,7 @@
 }
 
 -(void)showNetworkStatusAlert:(NSString *)str{
+    return;
     //我这里是网络变化弹出一个警报框，由于不知道怎么让widow加载UIAlertController，所以这里用UIAlertView替代了
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];

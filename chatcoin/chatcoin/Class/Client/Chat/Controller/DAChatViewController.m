@@ -136,42 +136,52 @@
         if (i %3 == 0) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
-            message.userType = DAMessageUserTypeOther;
-            message.userId = 0;
 //            NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗[委屈]。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)[害羞]，结果她一脸淡定的回绝了:“二叔！别闹……”[尴尬]";
             NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)，结果她一脸淡定的回绝了:“二叔！别闹……”";
-            message.messageContent = Lmessage;
+            message.messageContent = [NSString stringWithFormat:@"%@   %zd",Lmessage,i];
             message.timestamp = 1486893134.0 + i * 60;
             message.messageBodyType = DAMessageContentTypeText;
+            message.conversationId = self.conversationModel.conversationId;
+            message.senderUserIconName = self.conversationModel.iconName;
+            message.senderUserId = self.conversationModel.messageUserId;
+            message.senderUserName = self.conversationModel.userName;
+
+
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
         } else if (i %3 == 1) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
-            message.userType = DAMessageUserTypeMe;
-            message.userId = 1;
             NSString *Lmessage = @"这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。";
-            message.messageContent = Lmessage;
+            message.messageContent = [NSString stringWithFormat:@"%@   %zd",Lmessage,i];
             message.timestamp = 1486893134.0 + i * 70;
             message.messageBodyType = DAMessageContentTypeText;
+            message.conversationId = self.conversationModel.conversationId;
+            message.senderUserIconName = myUserIconName;
+            message.senderUserId = myUserId;
+            message.senderUserName = myUserName;
 
+            
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
         }else if (i %3 == 2) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
-            message.userType = DAMessageUserTypeMe;
-            message.userId = 1;
             NSString *Lmessage = @"这是我的消息";
-            message.messageContent = Lmessage;
+            message.messageContent = [NSString stringWithFormat:@"%@   %zd",Lmessage,i];
             message.timestamp = 1486893134.0 + i * 80;
             message.messageBodyType = DAMessageContentTypeText;
-
+            message.conversationId = self.conversationModel.conversationId;
+            message.senderUserIconName = myUserIconName;
+            message.senderUserId = myUserId;
+            message.senderUserName = myUserName;
+            
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
         }
     }
     
+    // 按照聊天记录 添加日期模型
     for (NSInteger i = 0, count = self.dataBank.count; i < count; i++) {
         ChatMessageFrame *messageModelFrame = self.dataBank[i];
         DAChatMessageRes *messageModel = messageModelFrame.message;
@@ -179,7 +189,6 @@
         ChatMessageFrame *lastMessageFrame = [self.dataSource lastObject];
         DAChatMessageRes *lastMessage = lastMessageFrame.message;
 
-        ZLog(@"时间间隔 %lf    %lf", messageModel.timestamp - (lastMessage.timestamp +1),CHAT_CELL_TIME_INTERVEL);
         if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
             
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
@@ -206,7 +215,7 @@
 //        [self.dataSource addObject:cellFrame];
 //    }];
     [self.chatList reloadData];
-//    [self ScrollTableViewToBottom];
+    [self scrollTableToFoot:YES];
 }
 
 
@@ -247,7 +256,12 @@
 
     
     [UIView animateWithDuration:ZKKeyboardTime animations:^{
+//        self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREEN_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
         self.chatList.contentInset = UIEdgeInsetsMake(0, 0,SCREEN_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
+
+        //FIXME:试图解决 增加一条消息后,键盘下落 cell yylable 闪烁的问题,发现并没有什么卵用.
+//        self.chatList.contentInset = UIEdgeInsetsMake(-(SCREEN_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH), 0,SCREEN_HEIGHT- self.chatKeyBoard.top_LL - kChatToolBarHeight - ZKNavH, 0);
+
         self.chatList.scrollIndicatorInsets = self.chatList.contentInset;
         
     } completion:^(BOOL finished) {
@@ -349,8 +363,94 @@
 #pragma mark -- 发送文本
 - (void)chatKeyBoardSendText:(NSString *)text
 {
-    ZLog(@"%@", text);
+    NSString *string = [self isBlankString:text];
+    if (!string) return;
+    [self sendTextMessage:string];
 }
+
+//判断字符串是否为空字符的方法
+- (NSString *) isBlankString:(NSString *)string {
+    if (string == nil || string == NULL) {
+        return nil;
+    }
+    if ([string isKindOfClass:[NSNull class]]) {
+        return nil;
+    }
+    NSString *str = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if ([str length]!=0) {
+        return str;
+    }
+    return nil;
+}
+
+
+- (void)sendTextMessage:(NSString *)text
+{
+    
+    
+    ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+    DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
+    message.messageContent = [NSString stringWithFormat:@"%@   %zd",text,self.dataBank.count];
+    message.timestamp = [NSDate date].timeIntervalSince1970;
+    message.messageBodyType = DAMessageContentTypeText;
+    message.conversationId = self.conversationModel.conversationId;
+    message.senderUserIconName = myUserIconName;
+    message.senderUserId = myUserId;
+    message.senderUserName = myUserName;
+    
+    cellFrame.message = message;
+    [self.dataBank addObject:cellFrame];
+    
+    // 按照聊天记录 添加日期模型
+    
+    ChatMessageFrame *messageModelFrame = [self.dataBank lastObject];
+    DAChatMessageRes *messageModel = messageModelFrame.message;
+    
+    ChatMessageFrame *lastMessageFrame = [self.dataSource lastObject];
+    DAChatMessageRes *lastMessage = lastMessageFrame.message;
+    
+    if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
+        
+        ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+        
+        DAChatMessageRes *dateModel = [[DAChatMessageRes alloc] init];
+        dateModel.messageBodyType = DAMessageContentTypeDateTime;
+        dateModel.timestamp = messageModel.timestamp;
+        cellFrame.message = dateModel;
+        
+        [self.dataSource addObject:cellFrame];
+    }
+    
+    [self.dataSource addObject:messageModelFrame];
+
+
+    [self addTableRowWithModel:[self.dataSource lastObject] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.chatList reloadData];
+    [self scrollTableToFoot:YES];
+
+}
+
+
+- (void)addTableRowWithModel:(ChatMessageFrame *)model withRowAnimation:(UITableViewRowAnimation)animation {
+    NSInteger index = [self.dataSource indexOfObject:model];
+    NSMutableArray<NSIndexPath *> *deleteIndexPaths = [NSMutableArray array];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [deleteIndexPaths addObject:indexPath];
+    
+    if (self.dataSource[index-1].message.messageBodyType == DAMessageContentTypeDateTime) {
+        [deleteIndexPaths addObject:[NSIndexPath indexPathForRow:index-1 inSection:0]];
+    }
+    [self.chatList beginUpdates];
+    [self.chatList insertRowsAtIndexPaths:deleteIndexPaths withRowAnimation:animation];
+    [self.chatList endUpdates];
+
+    WEAK_SELF;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf loadMoreMessagesAfterDeletionIfNeeded];
+    });
+}
+
 
 
 #pragma mark ==== tabbleView 代理方法
@@ -424,6 +524,11 @@
 
 
 - (void)deleteTableRowWithModel:(ChatMessageFrame *)model withRowAnimation:(UITableViewRowAnimation)animation {
+    
+    NSInteger indexBank = [self.dataBank indexOfObject:model];
+    [self.dataBank removeObjectAtIndex:indexBank];
+
+    
     NSInteger index = [self.dataSource indexOfObject:model];
     NSMutableArray<NSIndexPath *> *deleteIndexPaths = [NSMutableArray array];
     

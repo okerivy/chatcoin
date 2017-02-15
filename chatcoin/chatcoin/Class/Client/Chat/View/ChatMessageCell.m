@@ -127,8 +127,8 @@ static UITableView *_tableview;
     self.messageContentLabel.frame = MessageFrame.messageLabelFrame;
     self.airView.frame = MessageFrame.airViewFrame;
     
-    self.nameLabel.text = MessageFrame.message.userName;
-    self.headImageView.image = [UIImage imageNamed:MessageFrame.message.userHeadImage];
+    self.nameLabel.text = MessageFrame.message.senderUserName;
+    self.headImageView.image = [UIImage imageNamed:MessageFrame.message.senderUserIconName];
     
     //FIXME: 选中效果和图片有关系，到时候 如果想修改 选中效果 要更换图片
     NSString *norImageName  = MessageFrame.message.userType == DAMessageUserTypeMe ? @"chat_send_nor" : @"chat_receive_nor";

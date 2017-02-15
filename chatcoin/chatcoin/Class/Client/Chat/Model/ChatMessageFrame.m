@@ -46,15 +46,17 @@
     container.size = maxsize;
     container.maximumNumberOfRows = 0;
     // 生成排版结果
+    //FIXME: 输入 带空格的字符串,计算有问题
     YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:self.attMessage];
     
     CGFloat airX = message.userType == DAMessageUserTypeMe ? screenW - margin * 2 - headW - layout.textBoundingSize.width - AllMargin : margin * 2 + headW;
     
-    self.airViewFrame = CGRectMake(airX, 10, layout.textBoundingSize.width + 31, layout.textBoundingSize.height + 16);
+    CGFloat textHight = layout.textBoundingSize.height > 25 ? layout.textBoundingSize.height : 25;
+    self.airViewFrame = CGRectMake(airX, 10, layout.textBoundingSize.width + 31, textHight + 16);
     
     CGFloat contentX = message.userType == DAMessageUserTypeMe ? screenW - margin * 2 - headW - layout.textBoundingSize.width - 18 : margin * 2 + headW + 20;
     
-    self.messageLabelFrame = CGRectMake(contentX, 43-25, layout.textBoundingSize.width, layout.textBoundingSize.height);
+    self.messageLabelFrame = CGRectMake(contentX, 43-25, layout.textBoundingSize.width, textHight);
     
     switch (message.messageBodyType) {
         case DAMessageContentTypeText: {
