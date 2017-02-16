@@ -48,6 +48,8 @@
 //tabbar颜色
 #define kLLBackgroundColor_Tabbar [UIColor colorWithRed:236/255.0 green:236/255.0 blue:243/255.0 alpha:1]
 
+#define kLLBackgroundColor_Default [UIColor colorWithRed:240/255.0 green:239/255.0 blue:245/255.0 alpha:1]
+
 
 #define kLLBackgroundColor_slightBlue [UIColor colorWithRed:30/255.0 green:130/255.0 blue:233/255.0 alpha:0.3]
 

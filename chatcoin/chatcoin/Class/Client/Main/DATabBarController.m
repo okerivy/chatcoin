@@ -67,7 +67,7 @@
     selectTextAttrs[NSForegroundColorAttributeName] = ZKColor_Black;
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
-    childVc.view.backgroundColor = ZKColor_Random;
+    childVc.view.backgroundColor = kLLBackgroundColor_Default;
     
     // 先给外面传进来的小控制器 包装 一个导航控制器
     DANavigationController *nav = [[DANavigationController alloc] initWithRootViewController:childVc];

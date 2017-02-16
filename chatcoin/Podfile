@@ -38,9 +38,8 @@ pod 'MJExtension'
 #下拉刷新
 pod 'MJRefresh'
 
-#通讯录联系人排序
-pod 'PPGetAddressBook'
-
+#解决打印日志对于Unicode编码不能正常显示中文的问题
+pod 'HYBUnicodeReadable'
 #MessageDisplayKit
 #pod 'MessageDisplayKit'
 

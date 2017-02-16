@@ -33,7 +33,6 @@
         model.messageUserId = [NSString stringWithFormat:@"%@%@",@"137112233",arr[i]];
         model.conversationId = [NSString stringWithFormat:@"%@%@",@"conversationId",model.messageUserId];
 
-        ZLog(@"%@", model.conversationId);
         if (i == 3) {
             model.messageType = 1;
             model.iconName = @"add_friend_icon_offical";
@@ -44,7 +43,6 @@
         }
         [mArray addObject:model];
     }
-    [mArray addObjectsFromArray:mArray];
     
     
     return mArray;

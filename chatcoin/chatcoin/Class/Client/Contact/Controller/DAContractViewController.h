@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DAViewController.h"
 
-@interface DAContractViewController : UITableViewController
+
+@interface DAContractViewController : DAViewController
 
 @end

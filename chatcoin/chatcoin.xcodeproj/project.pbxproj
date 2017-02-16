@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		665F9556B3B824B9056A9800 /* Pods_chatcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
+		7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20337D1E557D3F00D85E8D /* DAContactCell.m */; };
+		7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2033801E557D6700D85E8D /* DAContractCellModel.m */; };
 		7B396A311E4B3DB100386665 /* DATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A301E4B3DB100386665 /* DATableView.m */; };
 		7B396A3D1E505AB900386665 /* DAChatMessageRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A3A1E505AB900386665 /* DAChatMessageRes.m */; };
 		7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A3C1E505AB900386665 /* ChatMessageFrame.m */; };
@@ -224,6 +226,10 @@
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
+		7B20337C1E557D3F00D85E8D /* DAContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContactCell.h; sourceTree = "<group>"; };
+		7B20337D1E557D3F00D85E8D /* DAContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContactCell.m; sourceTree = "<group>"; };
+		7B20337F1E557D6700D85E8D /* DAContractCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContractCellModel.h; sourceTree = "<group>"; };
+		7B2033801E557D6700D85E8D /* DAContractCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContractCellModel.m; sourceTree = "<group>"; };
 		7B396A2F1E4B3DB100386665 /* DATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableView.h; sourceTree = "<group>"; };
 		7B396A301E4B3DB100386665 /* DATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableView.m; sourceTree = "<group>"; };
 		7B396A391E505AB900386665 /* DAChatMessageRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatMessageRes.h; sourceTree = "<group>"; };
@@ -777,6 +783,8 @@
 		7BEC0CD71E4617FC00A0C71C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B20337F1E557D6700D85E8D /* DAContractCellModel.h */,
+				7B2033801E557D6700D85E8D /* DAContractCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -784,6 +792,8 @@
 		7BEC0CD81E4617FC00A0C71C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B20337C1E557D3F00D85E8D /* DAContactCell.h */,
+				7B20337D1E557D3F00D85E8D /* DAContactCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1490,6 +1500,7 @@
 				7BEC0DC61E4766D900A0C71C /* OfficialAccountToolbar.m in Sources */,
 				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
 				7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */,
+				7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */,
 				7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */,
 				7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
@@ -1528,6 +1539,7 @@
 				7BEC0DC21E4766D900A0C71C /* FaceThemeView.m in Sources */,
 				7BEC0DB71E4766D900A0C71C /* NSString+Emoji.m in Sources */,
 				7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */,
+				7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */,
 				7B396A4E1E50686B00386665 /* DAChatMessageDateCell.m in Sources */,
 				7BEC0DED1E483DDA00A0C71C /* DAProfilesViewController.m in Sources */,
 				7BEC0DC11E4766D900A0C71C /* FacePanel.m in Sources */,
