@@ -18,6 +18,8 @@
 #import "LLChatSearchController.h"
 #import "DATableView.h"
 #import "DAGetAddressBook.h"
+#import "DAContactStaicCell.h"
+
 
 
 
@@ -68,51 +70,10 @@ LLSearchControllerDelegate>
 @implementation DAContractViewController
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 30;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    cell.textLabel.text= @"111111111";
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"detale --%d",arc4random_uniform(10)];
-    cell.backgroundColor = kLLBackgroundColor_lightGray;
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.preservesSuperviewLayoutMargins = NO;
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 0)];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UIViewController * chatVC = [[UIViewController alloc] init];
-//    chatVC.conversationModel = _dataArray[indexPath.row];
-    [self.navigationController pushViewController:chatVC animated:YES];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     _dataArray = [DAContractCellModel requestDataArray];
-//    [self initData];
+    [self initData];
     //    UIBarButtonItem *plusItem = [[UIBarButtonItem alloc]
     //                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self
     //                                 action:@selector(plusButtonHandler:)];
@@ -136,55 +97,254 @@ LLSearchControllerDelegate>
     _searchBar.delegate = self;
     _searchBar.placeholder = @"搜索";
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SEARCH_TEXT_FIELD_HEIGHT + 16+100)];
-    view.backgroundColor = ZKColor_Random;
-    _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(view.frame))];
-
-//    _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(_searchBar.frame))];
+    //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SEARCH_TEXT_FIELD_HEIGHT + 16+100)];
+    //    view.backgroundColor = ZKColor_Random;
+    //    _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(view.frame))];
+    
+    _tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(_searchBar.frame))];
     _tableHeaderView.backgroundColor = [UIColor clearColor];
-//    [_tableHeaderView addSubview:_searchBar];
-    [_tableHeaderView addSubview:view];
-
+    [_tableHeaderView addSubview:_searchBar];
+    //    [_tableHeaderView addSubview:view];
+    
     
     self.tableView.tableHeaderView = _tableHeaderView;
     
     self.tableView.sectionIndexColor = ZKColor_Black;
     self.tableView.sectionIndexBackgroundColor = ZKColor_Clear;
     self.tableView.sectionIndexTrackingBackgroundColor = ZKColor_Clear;
-
+    
     
     NSInteger _viewHeight = SCREEN_HEIGHT;
     UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0,-_viewHeight, SCREEN_WIDTH, _viewHeight)];
     barView.backgroundColor = self.searchBar.barTintColor;
     [self.tableView addSubview:barView];
-
+    
     
 }
 
 
+- (void)initData
+{
+    [DAGetAddressBook getOrderAddressBook:^(NSDictionary<NSString *,NSArray *> *addressBookDict, NSMutableArray *personOrderArray, NSArray *nameKeys) {
+        [_dataArray removeAllObjects];
+        _dataArray = [NSMutableArray arrayWithArray:personOrderArray];
+        //装着所有联系人的字典
+        self.contactPeopleDict = addressBookDict;
+        //联系人分组按拼音分组的Key值
+        self.keys = nameKeys;
+        [self.tableView reloadData];
+        
+    } fromArray:self.dataArray];
+    
+    
+}
 
-//- (void)testpersonarray
-//{
-//    NSArray *stringsToSort=[NSArray arrayWithObjects:
-//                            @"李白",@"张三",
-//                            @"重庆",@"重量",
-//                            @"调节",@"调用",
-//                            @"小白",@"小明",@"千珏",
-//                            @"黄家驹", @"鼠标",@"hello",@"多美丽",@"肯德基",@"##",
-//                            nil];
-//    
-//    //模拟网络请求接收到的数组对象 Person数组
-//    self.personArray = [[NSMutableArray alloc] initWithCapacity:0];
-//    for (int i = 0; i<[stringsToSort count]; i++) {
-//        DAPersonModel *p = [[DAPersonModel alloc] init];
-//        p.showName = [stringsToSort objectAtIndex:i];
-//        p.number = i;
-//        [self.personArray addObject:p];
-//    }
-//    ZLog(@"%@", [DAPersonModel mj_keyValuesArrayWithObjectArray:self.personArray]);
-//    ZLog(@"%@", [[self.personArray lastObject] mj_keyValues]);
-//
-//}
+#pragma mark - UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _keys.count + 1;
+}
+
+// 第一组没有索引
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 2;
+    }
+    NSString *key = _keys[section-1];
+    return [_contactPeopleDict[key] count];
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @" ";
+    }
+    return _keys[section -1];
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 0;
+    }
+    return 20;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    view.tintColor = ZKColor_Clear;
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.contentView.backgroundColor= kLLBackgroundColor_Default;
+    header.textLabel.textAlignment=NSTextAlignmentLeft;
+    header.textLabel.font=[UIFont systemFontOfSize:12];
+    
+    [header.textLabel setTextColor:ZKColor_VarGrayA(100, 0.9)];
+    
+}
+
+//右侧的索引
+- (NSArray*)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@" ", nil];
+    [arr addObjectsFromArray:_keys];
+    return arr;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        DAContactStaicCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(DAContactStaicCell.class)];
+        if (!cell) {
+            cell = [[DAContactStaicCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(DAContactStaicCell.class)];
+            cell.delegate = self;
+        }
+        // 取消 cell 的选中效果
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    
+    
+    DAContactCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(DAContactCell.class)];
+    if (!cell) {
+        cell = [[DAContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(DAContactCell.class)];
+        cell.delegate = self;
+    }
+    NSString *key = _keys[indexPath.section -1];
+    DAContractCellModel *model = [_contactPeopleDict[key] objectAtIndex:indexPath.row];
+    UIButton *button1 = [cell rowActionWithStyle:LYSideslipCellActionStyleNormal title:@"取消关注"];
+    UIButton *button2 = [cell rowActionWithStyle:LYSideslipCellActionStyleDestructive title:@"删除"];
+    UIButton *button3 = [cell rowActionWithStyle:LYSideslipCellActionStyleNormal title:@"置顶"];
+    switch (model.messageType) {
+        case DAContractCellTypeMessage:
+            [cell setRightButtons:@[button2]];
+            break;
+        case DAContractCellTypeSubscription:
+            [cell setRightButtons:@[button1, button2]];
+            break;
+        case DAContractCellTypePubliction:
+            [cell setRightButtons:@[button3, button2]];
+            break;
+        default:
+            break;
+    }
+    cell.model = model;
+    // 取消 cell 的选中效果
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.preservesSuperviewLayoutMargins = NO;
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 0)];
+    }
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    
+    if (indexPath.section == 0) {
+        UIViewController * chatVC = [[UIViewController alloc] init];
+        [self.navigationController pushViewController:chatVC animated:YES];
+        return;
+    }
+    
+    DAChatViewController * chatVC = [[DAChatViewController alloc] init];
+    NSString *key = _keys[indexPath.section -1];
+    DAContractCellModel *model = [_contactPeopleDict[key] objectAtIndex:indexPath.row];
+    LYHomeCellModel *conversationModel = [[LYHomeCellModel alloc] init];
+    conversationModel.iconName = model.iconName;
+    conversationModel.userName = model.userName;
+    conversationModel.conversationId = model.conversationId;
+    conversationModel.messageUserId = model.messageUserId;
+    conversationModel.iconName = model.iconName;
+    
+    chatVC.conversationModel = conversationModel;
+    [self.navigationController pushViewController:chatVC animated:YES];
+}
+
+
+#pragma mark - LYSideslipCellDelegate
+- (void)sideslipCell:(LYSideslipCell *)sideslipCell rowAtIndexPath:(NSIndexPath *)indexPath didSelectedAtIndex:(NSInteger)index {
+    NSLog(@"选中了: %ld", index);
+}
+
+- (BOOL)sideslipCell:(LYSideslipCell *)sideslipCell canSideslipRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+    
+    if (indexPath.row == 4) {
+        return NO;
+    }
+    return YES;
+}
+
+
+#pragma mark- Static变量
+
+
+
+#pragma mark- 系统方法
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+}
+
+
+#pragma mark- 初始化方法
+
+
+
+#pragma mark- set方法
+
+
+
+#pragma mark- 监听方法
+
+
+
+//TableHeaderView 从上至下，依次为SearchBar、connectionAlertView、电脑端登录等
+- (void)adjustTableHeaderView {
+    CGFloat maxHeight = CGRectGetHeight(self.searchBar.frame);
+    
+    
+    self.tableHeaderView.height_LL = maxHeight;
+    
+    [self.tableView setTableHeaderView:self.tableHeaderView];
+}
+
+
+#pragma mark- 代理方法 Delegate
+
+#pragma mark - 搜索 -
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    LLSearchViewController *vc = [LLSearchViewController sharedInstance];
+    DANavigationController *navigationVC = [[DANavigationController alloc] initWithRootViewController:vc];
+    navigationVC.view.backgroundColor = [UIColor clearColor];
+    vc.delegate = self;
+    LLChatSearchController *resultController = [[LLChatSearchController alloc] init];
+
+    vc.searchResultController = resultController;
+    resultController.searchViewController = vc;
+    [vc showInViewController:self fromSearchBar:self.searchBar];
+
+    return NO;
+}
+
+
 
 - (void)willPresentSearchController:(LLSearchViewController *)searchController {
     

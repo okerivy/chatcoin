@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		665F9556B3B824B9056A9800 /* Pods_chatcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */; };
+		7B0436A11E55E19C006A55CD /* DAGetAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04369D1E55E19C006A55CD /* DAGetAddressBook.m */; };
+		7B0436A21E55E19C006A55CD /* DAPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04369F1E55E19C006A55CD /* DAPersonModel.m */; };
+		7B0436A51E56B938006A55CD /* DAContactStaicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436A41E56B938006A55CD /* DAContactStaicCell.m */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 		7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20337D1E557D3F00D85E8D /* DAContactCell.m */; };
 		7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2033801E557D6700D85E8D /* DAContractCellModel.m */; };
@@ -222,6 +225,13 @@
 /* Begin PBXFileReference section */
 		09FB3C673239EFB999BD1FF4 /* Pods_chatcoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chatcoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3278594E7C5912FABB1083AE /* Pods-chatcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chatcoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-chatcoin/Pods-chatcoin.release.xcconfig"; sourceTree = "<group>"; };
+		7B04369C1E55E19C006A55CD /* DAGetAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAGetAddressBook.h; sourceTree = "<group>"; };
+		7B04369D1E55E19C006A55CD /* DAGetAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAGetAddressBook.m; sourceTree = "<group>"; };
+		7B04369E1E55E19C006A55CD /* DAPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAPersonModel.h; sourceTree = "<group>"; };
+		7B04369F1E55E19C006A55CD /* DAPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAPersonModel.m; sourceTree = "<group>"; };
+		7B0436A01E55E19C006A55CD /* DASingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASingleton.h; sourceTree = "<group>"; };
+		7B0436A31E56B938006A55CD /* DAContactStaicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContactStaicCell.h; sourceTree = "<group>"; };
+		7B0436A41E56B938006A55CD /* DAContactStaicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContactStaicCell.m; sourceTree = "<group>"; };
 		7B08C25D1E44B0E9002FB869 /* chatcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -522,6 +532,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7B04369B1E55E19C006A55CD /* DAGetAddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				7B04369C1E55E19C006A55CD /* DAGetAddressBook.h */,
+				7B04369D1E55E19C006A55CD /* DAGetAddressBook.m */,
+				7B04369E1E55E19C006A55CD /* DAPersonModel.h */,
+				7B04369F1E55E19C006A55CD /* DAPersonModel.m */,
+				7B0436A01E55E19C006A55CD /* DASingleton.h */,
+			);
+			path = DAGetAddressBook;
+			sourceTree = "<group>";
+		};
 		7B08C2541E44B0E9002FB869 = {
 			isa = PBXGroup;
 			children = (
@@ -794,6 +816,8 @@
 			children = (
 				7B20337C1E557D3F00D85E8D /* DAContactCell.h */,
 				7B20337D1E557D3F00D85E8D /* DAContactCell.m */,
+				7B0436A31E56B938006A55CD /* DAContactStaicCell.h */,
+				7B0436A41E56B938006A55CD /* DAContactStaicCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -924,6 +948,7 @@
 		7BEC0CEB1E4617FC00A0C71C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				7B04369B1E55E19C006A55CD /* DAGetAddressBook */,
 				7BEC0E5A1E4B267400A0C71C /* Search */,
 				7BEC0D8D1E4766D900A0C71C /* KeyBoard */,
 				7BEC0D5A1E47424C00A0C71C /* SideslipCell */,
@@ -1534,11 +1559,14 @@
 				7B396A451E505B7500386665 /* LiuqsTextAttachment.m in Sources */,
 				7BEC0DC41E4766D900A0C71C /* MorePanel.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
+				7B0436A51E56B938006A55CD /* DAContactStaicCell.m in Sources */,
 				7BEC0DC71E4766D900A0C71C /* RFRecordButton.m in Sources */,
 				7B396A4B1E505C9700386665 /* UIImage+extension.m in Sources */,
 				7BEC0DC21E4766D900A0C71C /* FaceThemeView.m in Sources */,
+				7B0436A21E55E19C006A55CD /* DAPersonModel.m in Sources */,
 				7BEC0DB71E4766D900A0C71C /* NSString+Emoji.m in Sources */,
 				7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */,
+				7B0436A11E55E19C006A55CD /* DAGetAddressBook.m in Sources */,
 				7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */,
 				7B396A4E1E50686B00386665 /* DAChatMessageDateCell.m in Sources */,
 				7BEC0DED1E483DDA00A0C71C /* DAProfilesViewController.m in Sources */,
