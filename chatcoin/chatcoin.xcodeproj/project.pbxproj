@@ -11,6 +11,12 @@
 		7B0436A11E55E19C006A55CD /* DAGetAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04369D1E55E19C006A55CD /* DAGetAddressBook.m */; };
 		7B0436A21E55E19C006A55CD /* DAPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B04369F1E55E19C006A55CD /* DAPersonModel.m */; };
 		7B0436A51E56B938006A55CD /* DAContactStaicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436A41E56B938006A55CD /* DAContactStaicCell.m */; };
+		7B0436A81E5950D6006A55CD /* DAProfilesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436A71E5950D5006A55CD /* DAProfilesCell.m */; };
+		7B0436AB1E5AAC61006A55CD /* DAAccountNumController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436AA1E5AAC61006A55CD /* DAAccountNumController.m */; };
+		7B0436AE1E5AAF53006A55CD /* DAAccountNumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436AD1E5AAF53006A55CD /* DAAccountNumCell.m */; };
+		7B0436B11E5AC222006A55CD /* DAWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436B01E5AC222006A55CD /* DAWalletViewController.m */; };
+		7B0436B41E5ACD2E006A55CD /* DAWalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436B31E5ACD2E006A55CD /* DAWalletCell.m */; };
+		7B0436B71E5AD3A1006A55CD /* NSString+OYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436B61E5AD3A1006A55CD /* NSString+OYExtension.m */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 		7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20337D1E557D3F00D85E8D /* DAContactCell.m */; };
 		7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2033801E557D6700D85E8D /* DAContractCellModel.m */; };
@@ -232,6 +238,18 @@
 		7B0436A01E55E19C006A55CD /* DASingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASingleton.h; sourceTree = "<group>"; };
 		7B0436A31E56B938006A55CD /* DAContactStaicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContactStaicCell.h; sourceTree = "<group>"; };
 		7B0436A41E56B938006A55CD /* DAContactStaicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContactStaicCell.m; sourceTree = "<group>"; };
+		7B0436A61E5950D5006A55CD /* DAProfilesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAProfilesCell.h; path = chatcoin/Class/Client/Contact/View/DAProfilesCell.h; sourceTree = SOURCE_ROOT; };
+		7B0436A71E5950D5006A55CD /* DAProfilesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAProfilesCell.m; path = chatcoin/Class/Client/Contact/View/DAProfilesCell.m; sourceTree = SOURCE_ROOT; };
+		7B0436A91E5AAC61006A55CD /* DAAccountNumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAAccountNumController.h; sourceTree = "<group>"; };
+		7B0436AA1E5AAC61006A55CD /* DAAccountNumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAAccountNumController.m; sourceTree = "<group>"; };
+		7B0436AC1E5AAF53006A55CD /* DAAccountNumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAAccountNumCell.h; path = chatcoin/Class/Client/Profiles/Controller/DAAccountNumCell.h; sourceTree = SOURCE_ROOT; };
+		7B0436AD1E5AAF53006A55CD /* DAAccountNumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAAccountNumCell.m; path = chatcoin/Class/Client/Profiles/Controller/DAAccountNumCell.m; sourceTree = SOURCE_ROOT; };
+		7B0436AF1E5AC222006A55CD /* DAWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAWalletViewController.h; sourceTree = "<group>"; };
+		7B0436B01E5AC222006A55CD /* DAWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAWalletViewController.m; sourceTree = "<group>"; };
+		7B0436B21E5ACD2E006A55CD /* DAWalletCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAWalletCell.h; path = chatcoin/Class/Client/Profiles/Controller/DAWalletCell.h; sourceTree = SOURCE_ROOT; };
+		7B0436B31E5ACD2E006A55CD /* DAWalletCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAWalletCell.m; path = chatcoin/Class/Client/Profiles/Controller/DAWalletCell.m; sourceTree = SOURCE_ROOT; };
+		7B0436B51E5AD3A1006A55CD /* NSString+OYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+OYExtension.h"; sourceTree = "<group>"; };
+		7B0436B61E5AD3A1006A55CD /* NSString+OYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OYExtension.m"; sourceTree = "<group>"; };
 		7B08C25D1E44B0E9002FB869 /* chatcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -986,6 +1004,8 @@
 		7BEC0D0A1E46EBCE00A0C71C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				7B0436B51E5AD3A1006A55CD /* NSString+OYExtension.h */,
+				7B0436B61E5AD3A1006A55CD /* NSString+OYExtension.m */,
 				7BEC0D0B1E46EBCE00A0C71C /* NSDate+LLExt.h */,
 				7BEC0D0C1E46EBCE00A0C71C /* NSDate+LLExt.m */,
 				7BEC0D0D1E46EBCE00A0C71C /* NSString+encrypto.h */,
@@ -1198,6 +1218,10 @@
 			children = (
 				7BEC0DEB1E483DDA00A0C71C /* DAProfilesViewController.h */,
 				7BEC0DEC1E483DDA00A0C71C /* DAProfilesViewController.m */,
+				7B0436A91E5AAC61006A55CD /* DAAccountNumController.h */,
+				7B0436AA1E5AAC61006A55CD /* DAAccountNumController.m */,
+				7B0436AF1E5AC222006A55CD /* DAWalletViewController.h */,
+				7B0436B01E5AC222006A55CD /* DAWalletViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1212,6 +1236,12 @@
 		7BEC0DEA1E483DC000A0C71C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B0436A61E5950D5006A55CD /* DAProfilesCell.h */,
+				7B0436A71E5950D5006A55CD /* DAProfilesCell.m */,
+				7B0436AC1E5AAF53006A55CD /* DAAccountNumCell.h */,
+				7B0436AD1E5AAF53006A55CD /* DAAccountNumCell.m */,
+				7B0436B21E5ACD2E006A55CD /* DAWalletCell.h */,
+				7B0436B31E5ACD2E006A55CD /* DAWalletCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1526,6 +1556,7 @@
 				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
 				7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */,
 				7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */,
+				7B0436B41E5ACD2E006A55CD /* DAWalletCell.m in Sources */,
 				7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */,
 				7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
@@ -1544,15 +1575,19 @@
 				7B396A311E4B3DB100386665 /* DATableView.m in Sources */,
 				7BEC0D2F1E46EF9A00A0C71C /* UIView+LLExt.m in Sources */,
 				7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */,
+				7B0436B71E5AD3A1006A55CD /* NSString+OYExtension.m in Sources */,
 				7BEC0D271E46EBCE00A0C71C /* UIImage+LLExt.m in Sources */,
 				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
 				7B396A571E52B5B600386665 /* DAChatMessageReq.m in Sources */,
+				7B0436A81E5950D6006A55CD /* DAProfilesCell.m in Sources */,
 				7BEC0D221E46EBCE00A0C71C /* NSDate+LLExt.m in Sources */,
 				7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */,
 				7B396A3D1E505AB900386665 /* DAChatMessageRes.m in Sources */,
 				7BEC0DC31E4766D900A0C71C /* PanelBottomView.m in Sources */,
 				7B396A481E505C0300386665 /* ChatMessageCell.m in Sources */,
 				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
+				7B0436AE1E5AAF53006A55CD /* DAAccountNumCell.m in Sources */,
+				7B0436B11E5AC222006A55CD /* DAWalletViewController.m in Sources */,
 				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
 				7BEC0DBF1E4766D900A0C71C /* FaceButton.m in Sources */,
 				7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */,
@@ -1560,6 +1595,7 @@
 				7BEC0DC41E4766D900A0C71C /* MorePanel.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
 				7B0436A51E56B938006A55CD /* DAContactStaicCell.m in Sources */,
+				7B0436AB1E5AAC61006A55CD /* DAAccountNumController.m in Sources */,
 				7BEC0DC71E4766D900A0C71C /* RFRecordButton.m in Sources */,
 				7B396A4B1E505C9700386665 /* UIImage+extension.m in Sources */,
 				7BEC0DC21E4766D900A0C71C /* FaceThemeView.m in Sources */,

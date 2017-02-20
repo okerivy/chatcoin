@@ -38,8 +38,11 @@ pod 'MJExtension'
 #下拉刷新
 pod 'MJRefresh'
 
+
 #解决打印日志对于Unicode编码不能正常显示中文的问题
-pod 'HYBUnicodeReadable'
+#pod 'HYBUnicodeReadable'
+#//FIXME: 聊天键盘弹出时崩溃 -[_UIViewServiceViewControllerDeputyXPCInterface remoteViewControllerInterface]: unrecognized selector sent to instance 0x1742209e0
+
 #MessageDisplayKit
 #pod 'MessageDisplayKit'
 

@@ -1,22 +1,22 @@
 //
-//  DAProfilesViewController.m
+//  DAWalletViewController.m
 //  chatcoin
 //
-//  Created by okerivy on 2017/2/6.
+//  Created by okerivy on 2017/2/20.
 //  Copyright © 2017年 okerivy. All rights reserved.
 //
 
-#import "DAProfilesViewController.h"
+#import "DAWalletViewController.h"
+
 #import "DANavigationController.h"
 #import "LYSideslipCell.h"
 #import "DAChatViewController.h"
 #import "UIKit+LLExt.h"
 #import "DATableView.h"
-#import "DAProfilesCell.h"
-#import "DAAccountNumController.h"
-#import "DAWalletViewController.h"
 
+#import "DAWalletCell.h"
 
+//#import "DSAlert.h"
 
 
 #define kIcon @"kIcon"
@@ -40,7 +40,8 @@
 
 #define FOOTER_LABEL_FONT_SIZE 14
 
-@interface DAProfilesViewController ()
+
+@interface DAWalletViewController ()
 <LYSideslipCellDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
@@ -48,13 +49,20 @@ UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
+@property (nonatomic, strong) DATableView *tableView;
+//@property (nonatomic, strong) DSAlert        *alertView4;
+//@property (nonatomic, strong) DSAlert        *alertView5;
 
 
-@property (nonatomic) DATableView *tableView;
+@property (nonatomic, strong) UIView         *viewPwdBgView;
+@property (nonatomic, strong) UITextField    *pwdTextField;
+
 
 @end
 
-@implementation DAProfilesViewController
+@implementation DAWalletViewController
+
+
 
 #pragma mark- Static变量
 
@@ -65,22 +73,26 @@ UINavigationControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"账号";
     _dataArray = [NSMutableArray array];
     [self initData];
     
+    self.view.backgroundColor = kLLBackgroundColor_Default;
     self.tableView = [[DATableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStylePlain];
     self.tableView.backgroundColor = kLLBackgroundColor_Default;
-
+    
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 8, 0, 0);
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, MAIN_BOTTOM_TABBAR_HEIGHT, 0);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 50.0;
+    self.tableView.rowHeight = 200;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:self.tableView];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+   
     
     
 }
@@ -92,7 +104,10 @@ UINavigationControllerDelegate>
 
 - (void)initData
 {
-
+    for (int i = 0; i<6; i++) {
+        [self.dataArray addObject:[NSString stringWithFormat:@"测试--%zd",i]];
+    }
+    
     
 }
 
@@ -104,8 +119,22 @@ UINavigationControllerDelegate>
 #pragma mark- 监听方法
 
 
+- (void)deleteAcount
+{
+    if (self.dataArray.count > 0) {
+        [self.dataArray removeLastObject];
+        [self.tableView reloadData];
+    }
+    
+}
+
+- (void)copyAcount
+{
+    
+}
 
 #pragma mark- 代理方法 Delegate
+
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -117,90 +146,70 @@ UINavigationControllerDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2;
+        return 1;
     }
     return 1;
 }
 
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"聊天币";
+    }
+    return @"流量币";
+}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 20;
-    }
+
     return 30;
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     view.tintColor = ZKColor_Clear;
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.contentView.backgroundColor= kLLBackgroundColor_Default;
+    header.textLabel.textAlignment=NSTextAlignmentLeft;
+    header.textLabel.font=[UIFont systemFontOfSize:12];
+    if (section == 0) {
+        [header.textLabel setTextColor:ZKColor_Var(116, 151, 241)];
+    }else {
+        [header.textLabel setTextColor:ZKColor_Var(148, 142, 157)];
+
+    }
+    
 }
+
 
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    DAProfilesCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(DAProfilesCell.class)];
+    DAWalletCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(DAWalletCell.class)];
     if (!cell) {
-        cell = [[DAProfilesCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(DAProfilesCell.class)];
+        cell = [[DAWalletCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(DAWalletCell.class)];
         cell.delegate = self;
     }
     // 取消 cell 的选中效果
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-
-
-
-    if (indexPath.section==0) {
-        if (indexPath.row ==0) {
-            cell.userNameLabel.text = @"账号";
-            cell.iconImageView.image = [UIImage imageNamed:@"center_subcription"];
-        } else if (indexPath.row ==1) {
-            cell.userNameLabel.text = @"钱包";
-            cell.iconImageView.image = [UIImage imageNamed:@"center_Wallet"];
-
-        }
-    } else if (indexPath.section==1) {
-        cell.userNameLabel.text = @"网络";
-        cell.iconImageView.image = [UIImage imageNamed:@"center_subcription"];
-        
-    }
+    
     
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.preservesSuperviewLayoutMargins = NO;
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 0)];
-    }
-}
 
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-            DAAccountNumController * chatVC = [[DAAccountNumController alloc] init];
-            [self.navigationController pushViewController:chatVC animated:YES];
-        } else if (indexPath.row == 1) {
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
-            DAWalletViewController * chatVC = [[DAWalletViewController alloc] init];
-            [self.navigationController pushViewController:chatVC animated:YES];
-        }
-    } else if (indexPath.section == 1) {
-        
-    }
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+ 
     return;
 }
+
+
 
 
 #pragma mark - LYSideslipCellDelegate
@@ -219,8 +228,6 @@ UINavigationControllerDelegate>
 
 
 #pragma mark- 其他方法
-
-
 
 
 

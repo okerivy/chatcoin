@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DAViewController.h"
 
-@interface DAProfilesViewController : UITableViewController
+@interface DAProfilesViewController : DAViewController
 
 @end
