@@ -187,20 +187,36 @@ UINavigationControllerDelegate>
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
     //添加Button
-    [alertController addAction: [UIAlertAction actionWithTitle: @"复制" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"复制" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //处理点击拍照
         ZLog(@"%@", @"复制");
         [self copyAcount];
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"删除" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+    }];
+    UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //处理点击从相册选取
         ZLog(@"%@", @"删除");
         [self deleteAcount];
         
+    }];
 
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }];
     
+    //修改按钮
+    [defaultAction setValue:[UIColor blackColor] forKey:@"_titleTextColor"];
+    [destructiveAction setValue:[UIColor blackColor] forKey:@"_titleTextColor"];
+    [cancelAction setValue:ZKColor_Var(148, 142, 156) forKey:@"_titleTextColor"];
+
+    
+    [alertController addAction:defaultAction];
+    [alertController addAction:destructiveAction];
+    [alertController addAction:cancelAction];
+    
+   
     [self presentViewController: alertController animated: YES completion: nil];
     
     return;

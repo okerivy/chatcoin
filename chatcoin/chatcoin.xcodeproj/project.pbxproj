@@ -20,6 +20,12 @@
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 		7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20337D1E557D3F00D85E8D /* DAContactCell.m */; };
 		7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2033801E557D6700D85E8D /* DAContractCellModel.m */; };
+		7B2F26531E5B2D7E004D0CE0 /* CALayer+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F26491E5B2D7E004D0CE0 /* CALayer+Animation.m */; };
+		7B2F26541E5B2D7E004D0CE0 /* DSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F264B1E5B2D7E004D0CE0 /* DSActionSheet.m */; };
+		7B2F26551E5B2D7E004D0CE0 /* DSAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F264D1E5B2D7E004D0CE0 /* DSAlert.m */; };
+		7B2F26561E5B2D7E004D0CE0 /* DSTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F264F1E5B2D7E004D0CE0 /* DSTableCell.m */; };
+		7B2F26571E5B2D7E004D0CE0 /* DSTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B2F26501E5B2D7E004D0CE0 /* DSTableCell.xib */; };
+		7B2F26581E5B2D7E004D0CE0 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2F26521E5B2D7E004D0CE0 /* UIView+AutoLayout.m */; };
 		7B396A311E4B3DB100386665 /* DATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A301E4B3DB100386665 /* DATableView.m */; };
 		7B396A3D1E505AB900386665 /* DAChatMessageRes.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A3A1E505AB900386665 /* DAChatMessageRes.m */; };
 		7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B396A3C1E505AB900386665 /* ChatMessageFrame.m */; };
@@ -258,6 +264,17 @@
 		7B20337D1E557D3F00D85E8D /* DAContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContactCell.m; sourceTree = "<group>"; };
 		7B20337F1E557D6700D85E8D /* DAContractCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContractCellModel.h; sourceTree = "<group>"; };
 		7B2033801E557D6700D85E8D /* DAContractCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAContractCellModel.m; sourceTree = "<group>"; };
+		7B2F26481E5B2D7E004D0CE0 /* CALayer+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Animation.h"; sourceTree = "<group>"; };
+		7B2F26491E5B2D7E004D0CE0 /* CALayer+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Animation.m"; sourceTree = "<group>"; };
+		7B2F264A1E5B2D7E004D0CE0 /* DSActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActionSheet.h; sourceTree = "<group>"; };
+		7B2F264B1E5B2D7E004D0CE0 /* DSActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSActionSheet.m; sourceTree = "<group>"; };
+		7B2F264C1E5B2D7E004D0CE0 /* DSAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAlert.h; sourceTree = "<group>"; };
+		7B2F264D1E5B2D7E004D0CE0 /* DSAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSAlert.m; sourceTree = "<group>"; };
+		7B2F264E1E5B2D7E004D0CE0 /* DSTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSTableCell.h; sourceTree = "<group>"; };
+		7B2F264F1E5B2D7E004D0CE0 /* DSTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSTableCell.m; sourceTree = "<group>"; };
+		7B2F26501E5B2D7E004D0CE0 /* DSTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSTableCell.xib; sourceTree = "<group>"; };
+		7B2F26511E5B2D7E004D0CE0 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		7B2F26521E5B2D7E004D0CE0 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		7B396A2F1E4B3DB100386665 /* DATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableView.h; sourceTree = "<group>"; };
 		7B396A301E4B3DB100386665 /* DATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableView.m; sourceTree = "<group>"; };
 		7B396A391E505AB900386665 /* DAChatMessageRes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatMessageRes.h; sourceTree = "<group>"; };
@@ -598,6 +615,24 @@
 				7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B2F26471E5B2D7E004D0CE0 /* DSAlert */ = {
+			isa = PBXGroup;
+			children = (
+				7B2F26481E5B2D7E004D0CE0 /* CALayer+Animation.h */,
+				7B2F26491E5B2D7E004D0CE0 /* CALayer+Animation.m */,
+				7B2F264A1E5B2D7E004D0CE0 /* DSActionSheet.h */,
+				7B2F264B1E5B2D7E004D0CE0 /* DSActionSheet.m */,
+				7B2F264C1E5B2D7E004D0CE0 /* DSAlert.h */,
+				7B2F264D1E5B2D7E004D0CE0 /* DSAlert.m */,
+				7B2F264E1E5B2D7E004D0CE0 /* DSTableCell.h */,
+				7B2F264F1E5B2D7E004D0CE0 /* DSTableCell.m */,
+				7B2F26501E5B2D7E004D0CE0 /* DSTableCell.xib */,
+				7B2F26511E5B2D7E004D0CE0 /* UIView+AutoLayout.h */,
+				7B2F26521E5B2D7E004D0CE0 /* UIView+AutoLayout.m */,
+			);
+			path = DSAlert;
 			sourceTree = "<group>";
 		};
 		7B396A3F1E505B3100386665 /* Other */ = {
@@ -966,6 +1001,7 @@
 		7BEC0CEB1E4617FC00A0C71C /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				7B2F26471E5B2D7E004D0CE0 /* DSAlert */,
 				7B04369B1E55E19C006A55CD /* DAGetAddressBook */,
 				7BEC0E5A1E4B267400A0C71C /* Search */,
 				7BEC0D8D1E4766D900A0C71C /* KeyBoard */,
@@ -1382,6 +1418,7 @@
 				7B396B151E52F14A00386665 /* 25.gif in Resources */,
 				7B396B3C1E52F14A00386665 /* 42.png in Resources */,
 				7B396B201E52F14A00386665 /* 3.png in Resources */,
+				7B2F26571E5B2D7E004D0CE0 /* DSTableCell.xib in Resources */,
 				7B396AFC1E52F14A00386665 /* 13.png in Resources */,
 				7B396B421E52F14A00386665 /* 45.png in Resources */,
 				7B396B071E52F14A00386665 /* 19.gif in Resources */,
@@ -1574,9 +1611,12 @@
 				7BEC0D5D1E47424C00A0C71C /* LYSideslipCell.m in Sources */,
 				7B396A311E4B3DB100386665 /* DATableView.m in Sources */,
 				7BEC0D2F1E46EF9A00A0C71C /* UIView+LLExt.m in Sources */,
+				7B2F26581E5B2D7E004D0CE0 /* UIView+AutoLayout.m in Sources */,
 				7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */,
+				7B2F26541E5B2D7E004D0CE0 /* DSActionSheet.m in Sources */,
 				7B0436B71E5AD3A1006A55CD /* NSString+OYExtension.m in Sources */,
 				7BEC0D271E46EBCE00A0C71C /* UIImage+LLExt.m in Sources */,
+				7B2F26551E5B2D7E004D0CE0 /* DSAlert.m in Sources */,
 				7BEC0CF51E461A7100A0C71C /* main.m in Sources */,
 				7B396A571E52B5B600386665 /* DAChatMessageReq.m in Sources */,
 				7B0436A81E5950D6006A55CD /* DAProfilesCell.m in Sources */,
@@ -1586,6 +1626,7 @@
 				7BEC0DC31E4766D900A0C71C /* PanelBottomView.m in Sources */,
 				7B396A481E505C0300386665 /* ChatMessageCell.m in Sources */,
 				7BEC0D031E46DEC100A0C71C /* DANavigationController.m in Sources */,
+				7B2F26561E5B2D7E004D0CE0 /* DSTableCell.m in Sources */,
 				7B0436AE1E5AAF53006A55CD /* DAAccountNumCell.m in Sources */,
 				7B0436B11E5AC222006A55CD /* DAWalletViewController.m in Sources */,
 				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
@@ -1603,6 +1644,7 @@
 				7BEC0DB71E4766D900A0C71C /* NSString+Emoji.m in Sources */,
 				7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */,
 				7B0436A11E55E19C006A55CD /* DAGetAddressBook.m in Sources */,
+				7B2F26531E5B2D7E004D0CE0 /* CALayer+Animation.m in Sources */,
 				7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */,
 				7B396A4E1E50686B00386665 /* DAChatMessageDateCell.m in Sources */,
 				7BEC0DED1E483DDA00A0C71C /* DAProfilesViewController.m in Sources */,

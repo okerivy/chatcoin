@@ -33,6 +33,7 @@
 // a807f05a91fe2b4a7eb28e1fc5f5d6d4aead6ba7 翟志秀
 // 11080cd76290bf50a80fecaefd16ff21d9d90cb8 魏征
 
+//iPhone6 Plus分辨率414x736，像素1242x2208，@3x，（注意，在这个分辨率下渲染后，图像等比降低pixel分辨率至1080p(1080x1920)
 
 
 
