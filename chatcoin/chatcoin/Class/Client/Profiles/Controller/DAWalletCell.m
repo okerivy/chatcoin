@@ -43,7 +43,7 @@
 
         
         _accountLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, 170, 30)];
-        _accountLabel.text = @"JDSHGSHGJS398E4HSHGS3323";
+        _accountLabel.text = @"JNLHSNJNK4FOP3IMLFLNGO3F";
         _accountLabel.font = [UIFont systemFontOfSize:23];
         
         [_bigView addSubview:_accountLabel];

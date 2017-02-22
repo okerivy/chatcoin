@@ -181,6 +181,13 @@
 		7B396B801E52F14A00386665 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B396AEF1E52F14A00386665 /* 8.png */; };
 		7B396B811E52F14A00386665 /* 9.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7B396AF01E52F14A00386665 /* 9.gif */; };
 		7B396B821E52F14A00386665 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B396AF11E52F14A00386665 /* 9.png */; };
+		7B6AC6861E5D6528006BD394 /* DAChatBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6AC6851E5D6528006BD394 /* DAChatBalanceViewController.m */; };
+		7B6AC6891E5D6585006BD394 /* DAChatBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6AC6881E5D6585006BD394 /* DAChatBalanceCell.m */; };
+		7BE824C81E5D9A9300E96466 /* DATransactionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE824C71E5D9A9300E96466 /* DATransactionCell.m */; };
+		7BE824CB1E5DA0DF00E96466 /* DAFlowBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE824CA1E5DA0DF00E96466 /* DAFlowBalanceViewController.m */; };
+		7BE824CE1E5DA14C00E96466 /* DAFlowBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE824CD1E5DA14C00E96466 /* DAFlowBalanceCell.m */; };
+		7BE824D11E5DA63C00E96466 /* DAWillInvalidCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE824D01E5DA63C00E96466 /* DAWillInvalidCell.m */; };
+		7BE824D41E5DAE6700E96466 /* DAFlowTransactionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE824D31E5DAE6700E96466 /* DAFlowTransactionController.m */; };
 		7BEC0CF41E461A7100A0C71C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF21E461A7100A0C71C /* AppDelegate.m */; };
 		7BEC0CF51E461A7100A0C71C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF31E461A7100A0C71C /* main.m */; };
 		7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEC0CF71E461DD800A0C71C /* DAContractViewController.m */; };
@@ -441,6 +448,20 @@
 		7B396AEF1E52F14A00386665 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		7B396AF01E52F14A00386665 /* 9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 9.gif; sourceTree = "<group>"; };
 		7B396AF11E52F14A00386665 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		7B6AC6841E5D6528006BD394 /* DAChatBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatBalanceViewController.h; sourceTree = "<group>"; };
+		7B6AC6851E5D6528006BD394 /* DAChatBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatBalanceViewController.m; sourceTree = "<group>"; };
+		7B6AC6871E5D6585006BD394 /* DAChatBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAChatBalanceCell.h; path = chatcoin/Class/Client/Profiles/Controller/DAChatBalanceCell.h; sourceTree = SOURCE_ROOT; };
+		7B6AC6881E5D6585006BD394 /* DAChatBalanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAChatBalanceCell.m; path = chatcoin/Class/Client/Profiles/Controller/DAChatBalanceCell.m; sourceTree = SOURCE_ROOT; };
+		7BE824C61E5D9A9300E96466 /* DATransactionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DATransactionCell.h; path = chatcoin/Class/Client/Profiles/Controller/DATransactionCell.h; sourceTree = SOURCE_ROOT; };
+		7BE824C71E5D9A9300E96466 /* DATransactionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DATransactionCell.m; path = chatcoin/Class/Client/Profiles/Controller/DATransactionCell.m; sourceTree = SOURCE_ROOT; };
+		7BE824C91E5DA0DF00E96466 /* DAFlowBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFlowBalanceViewController.h; sourceTree = "<group>"; };
+		7BE824CA1E5DA0DF00E96466 /* DAFlowBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFlowBalanceViewController.m; sourceTree = "<group>"; };
+		7BE824CC1E5DA14C00E96466 /* DAFlowBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAFlowBalanceCell.h; path = chatcoin/Class/Client/Profiles/Controller/DAFlowBalanceCell.h; sourceTree = SOURCE_ROOT; };
+		7BE824CD1E5DA14C00E96466 /* DAFlowBalanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAFlowBalanceCell.m; path = chatcoin/Class/Client/Profiles/Controller/DAFlowBalanceCell.m; sourceTree = SOURCE_ROOT; };
+		7BE824CF1E5DA63C00E96466 /* DAWillInvalidCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAWillInvalidCell.h; path = chatcoin/Class/Client/Profiles/Controller/DAWillInvalidCell.h; sourceTree = SOURCE_ROOT; };
+		7BE824D01E5DA63C00E96466 /* DAWillInvalidCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAWillInvalidCell.m; path = chatcoin/Class/Client/Profiles/Controller/DAWillInvalidCell.m; sourceTree = SOURCE_ROOT; };
+		7BE824D21E5DAE6700E96466 /* DAFlowTransactionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFlowTransactionController.h; sourceTree = "<group>"; };
+		7BE824D31E5DAE6700E96466 /* DAFlowTransactionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFlowTransactionController.m; sourceTree = "<group>"; };
 		7BEC0CEF1E46185700A0C71C /* Api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Api.h; sourceTree = "<group>"; };
 		7BEC0CF01E46186700A0C71C /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		7BEC0CF11E461A7100A0C71C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1258,6 +1279,12 @@
 				7B0436AA1E5AAC61006A55CD /* DAAccountNumController.m */,
 				7B0436AF1E5AC222006A55CD /* DAWalletViewController.h */,
 				7B0436B01E5AC222006A55CD /* DAWalletViewController.m */,
+				7B6AC6841E5D6528006BD394 /* DAChatBalanceViewController.h */,
+				7B6AC6851E5D6528006BD394 /* DAChatBalanceViewController.m */,
+				7BE824C91E5DA0DF00E96466 /* DAFlowBalanceViewController.h */,
+				7BE824CA1E5DA0DF00E96466 /* DAFlowBalanceViewController.m */,
+				7BE824D21E5DAE6700E96466 /* DAFlowTransactionController.h */,
+				7BE824D31E5DAE6700E96466 /* DAFlowTransactionController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1278,6 +1305,14 @@
 				7B0436AD1E5AAF53006A55CD /* DAAccountNumCell.m */,
 				7B0436B21E5ACD2E006A55CD /* DAWalletCell.h */,
 				7B0436B31E5ACD2E006A55CD /* DAWalletCell.m */,
+				7B6AC6871E5D6585006BD394 /* DAChatBalanceCell.h */,
+				7B6AC6881E5D6585006BD394 /* DAChatBalanceCell.m */,
+				7BE824C61E5D9A9300E96466 /* DATransactionCell.h */,
+				7BE824C71E5D9A9300E96466 /* DATransactionCell.m */,
+				7BE824CC1E5DA14C00E96466 /* DAFlowBalanceCell.h */,
+				7BE824CD1E5DA14C00E96466 /* DAFlowBalanceCell.m */,
+				7BE824CF1E5DA63C00E96466 /* DAWillInvalidCell.h */,
+				7BE824D01E5DA63C00E96466 /* DAWillInvalidCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1583,13 +1618,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BEC0DC51E4766D900A0C71C /* ChatToolBar.m in Sources */,
+				7BE824C81E5D9A9300E96466 /* DATransactionCell.m in Sources */,
+				7B6AC6891E5D6585006BD394 /* DAChatBalanceCell.m in Sources */,
 				7BEC0DBA1E4766D900A0C71C /* FaceThemeModel.m in Sources */,
 				7B396A5A1E52B5D300386665 /* DAChatMessageHeardeReq.m in Sources */,
 				7BEC0D251E46EBCE00A0C71C /* UIColor+LLExt.m in Sources */,
 				7B396A421E505B3100386665 /* LiuqsDecoder.m in Sources */,
+				7BE824D41E5DAE6700E96466 /* DAFlowTransactionController.m in Sources */,
 				7BEC0D291E46EBCE00A0C71C /* UIScrollView+LLExt.m in Sources */,
 				7BEC0D241E46EBCE00A0C71C /* UICollectionView+LLExt.m in Sources */,
 				7BEC0DC61E4766D900A0C71C /* OfficialAccountToolbar.m in Sources */,
+				7B6AC6861E5D6528006BD394 /* DAChatBalanceViewController.m in Sources */,
 				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
 				7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */,
 				7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */,
@@ -1629,6 +1668,7 @@
 				7B2F26561E5B2D7E004D0CE0 /* DSTableCell.m in Sources */,
 				7B0436AE1E5AAF53006A55CD /* DAAccountNumCell.m in Sources */,
 				7B0436B11E5AC222006A55CD /* DAWalletViewController.m in Sources */,
+				7BE824D11E5DA63C00E96466 /* DAWillInvalidCell.m in Sources */,
 				7BEC0D4A1E47041D00A0C71C /* LYHomeCell.m in Sources */,
 				7BEC0DBF1E4766D900A0C71C /* FaceButton.m in Sources */,
 				7BEC0D591E470AA100A0C71C /* DAChatViewController.m in Sources */,
@@ -1645,9 +1685,11 @@
 				7BEC0DB91E4766D900A0C71C /* ChatToolBarItem.m in Sources */,
 				7B0436A11E55E19C006A55CD /* DAGetAddressBook.m in Sources */,
 				7B2F26531E5B2D7E004D0CE0 /* CALayer+Animation.m in Sources */,
+				7BE824CB1E5DA0DF00E96466 /* DAFlowBalanceViewController.m in Sources */,
 				7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */,
 				7B396A4E1E50686B00386665 /* DAChatMessageDateCell.m in Sources */,
 				7BEC0DED1E483DDA00A0C71C /* DAProfilesViewController.m in Sources */,
+				7BE824CE1E5DA14C00E96466 /* DAFlowBalanceCell.m in Sources */,
 				7BEC0DC11E4766D900A0C71C /* FacePanel.m in Sources */,
 				7BEC0DC81E4766D900A0C71C /* RFTextView.m in Sources */,
 			);

@@ -16,6 +16,10 @@
 
 #import "DAWalletCell.h"
 
+#import "DAChatBalanceViewController.h"
+#import "DAFlowBalanceViewController.h"
+
+
 #import "DSAlert.h"
 
 
@@ -57,6 +61,9 @@ UINavigationControllerDelegate>
 @property (nonatomic, strong) UIView         *viewPwdBgView;
 @property (nonatomic, strong) UITextField    *pwdTextField;
 
+/** <#describe#> */
+@property (nonatomic, strong) NSIndexPath *clickIndexPath;
+
 
 @end
 
@@ -73,8 +80,9 @@ UINavigationControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"账号";
+    self.title = @"钱包";
     _dataArray = [NSMutableArray array];
+    _clickIndexPath = [[NSIndexPath alloc] init];
     [self initData];
     
     self.view.backgroundColor = kLLBackgroundColor_Default;
@@ -205,7 +213,11 @@ UINavigationControllerDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    self.clickIndexPath = indexPath;
+
     [self alert5];
+    
+    
     return;
 }
 
@@ -354,21 +366,30 @@ UINavigationControllerDelegate>
     else
     {
         NSLog(@"点击了确定按钮！密码：%@", _pwdTextField.text);
-        
-        //        WEAKSELF;
-        if (_pwdTextField.text.length < 4 || _pwdTextField.text.length > 8 )
-        {
-            self.pwdTextField.text = @"";
-            [DSAlert ds_showAlertWithTitle:@"温馨提示：" message:@"请输入正确的密码！" image:nil buttonTitles:@[@"确定"] buttonTitlesColor:@[[UIColor redColor], [UIColor cyanColor]] configuration:^(DSAlert *tempView) {
-                //                weakSelf.alert2 = tempView;
-            } actionClick:^(NSInteger index) {
-                if (1 == index)
-                {
-                    return;
-                }
-            }];
-            return;
+        if (self.clickIndexPath.section == 0) {
+            DAChatBalanceViewController * chatVC = [[DAChatBalanceViewController alloc] init];
+            [self.navigationController pushViewController:chatVC animated:YES];
+            
+        }else {
+            DAFlowBalanceViewController* chatVC = [[DAFlowBalanceViewController alloc] init];
+            [self.navigationController pushViewController:chatVC animated:YES];
+            
         }
+        
+//        //        WEAKSELF;
+//        if (_pwdTextField.text.length < 4 || _pwdTextField.text.length > 8 )
+//        {
+//            self.pwdTextField.text = @"";
+//            [DSAlert ds_showAlertWithTitle:@"温馨提示：" message:@"请输入正确的密码！" image:nil buttonTitles:@[@"确定"] buttonTitlesColor:@[[UIColor redColor], [UIColor cyanColor]] configuration:^(DSAlert *tempView) {
+//                //                weakSelf.alert2 = tempView;
+//            } actionClick:^(NSInteger index) {
+//                if (1 == index)
+//                {
+//                    return;
+//                }
+//            }];
+//            return;
+//        }
         /*! 隐藏alert */
         [_alertView5 ds_dismissAlertView];
         [_pwdTextField resignFirstResponder];

@@ -324,7 +324,7 @@ LLSearchControllerDelegate>
     
     vc.searchResultController = resultController;
     resultController.searchViewController = vc;
-    [vc showInViewController:self fromSearchBar:self.searchBar];
+//    [vc showInViewController:self fromSearchBar:self.searchBar];
     
     return NO;
 }
