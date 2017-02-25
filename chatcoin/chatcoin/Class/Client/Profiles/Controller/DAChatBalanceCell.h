@@ -8,6 +8,13 @@
 
 #import "LYSideslipCell.h"
 
+typedef void (^clickTransMoneyBlock)();
+
 @interface DAChatBalanceCell : LYSideslipCell
 
+@property (nonatomic ,strong ) clickTransMoneyBlock transMoneyBlock ;
+
 @end
+
+
+

@@ -181,6 +181,9 @@
 		7B396B801E52F14A00386665 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B396AEF1E52F14A00386665 /* 8.png */; };
 		7B396B811E52F14A00386665 /* 9.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7B396AF01E52F14A00386665 /* 9.gif */; };
 		7B396B821E52F14A00386665 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B396AF11E52F14A00386665 /* 9.png */; };
+		7B401EF91E617C1400199983 /* DAChatTransViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B401EF81E617C1400199983 /* DAChatTransViewController.m */; };
+		7B401EFC1E619CF900199983 /* DAFlowTransViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B401EFB1E619CF900199983 /* DAFlowTransViewController.m */; };
+		7B401EFF1E619D1C00199983 /* DAFlowGiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B401EFE1E619D1C00199983 /* DAFlowGiveViewController.m */; };
 		7B6AC6861E5D6528006BD394 /* DAChatBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6AC6851E5D6528006BD394 /* DAChatBalanceViewController.m */; };
 		7B6AC6891E5D6585006BD394 /* DAChatBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6AC6881E5D6585006BD394 /* DAChatBalanceCell.m */; };
 		7BE824C81E5D9A9300E96466 /* DATransactionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE824C71E5D9A9300E96466 /* DATransactionCell.m */; };
@@ -448,6 +451,12 @@
 		7B396AEF1E52F14A00386665 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		7B396AF01E52F14A00386665 /* 9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 9.gif; sourceTree = "<group>"; };
 		7B396AF11E52F14A00386665 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		7B401EF71E617C1400199983 /* DAChatTransViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatTransViewController.h; sourceTree = "<group>"; };
+		7B401EF81E617C1400199983 /* DAChatTransViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatTransViewController.m; sourceTree = "<group>"; };
+		7B401EFA1E619CF900199983 /* DAFlowTransViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFlowTransViewController.h; sourceTree = "<group>"; };
+		7B401EFB1E619CF900199983 /* DAFlowTransViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFlowTransViewController.m; sourceTree = "<group>"; };
+		7B401EFD1E619D1C00199983 /* DAFlowGiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAFlowGiveViewController.h; sourceTree = "<group>"; };
+		7B401EFE1E619D1C00199983 /* DAFlowGiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAFlowGiveViewController.m; sourceTree = "<group>"; };
 		7B6AC6841E5D6528006BD394 /* DAChatBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatBalanceViewController.h; sourceTree = "<group>"; };
 		7B6AC6851E5D6528006BD394 /* DAChatBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatBalanceViewController.m; sourceTree = "<group>"; };
 		7B6AC6871E5D6585006BD394 /* DAChatBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAChatBalanceCell.h; path = chatcoin/Class/Client/Profiles/Controller/DAChatBalanceCell.h; sourceTree = SOURCE_ROOT; };
@@ -1285,6 +1294,12 @@
 				7BE824CA1E5DA0DF00E96466 /* DAFlowBalanceViewController.m */,
 				7BE824D21E5DAE6700E96466 /* DAFlowTransactionController.h */,
 				7BE824D31E5DAE6700E96466 /* DAFlowTransactionController.m */,
+				7B401EF71E617C1400199983 /* DAChatTransViewController.h */,
+				7B401EF81E617C1400199983 /* DAChatTransViewController.m */,
+				7B401EFA1E619CF900199983 /* DAFlowTransViewController.h */,
+				7B401EFB1E619CF900199983 /* DAFlowTransViewController.m */,
+				7B401EFD1E619D1C00199983 /* DAFlowGiveViewController.h */,
+				7B401EFE1E619D1C00199983 /* DAFlowGiveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1632,12 +1647,14 @@
 				7BEC0DB81E4766D900A0C71C /* ChatKeyBoard.m in Sources */,
 				7BEC0E691E4B319000A0C71C /* LLChatSearchController.m in Sources */,
 				7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */,
+				7B401EFC1E619CF900199983 /* DAFlowTransViewController.m in Sources */,
 				7B0436B41E5ACD2E006A55CD /* DAWalletCell.m in Sources */,
 				7B396A3E1E505AB900386665 /* ChatMessageFrame.m in Sources */,
 				7BEC0DC01E4766D900A0C71C /* FacePageView.m in Sources */,
 				7BEC0D2A1E46EBCE00A0C71C /* UITableView+LLExt.m in Sources */,
 				7BEC0D561E470A7E00A0C71C /* DAViewController.m in Sources */,
 				7BEC0D4F1E47097F00A0C71C /* LYHomeCellModel.m in Sources */,
+				7B401EFF1E619D1C00199983 /* DAFlowGiveViewController.m in Sources */,
 				7BEC0E611E4B267400A0C71C /* LLSearchBar.m in Sources */,
 				7BEC0CFB1E461E0000A0C71C /* DAConversationViewController.m in Sources */,
 				7BEC0CF81E461DD800A0C71C /* DAContractViewController.m in Sources */,
@@ -1675,6 +1692,7 @@
 				7B396A451E505B7500386665 /* LiuqsTextAttachment.m in Sources */,
 				7BEC0DC41E4766D900A0C71C /* MorePanel.m in Sources */,
 				7BEC0D281E46EBCE00A0C71C /* UINavigationBar+LLExt.m in Sources */,
+				7B401EF91E617C1400199983 /* DAChatTransViewController.m in Sources */,
 				7B0436A51E56B938006A55CD /* DAContactStaicCell.m in Sources */,
 				7B0436AB1E5AAC61006A55CD /* DAAccountNumController.m in Sources */,
 				7BEC0DC71E4766D900A0C71C /* RFRecordButton.m in Sources */,

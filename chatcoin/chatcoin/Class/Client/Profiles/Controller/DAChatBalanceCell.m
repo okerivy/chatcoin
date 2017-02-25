@@ -125,6 +125,9 @@
 - (void)sentMoney:(UIButton *)btn
 {
     ZLog(@"%@", btn);
+    if (self.transMoneyBlock) {
+        self.transMoneyBlock();
+    }
 }
 
 

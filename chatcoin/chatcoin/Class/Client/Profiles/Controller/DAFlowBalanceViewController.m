@@ -21,6 +21,8 @@
 #import "DAWillInvalidCell.h"
 
 #import "DAFlowTransactionController.h"
+#import "DAFlowTransViewController.h"
+#import "DAFlowGiveViewController.h"
 
 
 #define kIcon @"kIcon"
@@ -132,7 +134,19 @@ UINavigationControllerDelegate>
 
 - (void)copyAcount
 {
-    
+
+}
+- (void)transMoney
+{
+    DAFlowTransViewController *transVC = [[DAFlowTransViewController alloc] init];
+    [self.navigationController pushViewController:transVC animated:YES];
+
+}
+
+- (void)giveMoney
+{
+    DAFlowGiveViewController *transVC = [[DAFlowGiveViewController alloc] init];
+    [self.navigationController pushViewController:transVC animated:YES];
 }
 
 #pragma mark- 代理方法 Delegate
@@ -219,11 +233,52 @@ UINavigationControllerDelegate>
 }
 
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    //    UIViewController * chatVC = [[UIViewController alloc] init];
+    //    [self.navigationController pushViewController:chatVC animated:YES];
+    
+    if (indexPath.section == 0) {
+        return;
+    }
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+    //添加Button
+    
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"转账" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //处理点击拍照
+        ZLog(@"%@", @"转账");
+        [self transMoney];
+        
+    }];
+    UIAlertAction *destructiveAction = [UIAlertAction actionWithTitle:@"捐赠" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //处理点击从相册选取
+        ZLog(@"%@", @"捐赠");
+        [self giveMoney];
+        
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }];
+    
+    //修改按钮
+    [defaultAction setValue:[UIColor blackColor] forKey:@"_titleTextColor"];
+    [destructiveAction setValue:[UIColor blackColor] forKey:@"_titleTextColor"];
+    [cancelAction setValue:ZKColor_Var(148, 142, 156) forKey:@"_titleTextColor"];
+    
+    
+    [alertController addAction:defaultAction];
+    [alertController addAction:destructiveAction];
+    [alertController addAction:cancelAction];
+    
+    
+    [self presentViewController: alertController animated: YES completion: nil];
     
     return;
 }
+
 
 
 

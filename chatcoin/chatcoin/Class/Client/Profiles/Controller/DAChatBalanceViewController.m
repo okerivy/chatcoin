@@ -19,6 +19,9 @@
 
 #import "DATransactionCell.h"
 
+#import "DAChatTransViewController.h"
+
+
 
 #define kIcon @"kIcon"
 #define kName @"kName"
@@ -128,6 +131,12 @@ UINavigationControllerDelegate>
     
 }
 
+- (void)transMoney
+{
+    DAChatTransViewController *transVC = [[DAChatTransViewController alloc] init];
+    [self.navigationController pushViewController:transVC animated:YES];
+}
+
 #pragma mark- 代理方法 Delegate
 
 
@@ -186,6 +195,15 @@ UINavigationControllerDelegate>
         if (!cell) {
             cell = [[DAChatBalanceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(DAChatBalanceCell.class)];
             cell.delegate = self;
+            WEAK_SELF;
+            cell.transMoneyBlock = ^(){
+                [weakSelf transMoney];
+            };
+            
+//            self.checkButton.onClickRadio = ^(BOOL isSelect){
+//                
+//                [_weakSelf onClickRadio];
+//            } ;
         }
         _cell = cell;
     } else {
