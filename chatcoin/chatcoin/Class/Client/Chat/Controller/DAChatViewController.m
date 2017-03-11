@@ -33,6 +33,8 @@
 
 @property(nonatomic, strong) UITableView *chatList;
 // 数据库原始的数据
+@property(nonatomic, strong) NSMutableArray<DAChatMessageRes *> *messageBank;
+// 数据库原始的数据
 @property(nonatomic, strong) NSMutableArray<ChatMessageFrame *> *dataBank;
 // 添加日期的数据
 @property(nonatomic, strong) NSMutableArray<ChatMessageFrame *> *dataSource;
@@ -68,6 +70,7 @@
     
     [self addSubviews];
     self.dataBank = [NSMutableArray array];
+    self.messageBank = [NSMutableArray array];
 
     self.dataSource = [NSMutableArray array];
 //    for (int i = 0; i < 40; i++) {
@@ -77,6 +80,26 @@
 
 
     [self initData];
+    
+    UIButton *btn01 = [[UIButton alloc] initWithFrame:CGRectMake(50, 100, 60, 40)];
+    btn01.backgroundColor = ZKColor_Random;
+    [btn01 setTitle:@"插入" forState:UIControlStateNormal];
+    [btn01 addTarget:self action:@selector(insertTable:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn01];
+    
+    UIButton *btn02 = [[UIButton alloc] initWithFrame:CGRectMake(130, 100, 60, 40)];
+    btn02.backgroundColor = ZKColor_Random;
+    [btn02 setTitle:@"查询" forState:UIControlStateNormal];
+    [btn02 addTarget:self action:@selector(queryTable:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:btn02];
+    
+    UIButton *btn03 = [[UIButton alloc] initWithFrame:CGRectMake(210, 100, 60, 40)];
+    btn03.backgroundColor = ZKColor_Random;
+    [btn03 setTitle:@"创建表" forState:UIControlStateNormal];
+    [btn03 addTarget:self action:@selector(creatTable:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:btn03];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -87,6 +110,35 @@
 
 #pragma mark- 初始化方法
 
+- (void)insertTable:(UIButton *)btn
+{
+    NSArray *arr = [DAChatMessageRes mj_keyValuesArrayWithObjectArray:self.messageBank];
+    [DAChatDatabaseManager saveMessages:arr toTable:self.conversationModel.conversationId userId:myUserId];
+    ZLog(@"---------");
+}
+
+- (void)queryTable:(UIButton *)btn
+{
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"since_id"] = @"1";
+    params[@"max_id"] = @"0";
+    
+    // 取出最前面的微博（最新的微博，ID最大的微博）
+    
+    NSArray *messageArray = [DAChatDatabaseManager queryMessagesWithParams:params fromTable:self.conversationModel.conversationId];
+    
+    ZLog(@"%@", messageArray);
+
+    
+}
+- (void)creatTable:(UIButton *)btn
+{
+    
+    
+    [DAChatDatabaseManager creatChatTableWithName:self.conversationModel.conversationId];
+    ZLog(@"---------");
+}
 
 
 - (void)addSubviews
@@ -145,10 +197,12 @@
             message.senderUserIconName = self.conversationModel.iconName;
             message.senderUserId = self.conversationModel.messageUserId;
             message.senderUserName = self.conversationModel.userName;
-
+            message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
+            [self.messageBank addObject:message];
+
         } else if (i %3 == 1) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
@@ -160,10 +214,13 @@
             message.senderUserIconName = myUserIconName;
             message.senderUserId = myUserId;
             message.senderUserName = myUserName;
+            message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
             
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
+            [self.messageBank addObject:message];
+
         }else if (i %3 == 2) {
             ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
@@ -175,11 +232,19 @@
             message.senderUserIconName = myUserIconName;
             message.senderUserId = myUserId;
             message.senderUserName = myUserName;
-            
+            message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
+
             cellFrame.message = message;
             [self.dataBank addObject:cellFrame];
+            [self.messageBank addObject:message];
+
         }
     }
+    
+    
+    
+    
+    
     
     // 按照聊天记录 添加日期模型
     for (NSInteger i = 0, count = self.dataBank.count; i < count; i++) {
@@ -367,6 +432,7 @@
     if (!string) return;
     [self sendTextMessage:string];
 }
+
 
 //判断字符串是否为空字符的方法
 - (NSString *) isBlankString:(NSString *)string {

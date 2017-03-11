@@ -27,6 +27,8 @@
 #import "SearchUtils.h"
 #import "UIImage+extension.h"
 #import "NSString+OYExtension.h"
+#import "DASingleton.h"
+#import "DAChatDatabaseManager.h"
 
 // 0.3833
 

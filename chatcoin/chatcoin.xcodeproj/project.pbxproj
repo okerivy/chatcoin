@@ -17,6 +17,7 @@
 		7B0436B11E5AC222006A55CD /* DAWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436B01E5AC222006A55CD /* DAWalletViewController.m */; };
 		7B0436B41E5ACD2E006A55CD /* DAWalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436B31E5ACD2E006A55CD /* DAWalletCell.m */; };
 		7B0436B71E5AD3A1006A55CD /* NSString+OYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0436B61E5AD3A1006A55CD /* NSString+OYExtension.m */; };
+		7B1A7A9C1E741C9800E9F98F /* DAChatDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A7A9B1E741C9800E9F98F /* DAChatDatabaseManager.m */; };
 		7B1D7EE51E460E1D00F2EDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */; };
 		7B20337E1E557D3F00D85E8D /* DAContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20337D1E557D3F00D85E8D /* DAContactCell.m */; };
 		7B2033811E557D6700D85E8D /* DAContractCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2033801E557D6700D85E8D /* DAContractCellModel.m */; };
@@ -268,6 +269,8 @@
 		7B0436B61E5AD3A1006A55CD /* NSString+OYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+OYExtension.m"; sourceTree = "<group>"; };
 		7B08C25D1E44B0E9002FB869 /* chatcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B08C2711E44B0E9002FB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B1A7A9A1E741C9800E9F98F /* DAChatDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAChatDatabaseManager.h; sourceTree = "<group>"; };
+		7B1A7A9B1E741C9800E9F98F /* DAChatDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAChatDatabaseManager.m; sourceTree = "<group>"; };
 		7B1D7EE41E460E1D00F2EDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatcoin-Prefix.pch"; sourceTree = "<group>"; };
 		7B20337C1E557D3F00D85E8D /* DAContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAContactCell.h; sourceTree = "<group>"; };
@@ -645,6 +648,15 @@
 				7B1D7EE61E460F6B00F2EDD9 /* chatcoin-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B1A7A991E74178500E9F98F /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				7B1A7A9A1E741C9800E9F98F /* DAChatDatabaseManager.h */,
+				7B1A7A9B1E741C9800E9F98F /* DAChatDatabaseManager.m */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 		7B2F26471E5B2D7E004D0CE0 /* DSAlert */ = {
@@ -1043,6 +1055,7 @@
 		7BEC0CEC1E4617FC00A0C71C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				7B1A7A991E74178500E9F98F /* DataBase */,
 				7BEC0D0A1E46EBCE00A0C71C /* Category */,
 				7BEC0CED1E4617FC00A0C71C /* Cache */,
 				7BEC0CEE1E4617FC00A0C71C /* Config */,
@@ -1670,6 +1683,7 @@
 				7B2F26581E5B2D7E004D0CE0 /* UIView+AutoLayout.m in Sources */,
 				7BEC0DCB1E47689F00A0C71C /* FaceSourceManager.m in Sources */,
 				7B2F26541E5B2D7E004D0CE0 /* DSActionSheet.m in Sources */,
+				7B1A7A9C1E741C9800E9F98F /* DAChatDatabaseManager.m in Sources */,
 				7B0436B71E5AD3A1006A55CD /* NSString+OYExtension.m in Sources */,
 				7BEC0D271E46EBCE00A0C71C /* UIImage+LLExt.m in Sources */,
 				7B2F26551E5B2D7E004D0CE0 /* DSAlert.m in Sources */,
