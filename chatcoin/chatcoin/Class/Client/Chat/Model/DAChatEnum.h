@@ -9,7 +9,7 @@
 #ifndef DAChatEnum_h
 #define DAChatEnum_h
 
-//消息是谁的
+//消息是谁发的
 typedef NS_ENUM(NSInteger, DAMessageUserType) {
     DAMessageUserTypeMe = 0,
     DAMessageUserTypeOther,

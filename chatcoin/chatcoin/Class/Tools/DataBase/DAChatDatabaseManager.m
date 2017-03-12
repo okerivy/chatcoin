@@ -7,12 +7,14 @@
 //
 
 #import "DAChatDatabaseManager.h"
+#import "DAChatMessageRes.h"
+
 
 
 static FMDatabaseQueue *dataBaseQueue;
 
 @implementation DAChatDatabaseManager
-#define t_table(a,b) a##b
+
 DASingletonM(DAChatDatabaseManager)
 
 + (void)initialize {
@@ -25,7 +27,7 @@ DASingletonM(DAChatDatabaseManager)
 }
 
 //判断字符串是否为空字符的方法
-+ (NSString *) isBlankString:(NSString *)string {
+- (NSString *) isBlankString:(NSString *)string {
     if (string == nil || string == NULL) {
         return nil;
     }
@@ -40,7 +42,7 @@ DASingletonM(DAChatDatabaseManager)
 }
 
 
-+ (void)creatChatTableWithName:(NSString *)tableName
+- (void)creatChatTableWithName:(NSString *)tableName
 {
     if (![self isBlankString:tableName]) {
         ZLog(@"创建消息表失败");
@@ -52,8 +54,8 @@ DASingletonM(DAChatDatabaseManager)
     // 2.创表
     BOOL __block createTableResult;
     [dataBaseQueue inDatabase:^(FMDatabase *db) {
-        
-        NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (id INTEGER PRIMARY KEY, userId TEXT  NOT NULL, messageId TEXT NOT NULL, createTime TEXT DEFAULT (datetime('now', 'localtime')) NOT NULL,messageData BLOB NOT NULL);", tableN];
+        // conversationId  loginId messageId  fromId toId  messageContent userType messageBodyType  timestamp
+        NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (id INTEGER PRIMARY KEY, conversationId TEXT  NOT NULL, loginId TEXT  NOT NULL, messageId TEXT NOT NULL, fromId TEXT  NOT NULL, toId TEXT, messageContent TEXT ,  userType TEXT  NOT NULL,  messageBodyType TEXT  NOT NULL, timestamp TEXT  NOT NULL, createTime TEXT DEFAULT (datetime('now', 'localtime')) NOT NULL);", tableN];
         
         createTableResult = [db executeUpdate:sql];
         if (createTableResult) {
@@ -67,10 +69,12 @@ DASingletonM(DAChatDatabaseManager)
 
 /**
  *  根据请求参数去沙盒中加载缓存的消息数据
- *
- *  @param params 请求参数
  */
-+ (NSArray *)queryMessagesWithParams:(NSDictionary *)params  fromTable:(NSString *)tableName
+//- (NSArray *)queryMessagesWithParams:(NSDictionary *)params  fromTable:(NSString *)tableName
+- (NSArray *)loadMoreMessagesFromId:(NSString *)messageId
+                          fromTable:(NSString *)tableName
+                             offset:(NSInteger)offset
+                              limit:(NSInteger)limit
 {
     if (![self isBlankString:tableName]) {
         ZLog(@"没有找到表名");
@@ -81,13 +85,16 @@ DASingletonM(DAChatDatabaseManager)
     
     // 根据请求参数生成对应的查询SQL语句
     NSString *sql = nil;
-    if (params[@"since_id"]) {
-        sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE id > %@ ORDER BY id DESC LIMIT 5;", tableN,params[@"since_id"]];
-    } else if (params[@"max_id"]) {
-        sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE id <= %@ ORDER BY id DESC LIMIT 5;", tableN,params[@"max_id"]];
-    } else {
-        sql = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY id DESC LIMIT 5;", tableN];
-    }
+//    if (params[@"since_id"]) {
+//        sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE id > %@ ORDER BY id DESC LIMIT 5;", tableN,params[@"since_id"]];
+//    } else if (params[@"max_id"]) {
+//        sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE id <= %@ ORDER BY id DESC LIMIT 5;", tableN,params[@"max_id"]];
+//    } else {
+//        sql = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY id DESC LIMIT 5;", tableN];
+//    }
+//    sql = [NSString stringWithFormat:@"select * from (select * from %@ where loginId=%ld and friendid=%ld order by cureatetime desc limit %ld offset %ld) order by cureatetime",tableN,loginid,friendid,limit,offset];
+    sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE id >= %@ ORDER BY id DESC LIMIT %ld OFFSET %ld;", tableN,messageId,limit,offset];
+
 
     
     // 执行SQL
@@ -96,9 +103,22 @@ DASingletonM(DAChatDatabaseManager)
         FMResultSet *set = [db executeQuery:sql];
         while ([set next]) {
             
-            NSData *messageData = [set objectForColumnName:@"messageData"];
-            NSDictionary *message = [NSKeyedUnarchiver unarchiveObjectWithData:messageData];
-            [arrM addObject:message];
+            DAChatMessageRes *messageRes = [[DAChatMessageRes alloc] init];
+            messageRes.conversationId = [set objectForColumnName:@"conversationId"];
+
+            messageRes.loginId = [set objectForColumnName:@"loginId"];
+            messageRes.messageId = [set objectForColumnName:@"messageid"];
+            messageRes.fromId = [set objectForColumnName:@"fromId"];
+            messageRes.toId = [set objectForColumnName:@"toId"];
+            messageRes.messageContent = [set objectForColumnName:@"messageContent"];
+            messageRes.userType = [set intForColumn:@"userType"];
+            messageRes.messageBodyType = [set intForColumn:@"messageBodyType"];
+            messageRes.timestamp = [set doubleForColumn:@"timestamp"];
+        
+            
+//            NSData *messageData = [set objectForColumnName:@"messageData"];
+//            NSDictionary *message = [NSKeyedUnarchiver unarchiveObjectWithData:messageData];
+            [arrM addObject:messageRes];
         }
     }];
     return arrM;
@@ -112,7 +132,7 @@ DASingletonM(DAChatDatabaseManager)
  *
  *  @param messages 需要存储的微博数据
  */
-+ (void)saveMessages:(NSArray *)messages toTable:(NSString *)tableName userId:(NSString *)userId
+- (void)insertMessages:(NSArray *)messages toTable:(NSString *)tableName
 {
     BOOL __block insertTableResult;
     NSString *tableN = [NSString stringWithFormat:@"t_chat_%@", tableName];
@@ -122,38 +142,42 @@ DASingletonM(DAChatDatabaseManager)
     
     [dataBaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         
+        //FMDB默认情况是关闭缓存的
+        [db shouldCacheStatements];
+        
         // 要将一个对象存进数据库的blob字段,最好先转为NSData
         // 一个对象要遵守NSCoding协议,实现协议中相应的方法,才能转成NSData
-        for (NSDictionary *dict in messages) {
-            // NSDictionary --> NSData
-            NSString *messageId = dict[@"messageId"];
-            NSData *messageData = [NSKeyedArchiver archivedDataWithRootObject:dict];
-            
-            NSDictionary *message11 = [NSKeyedUnarchiver unarchiveObjectWithData:messageData];
+        for (DAChatMessageRes *messageRes in messages) {
 
-            NSString *sql = [NSString stringWithFormat:@"INSERT  INTO %@ (userId, messageId, messageData) VALUES ('%@', '%@', '%@');", tableN, userId, messageId,messageData];
-            
-//            NSString *sql = [NSString stringWithFormat:
-//                                    @"INSERT INTO '%@' ('%@', '%@', '%@') VALUES ('%@', '%@', '%@')",
-//                                    tableName, userId, messageId, messageId, @"李四", @"12", @"济南"];
-            
-//            NSString *Sql= [NSString stringWithFormat:
-//                                   @"INSERT INTO '%@' ('%@', '%@', '%@') VALUES (?, ?, ?)",
-//                                   TABLENAME, NAME, AGE, ADDRESS];
-            
-//            insertTableResult = [db executeUpdateWithFormat:@"INSERT  INTO  %@ (userId, messageId, messageData) VALUES (?, ?, ?);",tableN,  userId, messageId, messageData];
+            // 方式2  当方式1 中插入的数据有特殊的字符是，就会数据写入失败，使用方式2可以完美解决这一问题。
+            // conversationId  loginId messageId  fromId toId  messageContent userType messageBodyType  timestamp
+            NSString *sql = [NSString stringWithFormat:@"insert into %@ (conversationId, loginId, messageId, fromId, toId, messageContent, userType, messageBodyType, timestamp) values (?,?,?,?,?,?,?,?,?)",tableN];
 
-//            t_table(tableName)
-//            [db executeUpdateWithFormat:@"INSERT OR REPLACE INTO %@ (userId, messageId, messageData) VALUES (?, ?, ?);", tableN, userId, messageId,messageData];
+            NSNumber *userType = [NSNumber numberWithInteger:messageRes.userType];
+            NSNumber *messageBodyType = [NSNumber numberWithInteger:messageRes.messageBodyType];
+            NSNumber *timestamp = [NSNumber numberWithDouble:messageRes.timestamp];
+
             
-            insertTableResult = [db executeUpdate:sql];
-            if (insertTableResult) {
+            id conversationId = messageRes.conversationId ? messageRes.conversationId : [NSNull null];
+            id loginId = messageRes.loginId ? messageRes.loginId : [NSNull null];
+            id messageId = messageRes.messageId ? messageRes.messageId : [NSNull null];
+            id fromId = messageRes.fromId ? messageRes.fromId : [NSNull null];
+            id toId = messageRes.toId ? messageRes.toId : [NSNull null];
+            id messageContent = messageRes.messageContent ? messageRes.messageContent : [NSNull null];
+            
+            NSArray *arr = @[conversationId,loginId, messageId,fromId, toId, messageContent, userType, messageBodyType, timestamp];
+            insertTableResult = [db executeUpdate:sql withArgumentsInArray:arr];
+            if (insertTableResult){
                 NSLog(@"插入成功！");
-            }else {
+            }else{
+                
                 NSLog(@"插入失败");
                 *rollback = YES;
+                [db rollback];
                 break;
             }
+
+            
         }
         
     }];
@@ -163,7 +187,7 @@ DASingletonM(DAChatDatabaseManager)
 /*
  * 删除数据，默认删除所有
  */
-+ (BOOL)deleteData:(NSString *)deleteSql
+- (BOOL)deleteData:(NSString *)deleteSql
 {
     return  YES;
 }

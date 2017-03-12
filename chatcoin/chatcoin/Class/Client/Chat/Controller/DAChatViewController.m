@@ -112,8 +112,8 @@
 
 - (void)insertTable:(UIButton *)btn
 {
-    NSArray *arr = [DAChatMessageRes mj_keyValuesArrayWithObjectArray:self.messageBank];
-    [DAChatDatabaseManager saveMessages:arr toTable:self.conversationModel.conversationId userId:myUserId];
+//    NSArray *arr = [DAChatMessageRes mj_keyValuesArrayWithObjectArray:self.messageBank];
+    [[DAChatDatabaseManager sharedDAChatDatabaseManager] insertMessages:self.messageBank toTable:self.conversationModel.conversationId];
     ZLog(@"---------");
 }
 
@@ -124,9 +124,9 @@
     params[@"since_id"] = @"1";
     params[@"max_id"] = @"0";
     
-    // 取出最前面的微博（最新的微博，ID最大的微博）
+    // 取出最前面的
     
-    NSArray *messageArray = [DAChatDatabaseManager queryMessagesWithParams:params fromTable:self.conversationModel.conversationId];
+    NSArray *messageArray = [[DAChatDatabaseManager sharedDAChatDatabaseManager] loadMoreMessagesFromId:@"1" fromTable:self.conversationModel.conversationId offset:0 limit:10];
     
     ZLog(@"%@", messageArray);
 
@@ -136,7 +136,7 @@
 {
     
     
-    [DAChatDatabaseManager creatChatTableWithName:self.conversationModel.conversationId];
+    [[DAChatDatabaseManager sharedDAChatDatabaseManager] creatChatTableWithName:self.conversationModel.conversationId];
     ZLog(@"---------");
 }
 
@@ -195,7 +195,9 @@
             message.messageBodyType = DAMessageContentTypeText;
             message.conversationId = self.conversationModel.conversationId;
             message.senderUserIconName = self.conversationModel.iconName;
-            message.senderUserId = self.conversationModel.messageUserId;
+            message.fromId = self.conversationModel.messageUserId;
+            message.loginId = myUserId;
+
             message.senderUserName = self.conversationModel.userName;
             message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
@@ -212,7 +214,9 @@
             message.messageBodyType = DAMessageContentTypeText;
             message.conversationId = self.conversationModel.conversationId;
             message.senderUserIconName = myUserIconName;
-            message.senderUserId = myUserId;
+            message.fromId = myUserId;
+            message.loginId = myUserId;
+
             message.senderUserName = myUserName;
             message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
@@ -230,7 +234,9 @@
             message.messageBodyType = DAMessageContentTypeText;
             message.conversationId = self.conversationModel.conversationId;
             message.senderUserIconName = myUserIconName;
-            message.senderUserId = myUserId;
+            message.fromId = myUserId;
+            message.loginId = myUserId;
+
             message.senderUserName = myUserName;
             message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
@@ -461,7 +467,9 @@
     message.messageBodyType = DAMessageContentTypeText;
     message.conversationId = self.conversationModel.conversationId;
     message.senderUserIconName = myUserIconName;
-    message.senderUserId = myUserId;
+    message.fromId = myUserId;
+    message.loginId = myUserId;
+
     message.senderUserName = myUserName;
     
     cellFrame.message = message;

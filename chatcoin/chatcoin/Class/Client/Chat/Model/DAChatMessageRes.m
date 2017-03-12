@@ -11,11 +11,11 @@
 @implementation DAChatMessageRes
 
 
-- (void)setSenderUserId:(NSString *)senderUserId
+- (void)setFromId:(NSString *)fromId
 {
-    _senderUserName = senderUserId;
+    _fromId = fromId;
     // 消息 是 属于消息发送者的，所以只要根据消息发送者的 id，就能判断这个消息是不是我发送的。
-    [self judgeUserType:senderUserId];
+    [self judgeUserType:fromId];
 }
 
 
