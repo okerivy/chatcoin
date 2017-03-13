@@ -11,7 +11,7 @@
 @interface DAChatDatabaseManager : NSObject
 DASingletonH(DAChatDatabaseManager)
 
-- (void)creatChatTableWithName:(NSString *)tableName;
+- (BOOL)isExistsTable:(NSString *)tableName;
 /**
  *  根据请求参数去沙盒中加载缓存的消息数据
  *  @param offset   查询数据起始位置
@@ -33,7 +33,7 @@ DASingletonH(DAChatDatabaseManager)
 /*
  * 删除数据，默认删除所有
  */
-- (BOOL)deleteData:(NSString *)deleteSql;
+- (BOOL)deleteMessageFromId:(NSString *)messageId fromTable:(NSString *)tableName;
 
 
 @end

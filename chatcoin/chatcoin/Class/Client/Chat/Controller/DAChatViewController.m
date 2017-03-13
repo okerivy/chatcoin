@@ -34,8 +34,7 @@
 @property(nonatomic, strong) UITableView *chatList;
 // 数据库原始的数据
 @property(nonatomic, strong) NSMutableArray<DAChatMessageRes *> *messageBank;
-// 数据库原始的数据
-@property(nonatomic, strong) NSMutableArray<ChatMessageFrame *> *dataBank;
+
 // 添加日期的数据
 @property(nonatomic, strong) NSMutableArray<ChatMessageFrame *> *dataSource;
 
@@ -69,7 +68,6 @@
     self.view.backgroundColor = kLLBackgroundColor_lightGray;
     
     [self addSubviews];
-    self.dataBank = [NSMutableArray array];
     self.messageBank = [NSMutableArray array];
 
     self.dataSource = [NSMutableArray array];
@@ -78,8 +76,6 @@
 //        [self.dataSource addObject:[NSString stringWithFormat:@"%d",arc4random_uniform(200)]];
 //    }
 
-
-    [self initData];
     
     UIButton *btn01 = [[UIButton alloc] initWithFrame:CGRectMake(50, 100, 60, 40)];
     btn01.backgroundColor = ZKColor_Random;
@@ -91,15 +87,11 @@
     btn02.backgroundColor = ZKColor_Random;
     [btn02 setTitle:@"查询" forState:UIControlStateNormal];
     [btn02 addTarget:self action:@selector(queryTable:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self.view addSubview:btn02];
     
-    UIButton *btn03 = [[UIButton alloc] initWithFrame:CGRectMake(210, 100, 60, 40)];
-    btn03.backgroundColor = ZKColor_Random;
-    [btn03 setTitle:@"创建表" forState:UIControlStateNormal];
-    [btn03 addTarget:self action:@selector(creatTable:) forControlEvents:UIControlEventTouchUpInside];
+    [self initData];
 
-    [self.view addSubview:btn03];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -112,33 +104,25 @@
 
 - (void)insertTable:(UIButton *)btn
 {
-//    NSArray *arr = [DAChatMessageRes mj_keyValuesArrayWithObjectArray:self.messageBank];
+    BOOL isExistsTable = [[DAChatDatabaseManager sharedDAChatDatabaseManager] isExistsTable:self.conversationModel.conversationId];
+    if (isExistsTable) {
+        ZLog(@"数据库已经存在这张表了,不用再初始化了");
+        return;
+    }
+    
+    ZLog(@"没有找到这个表,加载假数据 初始化");
     [[DAChatDatabaseManager sharedDAChatDatabaseManager] insertMessages:self.messageBank toTable:self.conversationModel.conversationId];
-    ZLog(@"---------");
+
 }
 
 - (void)queryTable:(UIButton *)btn
 {
-
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"since_id"] = @"1";
-    params[@"max_id"] = @"0";
-    
     // 取出最前面的
-    
     NSArray *messageArray = [[DAChatDatabaseManager sharedDAChatDatabaseManager] loadMoreMessagesFromId:@"1" fromTable:self.conversationModel.conversationId offset:0 limit:10];
     
     ZLog(@"%@", messageArray);
+}
 
-    
-}
-- (void)creatTable:(UIButton *)btn
-{
-    
-    
-    [[DAChatDatabaseManager sharedDAChatDatabaseManager] creatChatTableWithName:self.conversationModel.conversationId];
-    ZLog(@"---------");
-}
 
 
 - (void)addSubviews
@@ -173,123 +157,149 @@
     self.chatKeyBoard.allowMore = NO;
     self.chatKeyBoard.allowFace = NO;
 
-    
-   
 
     
 }
 
 
+
 - (void)initData {
+    
+    BOOL isExistsTable = [[DAChatDatabaseManager sharedDAChatDatabaseManager] isExistsTable:self.conversationModel.conversationId];
+    if (isExistsTable) {
+        ZLog(@"数据库已经存在这张表了,不用再初始化了,可以从 数据库中取出数据");
+        
+        // 从数据库中取出数据
+        self.messageBank = [[[DAChatDatabaseManager sharedDAChatDatabaseManager] loadMoreMessagesFromId:@"0" fromTable:self.conversationModel.conversationId offset:0 limit:10] mutableCopy];
+        
+    } else {
+         ZLog(@"数据库没有这张表了,证明没有数据, 需要先填充假数据");
+        // 从数据库或网络加载 原始的消息数据model
+        [self initFillOriginalMessageData];
+        
+      
+        // 写到数据库中
+        [[DAChatDatabaseManager sharedDAChatDatabaseManager] insertMessages:self.messageBank toTable:self.conversationModel.conversationId];
+        
+    }
+
     
 
     
+    // 把原始的消息数据model 转成 frame model
+    [self transToMessageFrameData];
+ 
+    [self.chatList reloadData];
+    [self scrollTableToFoot:YES];
+}
+
+- (void)initFillOriginalMessageData {
+    
+    
     for (int i = 0; i<20; i++) {
         if (i %3 == 0) {
-            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
-//            NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗[委屈]。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)[害羞]，结果她一脸淡定的回绝了:“二叔！别闹……”[尴尬]";
+            //          mes  NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗[委屈]。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)[害羞]，结果她一脸淡定的回绝了:“二叔！别闹……”[尴尬]";
             NSString *Lmessage = @"在村里，Lz辈分比较大，在我还是小屁孩的时候就有大人喊我叔了，这不算糗。 成年之后，鼓起勇气向村花二丫深情表白了(当然是没有血缘关系的)，结果她一脸淡定的回绝了:“二叔！别闹……”";
             message.messageContent = [NSString stringWithFormat:@"%@   %zd",Lmessage,i];
             message.timestamp = 1486893134.0 + i * 60;
             message.messageBodyType = DAMessageContentTypeText;
             message.conversationId = self.conversationModel.conversationId;
-            message.senderUserIconName = self.conversationModel.iconName;
             message.fromId = self.conversationModel.messageUserId;
             message.loginId = myUserId;
-
-            message.senderUserName = self.conversationModel.userName;
             message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
-            cellFrame.message = message;
-            [self.dataBank addObject:cellFrame];
+            message.senderUserIconName = self.conversationModel.iconName;
+            message.senderUserName = self.conversationModel.userName;
+            
+ 
             [self.messageBank addObject:message];
-
+            
         } else if (i %3 == 1) {
-            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
             NSString *Lmessage = @"这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。这是我的消息，这是我的消息。";
             message.messageContent = [NSString stringWithFormat:@"%@   %zd",Lmessage,i];
             message.timestamp = 1486893134.0 + i * 70;
             message.messageBodyType = DAMessageContentTypeText;
             message.conversationId = self.conversationModel.conversationId;
-            message.senderUserIconName = myUserIconName;
             message.fromId = myUserId;
             message.loginId = myUserId;
-
-            message.senderUserName = myUserName;
             message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
 
+            message.senderUserIconName = myUserIconName;
+            message.senderUserName = myUserName;
             
-            cellFrame.message = message;
-            [self.dataBank addObject:cellFrame];
+            
             [self.messageBank addObject:message];
-
+            
         }else if (i %3 == 2) {
-            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
             DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
             NSString *Lmessage = @"这是我的消息";
             message.messageContent = [NSString stringWithFormat:@"%@   %zd",Lmessage,i];
             message.timestamp = 1486893134.0 + i * 80;
             message.messageBodyType = DAMessageContentTypeText;
             message.conversationId = self.conversationModel.conversationId;
-            message.senderUserIconName = myUserIconName;
             message.fromId = myUserId;
             message.loginId = myUserId;
-
-            message.senderUserName = myUserName;
             message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
-
-            cellFrame.message = message;
-            [self.dataBank addObject:cellFrame];
-            [self.messageBank addObject:message];
-
-        }
-    }
-    
-    
-    
-    
-    
-    
-    // 按照聊天记录 添加日期模型
-    for (NSInteger i = 0, count = self.dataBank.count; i < count; i++) {
-        ChatMessageFrame *messageModelFrame = self.dataBank[i];
-        DAChatMessageRes *messageModel = messageModelFrame.message;
-        
-        ChatMessageFrame *lastMessageFrame = [self.dataSource lastObject];
-        DAChatMessageRes *lastMessage = lastMessageFrame.message;
-
-        if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
             
-            ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
+            message.senderUserIconName = myUserIconName;
+            message.senderUserName = myUserName;
 
-            DAChatMessageRes *dateModel = [[DAChatMessageRes alloc] init];
-            dateModel.messageBodyType = DAMessageContentTypeDateTime;
-            dateModel.timestamp = messageModel.timestamp;
-            cellFrame.message = dateModel;
-
-            [self.dataSource addObject:cellFrame];
+            [self.messageBank addObject:message];
+            
         }
-        
-        [self.dataSource addObject:messageModelFrame];
     }
-
     
     
     
-//    NSMutableArray *messageArray = [LiuqsMessageDataBase queryData:nil];
-//    [messageArray enumerateObjectsUsingBlock:^(ChatMessage *message, NSUInteger idx, BOOL * _Nonnull stop) {
-//        
-//        ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
-//        cellFrame.message = message;
-//        [self.dataSource addObject:cellFrame];
-//    }];
-    [self.chatList reloadData];
-    [self scrollTableToFoot:YES];
 }
 
 
+- (void)transToMessageFrameData {
+    
+    
+    // 按照聊天记录 添加日期模型
+    for (NSInteger i = 0, count = self.messageBank.count; i < count; i++) {
+        // 从消息模型数组中取出数据
+        DAChatMessageRes *messageModel = self.messageBank[i];
+        
+        // fram模型数组中 最后一个元素
+        DAChatMessageRes *lastMessage = [self.dataSource lastObject].message;
+        
+        // 先添加日期模型
+        if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
+            
+            ChatMessageFrame *dateCellFrame = [[ChatMessageFrame alloc]init];
+            DAChatMessageRes *dateModel = [[DAChatMessageRes alloc] init];
+            
+            dateModel.messageBodyType = DAMessageContentTypeDateTime;
+            dateModel.timestamp = messageModel.timestamp;
+            dateCellFrame.message = dateModel;
+            
+            [self.dataSource addObject:dateCellFrame];
+        }
+        
+        // 再添加消息模型
+        ChatMessageFrame *messageCellFrame = [[ChatMessageFrame alloc]init];
+        
+        // 由于数据库没有存储头像和昵称,所以需要手动添加上
+        if (messageModel.userType == DAMessageUserTypeOther) {
+            messageModel.senderUserIconName = self.conversationModel.iconName;
+            messageModel.senderUserName = self.conversationModel.userName;
+        } else {
+            messageModel.senderUserIconName = myUserIconName;
+            messageModel.senderUserName = myUserName;
+        }
+
+        messageCellFrame.message = messageModel;
+        [self.dataSource addObject:messageCellFrame];
+    }
+    
+    // 清空 消息数组,方便加载下次的消息
+    [self.messageBank removeAllObjects];
+    
+}
 
 
 #pragma mark- set方法
@@ -460,46 +470,27 @@
 {
     
     
-    ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
     DAChatMessageRes *message = [[DAChatMessageRes alloc]init];
-    message.messageContent = [NSString stringWithFormat:@"%@   %zd",text,self.dataBank.count];
+    message.messageContent = [NSString stringWithFormat:@"%@   %zd",text,self.dataSource.count];
     message.timestamp = [NSDate date].timeIntervalSince1970;
     message.messageBodyType = DAMessageContentTypeText;
     message.conversationId = self.conversationModel.conversationId;
-    message.senderUserIconName = myUserIconName;
     message.fromId = myUserId;
     message.loginId = myUserId;
 
-    message.senderUserName = myUserName;
+    message.messageId = [NSString stringWithFormat:@"%zd", arc4random() / 10000 + 1000];
     
-    cellFrame.message = message;
-    [self.dataBank addObject:cellFrame];
+    [self.messageBank addObject:message];
+    
+    // 写入数据库
+    [[DAChatDatabaseManager sharedDAChatDatabaseManager] insertMessages:self.messageBank toTable:self.conversationModel.conversationId];
+    
     
     // 按照聊天记录 添加日期模型
+    [self transToMessageFrameData];
     
-    ChatMessageFrame *messageModelFrame = [self.dataBank lastObject];
-    DAChatMessageRes *messageModel = messageModelFrame.message;
-    
-    ChatMessageFrame *lastMessageFrame = [self.dataSource lastObject];
-    DAChatMessageRes *lastMessage = lastMessageFrame.message;
-    
-    if (messageModel.timestamp - lastMessage.timestamp > CHAT_CELL_TIME_INTERVEL) {
-        
-        ChatMessageFrame *cellFrame = [[ChatMessageFrame alloc]init];
-        
-        DAChatMessageRes *dateModel = [[DAChatMessageRes alloc] init];
-        dateModel.messageBodyType = DAMessageContentTypeDateTime;
-        dateModel.timestamp = messageModel.timestamp;
-        cellFrame.message = dateModel;
-        
-        [self.dataSource addObject:cellFrame];
-    }
-    
-    [self.dataSource addObject:messageModelFrame];
-
 
     [self addTableRowWithModel:[self.dataSource lastObject] withRowAnimation:UITableViewRowAnimationNone];
-//    [self.chatList reloadData];
     [self scrollTableToFoot:YES];
 
 }
@@ -599,9 +590,8 @@
 
 - (void)deleteTableRowWithModel:(ChatMessageFrame *)model withRowAnimation:(UITableViewRowAnimation)animation {
     
-    NSInteger indexBank = [self.dataBank indexOfObject:model];
-    [self.dataBank removeObjectAtIndex:indexBank];
-
+    // 先从数据库中删除 
+    if (![[DAChatDatabaseManager sharedDAChatDatabaseManager] deleteMessageFromId:model.message.messageId  fromTable:self.conversationModel.conversationId]) return;
     
     NSInteger index = [self.dataSource indexOfObject:model];
     NSMutableArray<NSIndexPath *> *deleteIndexPaths = [NSMutableArray array];

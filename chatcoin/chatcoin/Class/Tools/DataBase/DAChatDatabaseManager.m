@@ -42,20 +42,20 @@ DASingletonM(DAChatDatabaseManager)
 }
 
 
-- (void)creatChatTableWithName:(NSString *)tableName
+- (BOOL)isExistsTable:(NSString *)tableName
 {
     if (![self isBlankString:tableName]) {
         NSLog(@"表名为空,无法查询");
-        return;
+        return NO;
     }
     
     // 拼接表名
     NSString *tableN = [NSString stringWithFormat:@"t_chat_%@", tableName];
-
+    
     //监测数据库中我要需要的表是否已经存在
     NSString *existsTableSql = [NSString stringWithFormat:@"select count(name) as countNum from sqlite_master where type = 'table' and name = '%@'", tableN ];
     
-   
+    
     // 先检测表是否存在
     BOOL __block createTableResult = NO;
     [dataBaseQueue inDatabase:^(FMDatabase *db) {
@@ -74,13 +74,23 @@ DASingletonM(DAChatDatabaseManager)
         }
     }];
     
+    return createTableResult;
+}
+
+- (void)creatChatTableWithName:(NSString *)tableName
+{
 
     
+    BOOL __block createTableResult = [self isExistsTable:tableName];
+    
+    // 拼接表名
+    NSString *tableN = [NSString stringWithFormat:@"t_chat_%@", tableName];
     //创建表
     if (createTableResult) {return;}
     [dataBaseQueue inDatabase:^(FMDatabase *db) {
         // conversationId  loginId messageId  fromId toId  messageContent  userType messageBodyType  timestamp messageData
-        NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (id INTEGER PRIMARY KEY, conversationId TEXT  NOT NULL, loginId TEXT  NOT NULL, messageId TEXT NOT NULL, fromId TEXT  NOT NULL, toId TEXT, messageContent TEXT  ,messageData TEXT  NOT NULL ,  userType TEXT  NOT NULL,  messageBodyType TEXT  NOT NULL, timestamp TEXT  NOT NULL, createTime TEXT DEFAULT (datetime('now', 'localtime')) NOT NULL);", tableN];
+        // UNIQUE 唯一约束 messageId 防止插入重复
+        NSString *sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (id INTEGER PRIMARY KEY, conversationId TEXT  NOT NULL, loginId TEXT  NOT NULL, messageId TEXT NOT NULL UNIQUE, fromId TEXT  NOT NULL, toId TEXT, messageContent TEXT ,  userType TEXT  NOT NULL,  messageBodyType TEXT  NOT NULL, timestamp TEXT  NOT NULL, createTime TEXT DEFAULT (datetime('now', 'localtime')) NOT NULL);", tableN];
         
         createTableResult = [db executeUpdate:sql];
         if (createTableResult) {
@@ -108,7 +118,8 @@ DASingletonM(DAChatDatabaseManager)
     // 根据请求参数生成对应的查询SQL语句
     NSString *sql = nil;
 
-    sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE id >= %@ ORDER BY id DESC LIMIT %ld OFFSET %ld;", tableN,messageId,limit,offset];
+    //sql查询数据库最后10条记录 并按升序排列 返回
+    sql = [NSString stringWithFormat:@"SELECT * FROM (SELECT * FROM %@ WHERE id >= %@ ORDER BY id DESC LIMIT %ld OFFSET %ld) ORDER BY id;", tableN,messageId,limit,offset];
     
     // 执行SQL
     NSMutableArray *arrM = [NSMutableArray array];
@@ -127,10 +138,7 @@ DASingletonM(DAChatDatabaseManager)
             messageRes.userType = [set intForColumn:@"userType"];
             messageRes.messageBodyType = [set intForColumn:@"messageBodyType"];
             messageRes.timestamp = [set doubleForColumn:@"timestamp"];
-        
-            // 测试 序列化与反序列化
-            NSData *messageData = [set objectForColumnName:@"messageData"];
-            NSDictionary *message001 = [NSKeyedUnarchiver unarchiveObjectWithData:messageData];
+    
             
             [arrM addObject:messageRes];
         }
@@ -153,6 +161,7 @@ DASingletonM(DAChatDatabaseManager)
     NSString *tableN = [NSString stringWithFormat:@"t_chat_%@", tableName];
 
     BOOL __block insertTableResult = NO;
+    NSInteger __block insertNum = 0;
     [dataBaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         
         //FMDB默认情况是关闭缓存的
@@ -160,17 +169,13 @@ DASingletonM(DAChatDatabaseManager)
         
         for (DAChatMessageRes *messageRes in messages) {
 
-            // 测试 序列化与反序列化
-            NSData *messageData = [NSKeyedArchiver archivedDataWithRootObject:[messageRes mj_keyValues]];
-            NSDictionary *message11 = [NSKeyedUnarchiver unarchiveObjectWithData:messageData];
-            
             // conversationId  loginId messageId  fromId toId  messageContent userType messageBodyType  timestamp
-            NSString *sql = [NSString stringWithFormat:@"insert into %@ (conversationId, loginId, messageId, fromId, toId, messageContent, userType, messageBodyType, timestamp, messageData) values (?,?,?,?,?,?,?,?,?,?)",tableN];
+            NSString *sql = [NSString stringWithFormat:@"insert or replace  into %@ (conversationId, loginId, messageId, fromId, toId, messageContent, userType, messageBodyType, timestamp) values (?,?,?,?,?,?,?,?,?)",tableN];
 
-            insertTableResult = [db executeUpdate:sql, messageRes.conversationId,messageRes.loginId, messageRes.messageId,messageRes.fromId, messageRes.toId, messageRes.messageContent, @(messageRes.userType), @(messageRes.messageBodyType), @(messageRes.timestamp), messageData];
+            insertTableResult = [db executeUpdate:sql, messageRes.conversationId,messageRes.loginId, messageRes.messageId,messageRes.fromId, messageRes.toId, messageRes.messageContent, @(messageRes.userType), @(messageRes.messageBodyType), @(messageRes.timestamp)];
             
             if (insertTableResult){
-                NSLog(@"插入成功！");
+                insertNum += 1;
             }else{
                 
                 NSLog(@"插入失败");
@@ -182,14 +187,30 @@ DASingletonM(DAChatDatabaseManager)
         
     }];
     
+    NSLog(@"插入 %zd条数据", insertNum);
+    
 }
 
 /*
  * 删除数据，默认删除所有
  */
-- (BOOL)deleteData:(NSString *)deleteSql
+- (BOOL)deleteMessageFromId:(NSString *)messageId fromTable:(NSString *)tableName
 {
-    return  YES;
+    NSString *tableN = [NSString stringWithFormat:@"t_chat_%@", tableName];
+    NSString *sql = [NSString stringWithFormat:@"delete from %@ where messageId = %@",tableN, messageId];
+
+    BOOL __block result;
+    [dataBaseQueue inDatabase:^(FMDatabase *db) {
+        
+        result = [db executeUpdate:sql];
+        if (result) {
+            NSLog(@"删除成功！");
+        }else {
+            NSLog(@"删除失败");
+        }
+    }];
+    
+    return result;
 }
 
 
